@@ -4,7 +4,8 @@
         <!-- Header Navigation -->
         <header class="navbar-overlay">
             <div class="content-container">
-                <nav class="d-flex justify-content-between align-items-start header-nav">
+                <!-- Desktop Navigation -->
+                <nav class="d-flex justify-content-between align-items-start header-nav d-none d-md-flex">
                     <!-- Left Logo - Витязь -->
                     <div class="logo-left">
                         <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
@@ -66,6 +67,57 @@
                         <div class="logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
                                 class="logo-regby">
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Navigation -->
+                <nav class="mobile-header-nav d-flex d-md-none">
+                    <!-- Top Row: Logos -->
+                    <div class="mobile-top-row d-flex justify-content-between align-items-center w-100 mb-3">
+                        <div class="mobile-logo-left">
+                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="mobile-logo-vityaz">
+                        </div>
+                        <div class="mobile-logo-right">
+                            <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края" class="mobile-logo-regby">
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Social Icons + Burger -->
+                    <div class="mobile-bottom-row d-flex justify-content-between align-items-center w-100">
+                        <!-- Social Icons -->
+                        <div class="mobile-social-icons d-flex flex-column gap-3">
+                            <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                                <img src="@/assets/footer-icon_tg.svg" alt="телеграм" class="mobile-social-icon">
+                            </a>
+                            <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                                <img src="@/assets/footer-icon_vk.svg" alt="вконтакте" class="mobile-social-icon">
+                            </a>
+                            <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                                <img src="@/assets/footer-icon_mail.svg" alt="почта" class="mobile-social-icon">
+                            </a>
+                        </div>
+
+                        <!-- Burger Menu -->
+                        <div class="mobile-burger-menu" ref="mobileBurgerRef">
+                            <button @click="toggleMobileMenu" class="burger-button" :class="{ 'active': isMobileMenuOpen }">
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                            </button>
+
+                            <!-- Mobile Navigation Menu -->
+                            <div class="mobile-nav-menu" :class="{ 'show': isMobileMenuOpen }">
+                                <ul class="mobile-nav-list">
+                                    <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал славы</a></li>
+                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a></li>
+                                    <li><a href="#" @click.prevent="goToScheduleMobile" class="mobile-nav-link">тренировки</a></li>
+                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a></li>
+                                    <li><a href="#" @click.prevent="scrollToMatchesMobile" class="mobile-nav-link">матчи</a></li>
+                                    <li><a href="#" @click.prevent="scrollToSponsorsMobile" class="mobile-nav-link">спонсоры</a></li>
+                                    <li><a href="#" @click.prevent="goToSchoolMobile" class="mobile-nav-link">детское<br>регби</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -313,6 +365,8 @@
             </div>
         </div>
     </div>
+
+
 </template>
 
 <script setup>
@@ -330,6 +384,10 @@ const toast = useToast()
 // Dropdown state
 const isDropdownOpen = ref(false)
 const dropdownRef = ref(null)
+
+// Mobile menu state
+const isMobileMenuOpen = ref(false)
+const mobileBurgerRef = ref(null)
 
 // Video state
 const isVideoReady = ref(false)
@@ -439,6 +497,49 @@ const goToSchedule = () => {
     router.push('/schedule')
 }
 
+// Mobile menu functions
+const toggleMobileMenu = (event) => {
+    event.stopPropagation()
+    isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const closeMobileMenu = (event) => {
+    if (mobileBurgerRef.value && !mobileBurgerRef.value.contains(event.target)) {
+        isMobileMenuOpen.value = false
+    }
+}
+
+// Mobile navigation functions
+const goToTeamMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/team')
+}
+
+const scrollToMatchesMobile = () => {
+    isMobileMenuOpen.value = false
+    scrollToMatches()
+}
+
+const scrollToSponsorsMobile = () => {
+    isMobileMenuOpen.value = false
+    scrollToSponsors()
+}
+
+const goToSchoolMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/school')
+}
+
+const goToScheduleMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/schedule')
+}
+
+const goToTrophiesMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/trophies')
+}
+
 // Sponsor modal functions
 const openSponsorModal = () => {
     isSponsorModalOpen.value = true
@@ -501,12 +602,18 @@ const observeNewsItems = () => {
 // Глобальный обработчик клика для закрытия меню
 const handleGlobalClick = (event) => {
     closeDropdown(event)
+    closeMobileMenu(event)
 }
 
-// Обработчик клавиши Escape для закрытия модального окна
+// Обработчик клавиши Escape для закрытия модального окна и мобильного меню
 const handleKeyDown = (event) => {
-    if (event.key === 'Escape' && isSponsorModalOpen.value) {
-        closeSponsorModal()
+    if (event.key === 'Escape') {
+        if (isSponsorModalOpen.value) {
+            closeSponsorModal()
+        }
+        if (isMobileMenuOpen.value) {
+            isMobileMenuOpen.value = false
+        }
     }
 }
 
@@ -535,6 +642,14 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Rossika';
+    src: url('@/assets/fonts/rossika_light.otf') format('opentype');
+    font-style: light;
+    font-display: swap;
+}
+
+/* Header Navigation Styles */
 .header-nav_item a {
     color: #fff;
     font-size: 18px;
@@ -554,77 +669,15 @@ onUnmounted(() => {
     gap: 8px;
 }
 
-/* Dropdown Container */
-.dropdown-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    position: relative;
-}
-
-.dropdown-icon {
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.3s ease;
-    opacity: 1;
-    position: relative;
-    top: 1px;
-}
-
-.dropdown-icon svg {
-    stroke: currentColor;
+.header-icon a {
+    display: inline-block;
     transition: transform 0.3s ease;
 }
 
-/* Dropdown icon animation */
-.dropdown-icon.open {
-    transform: rotate(180deg);
+.header-icon a:hover {
+    transform: scale(1.1);
 }
 
-/* Dropdown Menu */
-.dropdown-menu-custom {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 15px;
-    min-width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.dropdown-menu-custom.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.dropdown-list li {
-    margin: 8px 0;
-}
-
-.dropdown-link {
-    display: block;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-    transition: color 0.3s ease;
-}
-
-.dropdown-link:hover {
-    color: #ccc;
-}
 .footer-title_sponsors {
     margin-bottom: 33px;
 }
@@ -645,15 +698,6 @@ onUnmounted(() => {
 
 .contact-link:hover {
     color: #ED1B26;
-}
-
-.header-icon a {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.header-icon a:hover {
-    transform: scale(1.1);
 }
 
 .footer-container {
@@ -690,15 +734,6 @@ body {
 html {
     margin: 0;
     padding: 0;
-}
-</style>
-
-<style scoped>
-@font-face {
-    font-family: 'Rossika';
-    src: url('@/assets/fonts/rossika_light.otf') format('opentype');
-    font-style: light;
-    font-display: swap;
 }
 
 .section-item {
@@ -855,6 +890,9 @@ html {
 
 /* Dropdown Container */
 .dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
 }
 
@@ -888,6 +926,7 @@ html {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
+    z-index: 1000;
 }
 
 .dropdown-menu-custom.show {
@@ -910,10 +949,15 @@ html {
     display: block;
     color: white;
     text-decoration: none;
-    font-size: 2.5rem;
-    font-weight: 300;
-    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
     line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.dropdown-link:hover {
+    color: #ccc;
 }
 
 /* Right Logo */
@@ -927,7 +971,7 @@ html {
     width: auto;
 }
 
-/* Responsive Design */
+/* Mobile Styles */
 @media (max-width: 991.98px) {
     .center-nav {
         display: none;
@@ -950,22 +994,222 @@ html {
     }
 }
 
+/* Mobile Header Styles */
 @media (max-width: 767.98px) {
+    .header-nav {
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .content-container {
+        padding: 0 20px;
+    }
+
+    /* Mobile Header Navigation */
+    .mobile-header-nav {
+        flex-direction: column;
+        padding: 20px;
+        position: relative;
+        height: 100vh;
+    }
+
+    .mobile-top-row {
+        margin-bottom: 20px;
+    }
+
+    .mobile-logo-vityaz {
+        height: 60px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+
+    .mobile-logo-regby {
+        height: 45px;
+        width: auto;
+    }
+
+    .mobile-bottom-row {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .mobile-social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-social-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-social-link:hover .mobile-social-icon {
+        transform: scale(1.1);
+    }
+
+    /* Burger Menu */
+    .mobile-burger-menu {
+        position: relative;
+    }
+
+    .burger-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25px;
+        height: 25px;
+        position: relative;
+    }
+
+    .burger-line {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        transition: 0.3s;
+        transform-origin: center;
+    }
+
+    .burger-button.active .burger-line:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .burger-button.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-button.active .burger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-nav-menu {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 9999;
+        margin-bottom: 10px;
+        min-width: 160px;
+    }
+
+    .mobile-nav-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .mobile-nav-list li {
+        margin: 0;
+    }
+
+    .mobile-nav-link {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: right;
+        transition: all 0.3s ease;
+        padding: 0;
+    }
+
+    .mobile-nav-link:hover {
+        color: #ED1B26;
+    }
+
+    /* Hero section мобильная версия */
+    .hero-section {
+        height: 100vh; /* Полная высота для мобильной версии как в макете */
+    }
+
+    /* Section titles mobile */
+    .section-title {
+        font-size: 40px;
+    }
+
+    .section-item {
+        font-size: 16px;
+    }
+
+    .section-header-wrapper {
+        margin-bottom: 40px !important;
+        display: flex !important;
+        justify-content: center !important;
+        grid-template-columns: none !important;
+    }
+
+    /* Скрываем боковые элементы на мобильных */
+    .section-item--left,
+    .section-item--right {
+        display: none !important;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .header-nav {
+        padding-top: 15px;
+    }
+
     .logo-vityaz {
-        width: 40px;
-        margin-right: 10px;
-    }
-
-    .club-title {
-        font-size: 1.3rem;
-    }
-
-    .club-subtitle {
-        font-size: 0.7rem;
+        width: 50px;
     }
 
     .logo-regby {
-        height: 50px;
+        height: 40px;
+    }
+
+    .hero-section {
+        height: 60vh;
+    }
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .section-item {
+        font-size: 14px;
+    }
+
+    .content-container {
+        padding: 0 15px;
+    }
+
+    /* Убеждаемся что боковые элементы скрыты и на маленьких экранах */
+    .section-header-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+        grid-template-columns: none !important;
+    }
+
+    .section-item--left,
+    .section-item--right {
+        display: none !important;
     }
 }
 
@@ -981,6 +1225,22 @@ html {
     margin-bottom: 100px;
     position: relative;
     overflow: visible;
+}
+
+/* Mobile styles for sections */
+@media (max-width: 767.98px) {
+    .match-day {
+        margin-top: 40px;
+    }
+
+    .event-section {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    .sponsor-section {
+        margin-bottom: 60px;
+    }
 }
 
 /* News Section Styles */
@@ -1045,8 +1305,64 @@ html {
     font-weight: 400;
 }
 
-/* Responsive Design for News */
-@media (max-width: 1024px) {
+/* Mobile News Styles */
+@media (max-width: 767.98px) {
+    .news-container {
+        gap: 40px;
+    }
+
+    .news-item {
+        flex-direction: column !important;
+        gap: 20px;
+        border-radius: 8px;
+        box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        background: white;
+        overflow: hidden;
+    }
+
+    .news-photo {
+        flex: none;
+        width: 100%;
+        height: 200px;
+        border-radius: 0;
+    }
+
+    .news-description {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .news-title {
+        font-size: 18px;
+        color: white;
+        background: #1B0047;
+        margin: -20px -20px 15px -20px;
+        padding: 15px 20px;
+    }
+
+    .news-text {
+        font-size: 14px;
+        color: #1B0047;
+        line-height: 1.4;
+    }
+
+    /* Arrow для мобильной версии */
+    .arrow-container {
+        position: static;
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+
+    .last-news-item .arrow-container {
+        position: static;
+        bottom: auto;
+        right: auto;
+    }
+}
+
+/* Responsive Design for News - Tablet */
+@media (max-width: 1024px) and (min-width: 768px) {
     .news-item {
         flex-direction: column !important;
         gap: 25px;
@@ -1067,40 +1383,17 @@ html {
     }
 }
 
-@media (max-width: 768px) {
-    .news-container {
-        gap: 40px;
-    }
-
-    .news-photo {
-        height: 200px;
-    }
-
-    .news-title {
-        font-size: 24px;
-    }
-
-    .news-text {
-        font-size: 15px;
-    }
-
-    .news-description {
-        gap: 15px;
-        padding: 10px 0;
-    }
-}
-
 @media (max-width: 480px) {
     .news-title {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .news-text {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .event-section {
-        margin-top: 60px;
+        margin-top: 40px;
     }
 }
 
@@ -1227,6 +1520,77 @@ html {
 
 .sponsor-link:hover {
     color: #ED1B26;
+}
+
+/* Mobile sponsor section */
+@media (max-width: 767.98px) {
+    .container-logo {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        margin-bottom: 60px !important;
+    }
+
+    .logo-1 img,
+    .logo-2 img {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .section-item--left .sponsor-link {
+        background: #ED1B26;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 3px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .section-item--left .sponsor-link:hover {
+        background: #d41620;
+        color: white;
+    }
+}
+
+/* Footer mobile styles */
+@media (max-width: 767.98px) {
+    .footer-container {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .footer-container .row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-container .col-2,
+    .footer-container .col-4 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-wrapper,
+    .footer-title_sponsors {
+        text-align: center;
+    }
+
+    .contact-row {
+        justify-content: center;
+    }
+
+    .row-sponsors_icon {
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .footer-title_contacts,
+    .footer-title_sponsors {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 }
 
 /* Modal styles */
