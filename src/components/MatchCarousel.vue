@@ -3,74 +3,68 @@
         <div class="match-cards">
             <div class="match-card">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="match-date">19 июля, 20:00</div>
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Федеральная <br> регбийная лига</div>
+                        <div class="match-date">31 мая</div>
                     </div>
                 </div>
                 <div class="match-content">
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div class="text-center score">120</div>
-                        <div class="text-center score-divider">:</div>
-                        <div class="text-center score">120</div>
-
+                    <div class="scores-row">
+                        <div class="score">46</div>
+                        <div class="score-divider">:</div>
+                        <div class="score">7</div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-center team">Енисей<br>СТМ</div>
-                        <div class="text-center team-spacer"></div>
-                        <div class="text-center team">Витязь</div>
+                    <div class="teams-row">
+                        <div class="team">Энергия</div>
+                        <div class="team">Витязь</div>
                     </div>
                 </div>
                 <div class="match-location">
-                    Екатеринбург,<br>урал-арена
+                    Казань,<br>Стадион Тулпар
                 </div>
             </div>
             <div class="match-card">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="match-date">19 июля, 20:00</div>
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Федеральная <br> регбийная лига</div>
+                        <div class="match-date">19 июля</div>
                     </div>
                 </div>
                 <div class="match-content">
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div class="text-center score">120</div>
-                        <div class="text-center score-divider">:</div>
-                        <div class="text-center score">120</div>
-
+                    <div class="scores-row">
+                        <div class="score">0</div>
+                        <div class="score-divider">:</div>
+                        <div class="score">0</div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-center team">Енисей<br>СТМ</div>
-                        <div class="text-center team-spacer"></div>
-                        <div class="text-center team">Витязь</div>
+                    <div class="teams-row">
+                        <div class="team">Рать</div>
+                        <div class="team">Витязь</div>
                     </div>
                 </div>
                 <div class="match-location">
-                    Екатеринбург,<br>урал-арена
+                    Екатеринбург,<br>Деревня Универсиады
                 </div>
             </div>
             <div class="match-card">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="match-date">19 июля, 20:00</div>
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Федеральная <br> регбийная лига</div>
+                        <div class="match-date">26 июля</div>
                     </div>
                 </div>
                 <div class="match-content">
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <div class="text-center score">120</div>
-                        <div class="text-center score-divider">:</div>
-                        <div class="text-center score">120</div>
-
+                    <div class="scores-row">
+                        <div class="score">0</div>
+                        <div class="score-divider">:</div>
+                        <div class="score">0</div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="text-center team">Енисей<br>СТМ</div>
-                        <div class="text-center team-spacer"></div>
-                        <div class="text-center team">Витязь</div>
+                    <div class="teams-row">
+                        <div class="team">Витязь</div>
+                        <div class="team">Малахит</div>
                     </div>
                 </div>
                 <div class="match-location">
-                    Екатеринбург,<br>урал-арена
+                    Пермь,<br>Стадион Гайва
                 </div>
             </div>
         </div>
@@ -82,6 +76,11 @@
 </script>
 
 <style scoped>
+.header-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 @font-face {
     font-family: 'Rossika';
     src: url('@/assets/fonts/rossika_light.otf') format('opentype');
@@ -104,23 +103,23 @@
 .match-cards {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .match-card {
     flex: 1;
     background: #1B0047;
     border-radius: 5px;
-    padding: 50px;
+    padding: 25px 50px 50px 50px;
     color: white;
     display: flex;
     flex-direction: column;
-    max-width: 400px
+    max-width: 400px;
 }
 
 .match-date {
     font-size: 18px;
     text-align: center;
-    margin-bottom: 40px;
     font-weight: bold;
     font-family: 'Halvetica';
 }
@@ -129,33 +128,36 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
+    margin-top: 30px;
 }
 
-.score-row {
-    display: flex;
-    justify-content: center;
+.scores-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 20px;
+    margin-bottom: 15px;
+    gap: 10px;
 }
 
 .score {
     font-family: 'Rossika';
-    font-size: 120px;
+    font-size: 90px;
     line-height: 1;
+    text-align: center;
 }
 
 .score-divider {
     font-family: 'Rossika';
-    font-size: 120px;
+    font-size: 90px;
+    line-height: 1;
+    text-align: center;
     transform: translateY(-10px);
 }
 
 .teams-row {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
-    padding: 0 20px;
 }
 
 .team {
@@ -163,11 +165,6 @@
     text-align: center;
     line-height: 1.2;
     opacity: 0.8;
-    width: 120px;
-}
-
-.team-spacer {
-    width: 40px;
 }
 
 .match-location {
@@ -175,5 +172,12 @@
     text-align: center;
     line-height: 1.2;
     margin-top: auto;
+}
+
+.liga {
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 0.9;
+    line-height: 1.3;
 }
 </style>

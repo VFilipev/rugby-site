@@ -142,133 +142,67 @@ onUnmounted(() => {
                         ФЕДЕРАЦИЯ РЕГБИ
                     </div>
                     <div class="section-title">
-                        ЗАЛ СЛАВЫ
+                        РАСПИСАНИЕ
                     </div>
                     <div class="section-item section-item--right">
                         КЛУБ ВИТЯЗЬ
                     </div>
                 </div>
 
-                <!-- Секция с трофеями -->
-                <div class="trophies-section">
-                    <div class="trophies-container">
-                        <!-- Трофеи -->
-                        <div class="trophies-wrapper">
-                            <div class="trophy-item">
-                                <div class="trophy-image">
-                                    <img src="/images/trophy1.jpg" alt="Чемпионат России по регби пляжному">
-                                </div>
-                                <div class="trophy-title">
-                                    Чемпионат России<br>по регби пляжному
-                                </div>
+                <!-- Блок с расписанием -->
+                <div class="schedule-content">
+                    <!-- Мужская команда -->
+                    <div class="team-schedule">
+                        <div class="d-flex" style="gap: 85px;">
+                            <h2 class="team-title">Мужская<br>команда</h2>
+                            <div class="location-info">
+                                <p>Стадион Локомотив<br>г. Пермь, Ул. Боровая 32к2</p>
                             </div>
-                            <div class="trophy-item">
-                                <div class="trophy-image">
-                                    <img src="/images/trophy2.jpg" alt="Кубок России по регби пляжному">
-                                </div>
-                                <div class="trophy-title">
-                                    Кубок России<br>по регби пляжному
-                                </div>
+                        </div>
+                        <div class="schedule-table">
+                            <div class="schedule-column">
+                                <div class="schedule-day">Понедельник</div>
+                                <div class="schedule-day">Вторник</div>
+                                <div class="schedule-day">Четверг</div>
+                                <div class="schedule-day">Воскресенье</div>
                             </div>
-                            <div class="trophy-item">
-                                <div class="trophy-image">
-                                    <img src="/images/trophy3.jpg" alt="Чемпионат России по регби на снегу">
-                                </div>
-                                <div class="trophy-title">
-                                    Чемпионат России<br>по регби на снегу
-                                </div>
+                            <div class="schedule-column">
+                                <div class="schedule-time">20:30 - 21:30</div>
+                                <div class="schedule-time">20:00 - 21:30</div>
+                                <div class="schedule-time">20:00 - 21:30</div>
+                                <div class="schedule-time">12:00 - 13:30</div>
                             </div>
-                            <div class="trophy-item">
-                                <div class="trophy-image">
-                                    <img src="/images/trophy4.jpg" alt="Чемпионат Федеральной лиги">
-                                </div>
-                                <div class="trophy-title">
-                                    Чемпионат Федеральной лиги
-                                </div>
+                            <div class="schedule-column">
+                                <div class="schedule-type">кроссфит "место силы"</div>
+                                <div class="schedule-type">технико-тактическая</div>
+                                <div class="schedule-type">технико-тактическая</div>
+                                <div class="schedule-type">игровая</div>
+                            </div>
+                        </div>
+                        <div class="schedule-info">
+                            <div class="trainer-info">
+                                <p>Тренер: Артем Садыев<br>@ArtSadyev</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Женская команда -->
+                    <div class="team-schedule">
+                        <h2 class="team-title">Женская<br>команда</h2>
+                        <div class="schedule-info">
+                            <div class="trainer-info">
+                                <p>Тренировки проходят<br>по предварительной записи</p>
+                                <p>Тренер: Ислам Гарифуллин<br>@islamiosss</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Секция мужской команды -->
-                <div class="section-header-wrapper"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
-                    <div class="section-item section-item--left">
-                        ФЕДЕРАЦИЯ РЕГБИ
-                    </div>
-                    <div class="section-title">
-                        МУЖСКАЯ
-                    </div>
-                    <div class="section-item section-item--right">
-                        КЛУБ ВИТЯЗЬ
-                    </div>
-                </div>
-
-                <div class="achievements-section">
-                    <div class="achievements-container">
-                        <div class="achievements-photo">
-                            <img src="/images/man-trophies.jpg" alt="Мужская команда с трофеями">
-                        </div>
-                        <div style="flex: 0 0 50%; width: 50%;">
-                            <div class="achievements-title">
-                            Достижения:
-                        </div>
-                        <div class="achievements-text">
-                            Обладатели Кубка России по пляжному регби<br>
-                            Участники Чемпионата Высшей Лиги по регби-7 2020 – 2024 гг<br>
-                            Призеры Кубка России по пляжному регби 2022 г<br>
-                            Серебряные призеры 1 тура Чемпионата Высшей Лиги 2020 г<br>
-                            Чемпионы Приволжского Федерального округа по регби-7 2020<br>
-                            Обладатели Кубка Москвы по регби на снегу<br>
-                            Обладатели Кубка Пермского края по регби на снегу<br><br>
-
-                            Игроки мужской команды входили в состав сборной России по регби-7<br><br>
-
-                            В сезоне 2025г мужская сборная играет в Федеральной регбийной Лиге
-                        </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Секция женской команды -->
-                <div class="section-header-wrapper"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
-                    <div class="section-item section-item--left">
-                        ФЕДЕРАЦИЯ РЕГБИ
-                    </div>
-                    <div class="section-title">
-                        ЖЕНСКАЯ
-                    </div>
-                    <div class="section-item section-item--right">
-                        КЛУБ ВИТЯЗЬ
-                    </div>
-                </div>
-
-                <div class="achievements-section">
-                    <div class="achievements-container" style="display: flex; flex-direction: column; gap: 0px;">
-                        <div class="achievements-title">
-                            Достижения:
-                        </div>
-                        <div class="achievements-text">
-                            В сезоне 2025г женская сборная играет в Премьер-лиге Чемпионата России по регби-7<br><br>
-                            Серебряные призеры Чемпионата России по пляжному регби 2024г<br>
-                            Призеры Чемпионата России по регби на снегу 2024г<br>
-                            Чемпионы России по снежному регби 2023г<br>
-                            Трехкратные обладатели Кубка России по пляжному регби 2021, 2022, 2023 гг<br>
-                            Серебряные призеры Чемпионата России по регби-7 среди студентов 2020 г<br>
-                            Чемпионы России по пляжному регби 2019г<br>
-                            Трехкратные Чемпионы Федеральной лиги 2016, 2017, 2018 гг.<br>
-                            Лидеры международного турнира по пляжному регби "the Baltic Sea" г.Рига<br>
-                            Лидеры международного регбийного турнира в Батуми<br><br>
-
-                            Сезон 2024г команда закончила на 4 месте Премьер-Лиги Чемпионата России по регби-7<br><br>
-
-                            Игроки нашей команды в составе сборной России становились абсолютными чемпионами Европы по <br> пляжному регби и регби на снегу
-                        </div>
-                        <div class="achievements-woman-photo">
-                            <img src="/images/woman-trophies.jpg" alt="Женская команда с трофеями">
-                        </div>
+                <!-- Блок призыва к действию -->
+                <div class="cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-title">Ведется набор в мужскую и женскую<br>сборную Пермского края!</h3>
+                        <button class="cta-button">ХОЧУ В КОМАНДУ!</button>
                     </div>
                 </div>
             </div>
@@ -443,24 +377,10 @@ onUnmounted(() => {
     background: rgba(237, 27, 38, 0.05);
 }
 
-.achievements-title{
-    font-size: 22px;
-    line-height: 26px;
-    color: #1B0047;
-    font-weight: bold;
-    margin-bottom: 30px;
+.logo-regby {
+    width: 135px
 }
 
-.achievements-woman-photo {
-    width: 100%;
-    margin-top: 40px;
-}
-
-.achievements-woman-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
 .directorate-wrapper {
     width: 973px;
     margin: 0 auto;
@@ -545,7 +465,8 @@ onUnmounted(() => {
     max-width: 1280px;
     width: 1280px;
     margin: 0 auto;
-    gap: 90px;
+    column-gap: 90px;
+    row-gap: 50px;
 }
 
 .footer-title_sponsors {
@@ -621,6 +542,7 @@ onUnmounted(() => {
     font-weight: 400;
 
 }
+
 .news-item {
     display: flex;
     width: 100%;
@@ -667,7 +589,7 @@ onUnmounted(() => {
     max-width: 1280px;
     width: 1280px;
     margin: 0 auto;
-    padding-top: 57px;
+    padding-top: 30px;
     padding-bottom: 33px;
 }
 
@@ -711,83 +633,145 @@ onUnmounted(() => {
     justify-self: end;
 }
 
-/* Стили для трофеев */
-.trophies-section {
-    margin-top: 60px;
-    margin-bottom: 60px;
-}
-
-.trophies-container {
+/* Стили для расписания */
+.schedule-content {
     max-width: 1280px;
     width: 1280px;
+    padding-left: 120px;
     margin: 0 auto;
-}
-
-.trophies-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 100px;
+    margin-bottom: 100px;
 }
 
-.trophy-item {
+.team-schedule {
+    flex: 1;
+}
+
+.team-title {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1B0047;
+    line-height: 1.18;
+    margin-bottom: 30px;
+}
+
+.schedule-info {
+    margin-top: 30px;
+}
+
+.location-info p,
+.trainer-info p {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1B0047;
+    line-height: 1.56;
+    margin-bottom: 15px;
+}
+
+.schedule-table {
+    display: flex;
+    gap: 50px;
+}
+
+.schedule-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: calc(25% - 15px);
 }
 
-.trophy-image {
-    width: 100%;
-    height: 400px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.trophy-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.trophy-title {
+.schedule-day,
+.schedule-time {
+    font-family: 'Helvetica', Arial, sans-serif;
     font-size: 16px;
-    line-height: 25px;
-    color: #1B0047;
-    text-align: center;
     font-weight: 400;
+    color: #1B0047;
+    line-height: 1.56;
+    padding: 5px 0;
 }
 
-/* Стили для достижений */
-.achievements-section {
-    margin-bottom: 60px;
+.schedule-type {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #1B0047;
+    line-height: 1.92;
+    padding: 5px 0;
 }
 
-.achievements-container {
+/* Блок призыва к действию */
+.cta-section {
     max-width: 1280px;
     width: 1280px;
     margin: 0 auto;
     display: flex;
-    gap: 50px;
-    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 100px;
 }
 
-.achievements-photo {
-    flex: 0 0 50%;
-    width: 50%;
+.cta-content {
+    text-align: center;
+    max-width: 457px;
 }
 
-.achievements-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.achievements-text {
-    font-size: 16px;
-    line-height: 25px;
+.cta-title {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
     color: #1B0047;
-    text-align: left;
+    line-height: 1.21;
+    margin-bottom: 35px;
+}
+
+.cta-button {
+    background-color: #ED1B26;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 30px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.19;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d41620;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .schedule-content {
+        flex-direction: column;
+        gap: 50px;
+        padding: 0 20px;
+    }
+
+    .schedule-table {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .schedule-table {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .schedule-column {
+        gap: 5px;
+    }
+
+    .team-title {
+        font-size: 20px;
+    }
+
+    .cta-title {
+        font-size: 20px;
+    }
 }
 </style>

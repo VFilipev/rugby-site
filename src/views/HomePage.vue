@@ -11,41 +11,58 @@
                     </div>
 
                     <!-- Center Navigation -->
-                    <div class="d-flex align-items-center">
-                        <nav class="center-nav d-none d-lg-flex">
-                            <ul class="nav-list d-flex list-unstyled mb-0">
-                                <li class="nav-item dropdown-container" ref="dropdownRef">
-                                    <a href="#" class="nav-link" @click.prevent="toggleDropdown">
-                                        команда
-                                        <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
-                                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
+                    <div class="nav-right_wrapper d-flex align-items-center">
+                        <div class="header-nav_wrapper d-flex gap-5 align-items-start"
+                            style="margin-right: 55px;transform: translateY(12px);">
+                            <div class="header-nav_item dropdown-container" ref="dropdownRef">
+                                <a href="#" class="header-nav_link" @click.prevent="toggleDropdown">
+                                    команда
+                                    <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
+                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </a>
 
-                                    <!-- Dropdown Menu -->
-                                    <div class="dropdown-menu-custom" :class="{ 'show': isDropdownOpen }"
-                                        @click.stop="$event.preventDefault()">
-                                        <ul class="dropdown-list">
-                                            <li><a href="#" class="nav-link">состав</a></li>
-                                            <li><a href="#" class="nav-link">тренировки</a></li>
-                                            <li><a href="#" class="nav-link">зал славы</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">матчи</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">контакты</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        <!-- Right Logo - Регби Пермского края -->
+                                <!-- Dropdown Menu -->
+                                <div class="dropdown-menu-custom" :class="{ 'show': isDropdownOpen }"
+                                    @click.stop="$event.preventDefault()">
+                                    <ul class="dropdown-list">
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTeam">состав</a></li>
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToSchedule">тренировки</a></li>
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTrophies">зал славы</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-nav_item">
+                                <a href="#" @click.prevent="scrollToMatches">матчи</a>
+                            </div>
+                            <div class="header-nav_item">
+                                <a href="#" @click.prevent="scrollToSponsors">спонсоры</a>
+                            </div>
+                            <div class="header-nav_item p-0 text-left">
+                                <a class="p-0" href="#" @click.prevent="goToSchool">детское<br>регби</a>
+                            </div>
+                        </div>
+                        <div class="icon-wrapper d-flex gap-3" style="margin-right: 45px;">
+                            <div class="header-icon">
+                                <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
+                                    <img src="@/assets/footer-icon_tg.svg" alt="телеграм">
+                                </a>
+                            </div>
+                            <div class="header-icon">
+                                <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
+                                    <img src="@/assets/footer-icon_vk.svg" alt="вконтакте">
+                                </a>
+                            </div>
+                            <div class="header-icon">
+                                <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
+                                    <img src="@/assets/footer-icon_mail.svg" alt="почта">
+                                </a>
+                            </div>
+                        </div>
                         <div class="logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
                                 class="logo-regby">
@@ -60,33 +77,18 @@
             <!-- Placeholder Image - WebP с fallback -->
             <picture v-show="!isVideoReady" class="hero-placeholder">
                 <source srcset="/video/first-frame.webp" type="image/webp">
-                <img
-                    src="/video/first-frame.png"
-                    alt="Команда Витязь"
-                    class="hero-bg"
-                >
+                <img src="/video/first-frame.png" alt="Команда Витязь" class="hero-bg">
             </picture>
             <!-- Video -->
-            <video
-                v-show="isVideoReady"
-                ref="heroVideo"
-                class="hero-bg hero-video"
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto"
-                @loadeddata="onVideoLoaded"
-                @error="onVideoError"
-                @canplay="onVideoCanPlay"
-            >
+            <video v-show="isVideoReady" ref="heroVideo" class="hero-bg hero-video" autoplay muted loop playsinline
+                preload="auto" @loadeddata="onVideoLoaded" @error="onVideoError" @canplay="onVideoCanPlay">
                 <source src="/video/output.webm" type="video/webm">
                 <!-- Fallback to image if video fails -->
                 <img src="/video/first-frame.png" alt="Команда Витязь" class="hero-bg">
             </video>
         </div>
     </section>
-    <section class="match-day">
+    <section class="match-day" id="matches-section">
         <div class="content-container">
             <div class="section-header-wrapper mb-5">
                 <div class="section-item section-item--left">
@@ -118,7 +120,8 @@
             <div class="news-container" ref="newsContainer">
                 <!-- Первая новость -->
                 <div class="news-item" ref="newsItem1"
-                    :class="{ 'animate-in-left': visibleItems.item1, 'news-hidden': !visibleItems.item1 }">
+                    :class="{ 'animate-in-left': visibleItems.item1, 'news-hidden': !visibleItems.item1 }"
+                    @click="goToEvents">
                     <div class="news-photo">
                         <img src="/images/news-photo.jpg" alt="Детская сборная регби" class="news-image">
                     </div>
@@ -134,7 +137,8 @@
                     </div>
                 </div>
                 <div class="news-item" ref="newsItem2"
-                    :class="{ 'animate-in-right': visibleItems.item2, 'news-hidden': !visibleItems.item2 }">
+                    :class="{ 'animate-in-right': visibleItems.item2, 'news-hidden': !visibleItems.item2 }"
+                    @click="goToEvents">
                     <div class="news-photo">
                         <img src="/images/news-photo1.jpg" alt="Детская сборная регби" class="news-image">
                     </div>
@@ -150,7 +154,8 @@
                     </div>
                 </div>
                 <div class="news-item last-news-item" ref="newsItem3"
-                    :class="{ 'animate-in-left': visibleItems.item3, 'news-hidden': !visibleItems.item3 }">
+                    :class="{ 'animate-in-left': visibleItems.item3, 'news-hidden': !visibleItems.item3 }"
+                    @click="goToEvents">
                     <div class="news-photo">
                         <img src="/images/news-photo2.jpg" alt="Детская сборная регби" class="news-image">
                     </div>
@@ -165,18 +170,18 @@
                     </div>
 
                     <!-- Стрелка в правом нижнем углу этой новости -->
-                    <div class="arrow-container">
+                    <div class="arrow-container" @click.stop="goToEvents">
                         <img src="@/assets/Arrow.svg" alt="Стрелка" class="arrow-icon">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="sponsor-section">
+    <section class="sponsor-section" id="sponsors-section">
         <div class="content-container">
             <div class="section-header-wrapper" style="margin-bottom: 100px;">
                 <div class="section-item section-item--left">
-                    СТАТЬ СПОНСОРОМ
+                    <a href="#" @click.prevent="openSponsorModal" class="sponsor-link">СТАТЬ СПОНСОРОМ</a>
                 </div>
                 <div class="section-title">
                     СПОНСОРЫ
@@ -209,26 +214,38 @@
                             </div>
                             <div class="contact-row d-flex">
                                 <div class="contact-item_icon">
-                                    <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
+                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
+                                        <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
+                                    </a>
                                 </div>
                                 <div class="contact-item_text">
-                                    region59@rugby.ru
+                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        region59@rugby.ru
+                                    </a>
                                 </div>
                             </div>
                             <div class="contact-row d-flex">
                                 <div class="contact-item_icon">
-                                    <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
+                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
+                                        <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
+                                    </a>
                                 </div>
                                 <div class="contact-item_text">
-                                    @rugbyprm
+                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        @rugbyprm
+                                    </a>
                                 </div>
                             </div>
                             <div class="contact-row d-flex">
                                 <div class="contact-item_icon">
-                                    <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
+                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
+                                        <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
+                                    </a>
                                 </div>
                                 <div class="contact-item_text" style="margin-left: 9px;">
-                                    vityaz_rugby
+                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        vityaz_rugby
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -252,11 +269,63 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно спонсора -->
+    <div v-if="isSponsorModalOpen" class="modal-overlay" @click="closeSponsorModal">
+        <div class="modal-container" @click.stop>
+            <div class="modal-content">
+                <h2 class="modal-title">СТАНЬ СПОНСОРОМ</h2>
+
+                <form @submit.prevent="submitSponsorForm" class="sponsor-form">
+                    <div class="form-group">
+                        <label class="form-label">организация</label>
+                        <input
+                            type="text"
+                            v-model="sponsorForm.organization"
+                            class="form-input"
+                            placeholder="Название организации"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">контакты</label>
+                        <input
+                            type="text"
+                            v-model="sponsorForm.contacts"
+                            class="form-input"
+                            placeholder="Телефон или email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">вид поддержки</label>
+                        <textarea
+                            v-model="sponsorForm.supportType"
+                            class="form-textarea"
+                            placeholder="Опишите какую поддержку готовы оказать"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">
+                        ОТПРАВИТЬ
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useToast } from "vue-toastification"
 import MatchCarousel from '@/components/MatchCarousel.vue'
+
+// Router
+const router = useRouter()
+
+// Toast
+const toast = useToast()
 
 // Dropdown state
 const isDropdownOpen = ref(false)
@@ -276,6 +345,14 @@ const visibleItems = ref({
     item1: false,
     item2: false,
     item3: false
+})
+
+// Sponsor modal state
+const isSponsorModalOpen = ref(false)
+const sponsorForm = ref({
+    organization: '',
+    contacts: '',
+    supportType: ''
 })
 
 // Toggle dropdown function
@@ -310,6 +387,83 @@ const onVideoError = (error) => {
     console.warn('Video failed to load:', error)
     // Оставляем изображение если видео не загрузилось
     isVideoReady.value = false
+}
+
+// Функция плавной прокрутки к секции матчей
+const scrollToMatches = () => {
+    const matchesSection = document.getElementById('matches-section')
+    if (matchesSection) {
+        matchesSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
+}
+
+// Функция плавной прокрутки к секции спонсоров
+const scrollToSponsors = () => {
+    const sponsorsSection = document.getElementById('sponsors-section')
+    if (sponsorsSection) {
+        sponsorsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
+}
+
+// Функция перехода к событиям
+const goToEvents = () => {
+    router.push('/events')
+}
+
+// Функция перехода к школе регби
+const goToSchool = () => {
+    router.push('/school')
+}
+
+// Функция перехода к команде
+const goToTeam = () => {
+    isDropdownOpen.value = false
+    router.push('/team')
+}
+
+// Функция перехода к трофеям
+const goToTrophies = () => {
+    isDropdownOpen.value = false
+    router.push('/trophies')
+}
+
+// Функция перехода к расписанию
+const goToSchedule = () => {
+    isDropdownOpen.value = false
+    router.push('/schedule')
+}
+
+// Sponsor modal functions
+const openSponsorModal = () => {
+    isSponsorModalOpen.value = true
+    document.body.style.overflow = 'hidden'
+}
+
+const closeSponsorModal = () => {
+    isSponsorModalOpen.value = false
+    document.body.style.overflow = 'auto'
+    // Очищаем форму
+    sponsorForm.value = {
+        organization: '',
+        contacts: '',
+        supportType: ''
+    }
+}
+
+const submitSponsorForm = () => {
+    // Закрываем модальное окно
+    closeSponsorModal()
+
+    // Показываем уведомление об успешной отправке
+    toast.success("Заявка отправлена! Спасибо за интерес к спонсорству. Мы свяжемся с вами в ближайшее время.", {
+        timeout: 5000
+    })
 }
 
 // Intersection Observer for animations
@@ -349,9 +503,17 @@ const handleGlobalClick = (event) => {
     closeDropdown(event)
 }
 
+// Обработчик клавиши Escape для закрытия модального окна
+const handleKeyDown = (event) => {
+    if (event.key === 'Escape' && isSponsorModalOpen.value) {
+        closeSponsorModal()
+    }
+}
+
 // Добавляем и удаляем глобальный обработчик клика
 onMounted(() => {
     document.addEventListener('click', handleGlobalClick)
+    document.addEventListener('keydown', handleKeyDown)
 
     // Инициализируем анимации с небольшой задержкой
     setTimeout(() => {
@@ -366,19 +528,134 @@ onMounted(() => {
 
 onUnmounted(() => {
     document.removeEventListener('click', handleGlobalClick)
+    document.removeEventListener('keydown', handleKeyDown)
+    // Восстанавливаем скролл при выходе с страницы
+    document.body.style.overflow = 'auto'
 })
 </script>
 
-<style>
-.footer-title_sponsors{
+<style scoped>
+.header-nav_item a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-decoration: none;
+}
+
+.header-nav_link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Dropdown Container */
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.dropdown-icon {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    opacity: 1;
+    position: relative;
+    top: 1px;
+}
+
+.dropdown-icon svg {
+    stroke: currentColor;
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown icon animation */
+.dropdown-icon.open {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu-custom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-menu-custom.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-list li {
+    margin: 8px 0;
+}
+
+.dropdown-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+}
+
+.dropdown-link:hover {
+    color: #ccc;
+}
+.footer-title_sponsors {
     margin-bottom: 33px;
 }
-.footer-title_contacts{
+
+.footer-title_contacts {
     margin-bottom: 20px;
 }
-.contact-item_text{
+
+.contact-item_text {
     margin-left: 14px;
 }
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #ED1B26;
+}
+
+.header-icon a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.header-icon a:hover {
+    transform: scale(1.1);
+}
+
 .footer-container {
     margin: 0 auto;
     width: 1280px;
@@ -483,7 +760,8 @@ html {
 /* Обеспечиваем плавное появление видео */
 .hero-image {
     position: relative;
-    background-color: #000; /* Предотвращаем белые вспышки */
+    background-color: #000;
+    /* Предотвращаем белые вспышки */
 }
 
 .hero-image .hero-bg {
@@ -718,6 +996,12 @@ html {
     gap: 100px;
     align-items: flex-start;
     width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
 }
 
 .news-photo {
@@ -831,6 +1115,13 @@ html {
     right: 20px;
     z-index: 10;
     cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-container:hover {
+    background-color: rgba(27, 0, 71, 0.1);
 }
 
 .arrow-icon {
@@ -924,5 +1215,174 @@ html {
 
 .section-item--right {
     justify-self: end;
+}
+
+/* Sponsor link */
+.sponsor-link {
+    color: #1B0047;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sponsor-link:hover {
+    color: #ED1B26;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-container {
+    background: white;
+    border-radius: 8px;
+    max-width: 632px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    animation: scaleIn 0.3s ease-out forwards;
+}
+
+@keyframes scaleIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    padding: 40px;
+}
+
+.modal-title {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1B0047;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.18;
+}
+
+.sponsor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #1B0047;
+    margin-bottom: 8px;
+    line-height: 1.56;
+}
+
+.form-input {
+    height: 60px;
+    border: 2px solid #1B0047;
+    border-radius: 3px;
+    padding: 0 20px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    color: #1B0047;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ED1B26;
+}
+
+.form-input::placeholder {
+    color: #999;
+}
+
+.form-textarea {
+    min-height: 121px;
+    border: 2px solid #1B0047;
+    border-radius: 3px;
+    padding: 20px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    color: #1B0047;
+    background: white;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: #ED1B26;
+}
+
+.form-textarea::placeholder {
+    color: #999;
+}
+
+.submit-button {
+    background-color: #ED1B26;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 46px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    align-self: center;
+    width: 220px;
+}
+
+.submit-button:hover {
+    background-color: #d41620;
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+    .modal-container {
+        width: 95%;
+        margin: 20px;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+    }
+
+    .modal-title {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .submit-button {
+        width: 100%;
+    }
 }
 </style>

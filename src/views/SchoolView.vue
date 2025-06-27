@@ -9,41 +9,58 @@
                     </div>
 
                     <!-- Center Navigation -->
-                    <div class="d-flex align-items-center">
-                        <nav class="center-nav d-none d-lg-flex">
-                            <ul class="nav-list d-flex list-unstyled mb-0">
-                                <li class="nav-item dropdown-container" ref="dropdownRef">
-                                    <a href="#" class="nav-link" @click.prevent="toggleDropdown">
-                                        команда
-                                        <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
-                                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
-                                                    stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
+                    <div class="nav-right_wrapper d-flex align-items-center">
+                        <div class="header-nav_wrapper d-flex gap-5 align-items-start"
+                            style="margin-right: 55px;transform: translateY(12px);">
+                            <div class="header-nav_item dropdown-container" ref="dropdownRef">
+                                <a href="#" class="header-nav_link" @click.prevent="toggleDropdown">
+                                    команда
+                                    <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
+                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </a>
 
-                                    <!-- Dropdown Menu -->
-                                    <div class="dropdown-menu-custom" :class="{ 'show': isDropdownOpen }"
-                                        @click.stop="$event.preventDefault()">
-                                        <ul class="dropdown-list">
-                                            <li><a href="#" class="nav-link">состав</a></li>
-                                            <li><a href="#" class="nav-link">тренировки</a></li>
-                                            <li><a href="#" class="nav-link">зал славы</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">матчи</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">контакты</a>
-                                </li>
-                            </ul>
-                        </nav>
-
-                        <!-- Right Logo - Регби Пермского края -->
+                                <!-- Dropdown Menu -->
+                                <div class="dropdown-menu-custom" :class="{ 'show': isDropdownOpen }"
+                                    @click.stop="$event.preventDefault()">
+                                    <ul class="dropdown-list">
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTeam">состав</a></li>
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToSchedule">тренировки</a></li>
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTrophies">зал славы</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-nav_item">
+                                <a href="#" @click.prevent="scrollToMatches">матчи</a>
+                            </div>
+                            <div class="header-nav_item">
+                                <a href="#" @click.prevent="scrollToSponsors">спонсоры</a>
+                            </div>
+                            <div class="header-nav_item p-0 text-left">
+                                <a class="p-0" href="#" @click.prevent="goToSchool">детское<br>регби</a>
+                            </div>
+                        </div>
+                                            <div class="icon-wrapper d-flex gap-3" style="margin-right: 45px;">
+                        <div class="header-icon">
+                            <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
+                                <img src="@/assets/footer-icon_tg.svg" alt="телеграм">
+                            </a>
+                        </div>
+                        <div class="header-icon">
+                            <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
+                                <img src="@/assets/footer-icon_vk.svg" alt="вконтакте">
+                            </a>
+                        </div>
+                        <div class="header-icon">
+                            <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
+                                <img src="@/assets/footer-icon_mail.svg" alt="почта">
+                            </a>
+                        </div>
+                    </div>
                         <div class="logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
                                 class="logo-regby">
@@ -167,7 +184,8 @@
                         <h3 class="school-name">МБОУ ДО СШОР <br> «Олимпийские ракетки»</h3>
                         <div class="school-locations">
                             <div class="school-location">
-                                <p class="location-address">г. Пермь, мкр. Парковый (Спортхолл), мкр. Юбилейный (Экошкола)</p>
+                                <p class="location-address">г. Пермь, мкр. Парковый (Спортхолл), мкр. Юбилейный
+                                    (Экошкола)</p>
                                 <p class="location-contact">Ворончихина Анастасия Александровна 89824887404</p>
                             </div>
                             <div class="school-location">
@@ -225,7 +243,8 @@
                     </div>
 
                     <div class="school-item">
-                        <h3 class="school-name">МОУ "Киселевская общеобразовательная школа-интернат для детей с ОВЗ"</h3>
+                        <h3 class="school-name">МОУ "Киселевская общеобразовательная школа-интернат для детей с ОВЗ"
+                        </h3>
                         <div class="school-locations">
                             <div class="school-location">
                                 <p class="location-address">Сукскнский р-н, д. Киселево</p>
@@ -238,7 +257,28 @@
             </div>
         </div>
     </section>
+    <div class="news-item-full" style="margin-bottom: 150px;">
+        <div class="news-item_photo">
+            <img src="/images/children_full.jpg" alt="Детская сборная регби">
+        </div>
+        <div class="news-item_description" style="padding-top: 50px; padding-right: 80px;">
+            <div class="news-item_header">
+                <div class="news-item_title" style="color: #fff;">
+                    Детско-юношеские команды Федерации регби Пермского края
+                </div>
+            </div>
+            <div class="news-item_text" style="color: #fff; max-width: 440px;">
+                В сезоне 2025/2026 детско-юношеские команды Пермского края активно участвуют в региональных,
+                межрегиональных и всероссийских турнирах и первенствах в дисциплине регби и тэг-регби. <br><br>
+                Сборные команды Пермского края регулярно становятся победителями и призерами всероссийских соревнований
+                по регби и тэг-регби. Федерация регби Пермского края поддерживает детско-юношеские команды,
+                организовывает сборы, мастер классы и выездные мероприятия. Команды Пермского края обеспечиваются
+                экипировкой и спортивным снаряжением. Все детско-юношеские секции по регби и тэг-регби на территории
+                Пермского края предоставляют возможность тренироваться бесплатно.
 
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-wrapper">
@@ -254,26 +294,38 @@
                             </div>
                             <div class="contact-row d-flex">
                                 <div class="contact-item_icon">
-                                    <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
+                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
+                                        <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
+                                    </a>
                                 </div>
                                 <div class="contact-item_text">
-                                    region59@rugby.ru
+                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        region59@rugby.ru
+                                    </a>
                                 </div>
                             </div>
                             <div class="contact-row d-flex">
                                 <div class="contact-item_icon">
-                                    <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
+                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
+                                        <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
+                                    </a>
                                 </div>
                                 <div class="contact-item_text">
-                                    @rugbyprm
+                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        @rugbyprm
+                                    </a>
                                 </div>
                             </div>
                             <div class="contact-row d-flex">
                                 <div class="contact-item_icon">
-                                    <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
+                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
+                                        <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
+                                    </a>
                                 </div>
                                 <div class="contact-item_text" style="margin-left: 9px;">
-                                    vityaz_rugby
+                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        vityaz_rugby
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -301,7 +353,11 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import MatchCarousel from '@/components/MatchCarousel.vue'
+
+// Router
+const router = useRouter()
 
 // Dropdown state
 const isDropdownOpen = ref(false)
@@ -330,6 +386,39 @@ const closeDropdown = (event) => {
     if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
         isDropdownOpen.value = false
     }
+}
+
+// Функция плавной прокрутки к секции матчей
+const scrollToMatches = () => {
+    router.push('/#matches-section')
+}
+
+// Функция плавной прокрутки к секции спонсоров
+const scrollToSponsors = () => {
+    router.push('/#sponsors-section')
+}
+
+// Функция перехода к школе регби
+const goToSchool = () => {
+    router.push('/school')
+}
+
+// Функция перехода к команде
+const goToTeam = () => {
+    isDropdownOpen.value = false
+    router.push('/team')
+}
+
+// Функция перехода к трофеям
+const goToTrophies = () => {
+    isDropdownOpen.value = false
+    router.push('/trophies')
+}
+
+// Функция перехода к расписанию
+const goToSchedule = () => {
+    isDropdownOpen.value = false
+    router.push('/schedule')
 }
 
 // Intersection Observer for animations
@@ -385,15 +474,61 @@ onUnmounted(() => {
 </script>
 
 <style>
-.footer-title_sponsors{
+.news-item-full {
+    background-color: #1B0047;
+    display: flex;
+    width: 100%;
+    gap: 50px;
+}
+.news-item_photo,
+.news-item_description {
+    width: calc(50% - 25px);
+    flex: 0 0 calc(50% - 25px);
+}
+.news-item_title {
+    color: #1B0047;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 26px;
+    max-width: 430px;
+}
+.news-item_text {
+    margin-top: 30px;
+    color: #1B0047;
+    font-size: 16px;
+    line-height: 25px;
+}
+.footer-title_sponsors {
     margin-bottom: 33px;
 }
-.footer-title_contacts{
+
+.footer-title_contacts {
     margin-bottom: 20px;
 }
-.contact-item_text{
+
+.contact-item_text {
     margin-left: 14px;
 }
+
+.contact-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #ED1B26;
+}
+
+.header-icon a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.header-icon a:hover {
+    transform: scale(1.1);
+}
+
 .footer-container {
     margin: 0 auto;
     width: 1280px;
@@ -510,49 +645,30 @@ html {
     filter: brightness(0) invert(1);
 }
 
-.club-name {
-    line-height: 1.2;
-}
-
-.club-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: -5px;
-}
-
-.club-subtitle {
-    font-size: 0.9rem;
-    font-weight: 300;
-    letter-spacing: 1px;
-    opacity: 0.9;
-}
-
-/* Center Navigation */
-.center-nav {
-    flex: 1;
-    justify-content: right;
-    margin: 0 40px;
-}
-
-.nav-list {
-    gap: 40px;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
+.header-nav_item a {
+    color: #fff;
+    font-size: 18px;
     font-weight: 400;
-    letter-spacing: 0.5px;
+    line-height: 19.2px;
+    text-decoration: none;
+}
+
+.header-nav_link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 15px;
-    line-height: 1;
+    gap: 8px;
 }
 
 /* Dropdown Container */
 .dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
 }
 
@@ -586,12 +702,17 @@ html {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
+    z-index: 9999;
+    background: white;
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(27, 0, 71, 0.1);
 }
 
 .dropdown-menu-custom.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(51px);
 }
 
 .dropdown-list {
@@ -606,12 +727,21 @@ html {
 
 .dropdown-link {
     display: block;
-    color: white;
+    color: #1B0047 !important;
     text-decoration: none;
-    font-size: 2.5rem;
-    font-weight: 300;
-    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
     line-height: 1.2;
+    transition: all 0.3s ease;
+    padding: 10px 25px;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.dropdown-link:hover {
+    color: #ED1B26;
+    background: rgba(237, 27, 38, 0.05);
 }
 
 /* Right Logo */
@@ -621,13 +751,12 @@ html {
 }
 
 .logo-regby {
-    height: 80px;
-    width: auto;
+    width: 135px;
 }
 
 /* Responsive Design */
 @media (max-width: 991.98px) {
-    .center-nav {
+    .header-nav_wrapper {
         display: none;
     }
 
@@ -635,16 +764,8 @@ html {
         width: 50px;
     }
 
-    .club-title {
-        font-size: 1.5rem;
-    }
-
-    .club-subtitle {
-        font-size: 0.8rem;
-    }
-
     .logo-regby {
-        height: 60px;
+        width: 100px;
     }
 }
 
@@ -654,16 +775,8 @@ html {
         margin-right: 10px;
     }
 
-    .club-title {
-        font-size: 1.3rem;
-    }
-
-    .club-subtitle {
-        font-size: 0.7rem;
-    }
-
     .logo-regby {
-        height: 50px;
+        width: 80px;
     }
 }
 

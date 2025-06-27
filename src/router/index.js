@@ -31,11 +31,31 @@ const routes = [
     name: 'school',
     component: () => import( '../views/SchoolView.vue'),
   },
+  {
+    path: '/schedule',
+    name: 'schedule',
+    component: () => import( '../views/ScheduleView.vue'),
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // Если есть якорь (например #section), прокручиваем к нему
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth'
+      }
+    }
+    // Если это возврат назад и есть сохраненная позиция, возвращаемся к ней
+    if (savedPosition) {
+      return savedPosition
+    }
+    // Во всех остальных случаях прокручиваем к верху
+    return { top: 0 }
+  }
 })
 
 export default router
