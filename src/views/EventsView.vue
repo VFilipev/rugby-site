@@ -1,5 +1,8 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import AppHeader from '@/components/AppHeader.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 // Router
 const router = useRouter()
@@ -259,72 +262,8 @@ onUnmounted(() => {
                 </div>
             </div>
         </section>
-        <div class="footer-wrapper" style="margin-top: 100px;">
-            <div class="footer-container">
-                <div class="row p-0">
-                    <div class="col-2">
-                        <img src="@/assets/footer_logo.svg" alt="logo">
-                    </div>
-                    <div class="col-4">
-                        <div class="contact-wrapper">
-                            <div class="footer-title_contacts">
-                                КОНТАКТЫ
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text">
-                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        region59@rugby.ru
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text">
-                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        @rugbyprm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text" style="margin-left: 9px;">
-                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        vityaz_rugby
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-4">
-                        <div class="footer-title_sponsors">
-                            СПОНСОРЫ
-                        </div>
-                        <div class="row-sponsors_icon d-flex">
-                            <div class="sponsors_icon">
-                                <img src="@/assets/footer-icon_eurochem.svg" alt="footer-icon_eurochem">
-                            </div>
-                            <div class="sponsors_icon" style="margin-left: 51px;">
-                                <img src="@/assets/footer-icon_rugby.svg" alt="footer-icon_rugby">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <div style="margin-top: 100px;">
+            <AppFooter />
         </div>
     </div>
 </template>

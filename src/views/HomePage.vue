@@ -256,83 +256,7 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="footer-wrapper">
-            <div class="footer-container">
-                <div class="row p-0">
-                    <div class="col-2">
-                        <img src="@/assets/footer_logo.svg" alt="logo">
-                    </div>
-                    <div class="col-4">
-                        <div class="contact-wrapper">
-                            <div class="footer-title_contacts">
-                                КОНТАКТЫ
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text">
-                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        region59@rugby.ru
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text">
-                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        @rugbyprm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text" style="margin-left: 9px;">
-                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        vityaz_rugby
-                                    </a>
-                                    <br>
-                                    <a href="https://vk.com/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        rugbyprm
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-4">
-                        <div class="footer-title_sponsors">
-                            СПОНСОРЫ
-                        </div>
-                        <div class="row-sponsors_icon d-flex">
-                            <div class="sponsors_icon">
-                                <a href="https://www.eurochem.ru/" target="_blank" rel="noopener noreferrer" @click="openEuroChem">
-                                    <img src="@/assets/footer-icon_eurochem.svg" alt="footer-icon_eurochem">
-                                </a>
-                            </div>
-                            <div class="sponsors_icon" style="margin-left: 51px;">
-                                <a href="https://rugby.ru/" target="_blank" rel="noopener noreferrer" @click="openRugbyRussia">
-                                    <img src="@/assets/footer-icon_rugby.svg" alt="footer-icon_rugby">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </footer>
+    <AppFooter />
 
     <!-- Модальное окно спонсора -->
     <div v-if="isSponsorModalOpen" class="modal-overlay" @click="closeSponsorModal">
@@ -396,6 +320,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from "vue-toastification"
 import MatchCarousel from '@/components/MatchCarousel.vue'
+import AppFooter from '@/components/AppFooter.vue'
 
 // Router
 const router = useRouter()
@@ -589,19 +514,7 @@ const submitSponsorForm = () => {
     })
 }
 
-// Function to open EuroChem website
-const openEuroChem = (event) => {
-    console.log('EuroChem link clicked')
-    // Если по какой-то причине обычная ссылка не работает, форсируем переход
-    window.open('https://www.eurochem.ru/', '_blank', 'noopener,noreferrer')
-}
 
-// Function to open Rugby Russia website
-const openRugbyRussia = (event) => {
-    console.log('Rugby Russia link clicked')
-    // Если по какой-то причине обычная ссылка не работает, форсируем переход
-    window.open('https://rugby.ru/', '_blank', 'noopener,noreferrer')
-}
 
 // Intersection Observer for animations
 const observeNewsItems = () => {
@@ -716,88 +629,7 @@ onUnmounted(() => {
     transform: scale(1.1);
 }
 
-.footer-title_sponsors {
-    margin-bottom: 33px;
-}
 
-.footer-title_contacts {
-    margin-bottom: 20px;
-}
-
-.contact-item_text {
-    margin-left: 14px;
-}
-
-.contact-link {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-link:hover {
-    color: #ED1B26;
-}
-
-.sponsors_icon a {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.sponsors_icon a:hover {
-    transform: scale(1.05);
-}
-
-.sponsors_icon img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.logo-1 a {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.logo-1 a:hover {
-    transform: scale(1.05);
-}
-
-.logo-1 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.logo-2 a {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.logo-2 a:hover {
-    transform: scale(1.05);
-}
-
-.logo-2 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.footer-container {
-    margin: 0 auto;
-    width: 1280px;
-    max-width: 1280px;
-    padding-top: 75px;
-    padding-bottom: 75px;
-}
-
-.footer-wrapper {
-    background-color: #1B0047;
-    color: white;
-}
 
 .container-logo {
     display: flex;
