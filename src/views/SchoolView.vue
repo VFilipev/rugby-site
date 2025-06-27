@@ -434,8 +434,7 @@ html {
 <style scoped>
 @font-face {
     font-family: 'Rossika';
-    src: url('@/assets/fonts/rossika_light.woff2') format('woff2'),
-        url('@/assets/fonts/rossika_light.woff') format('woff');
+    src: url('@/assets/fonts/rossika_light.otf') format('opentype');
     font-style: light;
     font-display: swap;
 }
