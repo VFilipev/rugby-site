@@ -244,10 +244,14 @@
             </div>
             <div class="container-logo" style="margin-bottom: 100px;">
                 <div class="logo-1">
-                    <img src="@/assets/eurochem_logo.svg" alt="Лого Еврохим">
+                    <a href="https://www.eurochem.ru/" target="_blank" rel="noopener noreferrer" @click="openEuroChem">
+                        <img src="@/assets/eurochem_logo.svg" alt="Лого Еврохим">
+                    </a>
                 </div>
                 <div class="logo-2">
-                    <img src="@/assets/regby_rossii_logo.svg" alt="Лого Пермский край">
+                    <a href="https://rugby.ru/" target="_blank" rel="noopener noreferrer" @click="openRugbyRussia">
+                        <img src="@/assets/regby_rossii_logo.svg" alt="Лого Пермский край">
+                    </a>
                 </div>
             </div>
         </div>
@@ -309,10 +313,14 @@
                         </div>
                         <div class="row-sponsors_icon d-flex">
                             <div class="sponsors_icon">
-                                <img src="@/assets/footer-icon_eurochem.svg" alt="footer-icon_eurochem">
+                                <a href="https://www.eurochem.ru/" target="_blank" rel="noopener noreferrer" @click="openEuroChem">
+                                    <img src="@/assets/footer-icon_eurochem.svg" alt="footer-icon_eurochem">
+                                </a>
                             </div>
                             <div class="sponsors_icon" style="margin-left: 51px;">
-                                <img src="@/assets/footer-icon_rugby.svg" alt="footer-icon_rugby">
+                                <a href="https://rugby.ru/" target="_blank" rel="noopener noreferrer" @click="openRugbyRussia">
+                                    <img src="@/assets/footer-icon_rugby.svg" alt="footer-icon_rugby">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -567,6 +575,20 @@ const submitSponsorForm = () => {
     })
 }
 
+// Function to open EuroChem website
+const openEuroChem = (event) => {
+    console.log('EuroChem link clicked')
+    // Если по какой-то причине обычная ссылка не работает, форсируем переход
+    window.open('https://www.eurochem.ru/', '_blank', 'noopener,noreferrer')
+}
+
+// Function to open Rugby Russia website
+const openRugbyRussia = (event) => {
+    console.log('Rugby Russia link clicked')
+    // Если по какой-то причине обычная ссылка не работает, форсируем переход
+    window.open('https://rugby.ru/', '_blank', 'noopener,noreferrer')
+}
+
 // Intersection Observer for animations
 const observeNewsItems = () => {
     const options = {
@@ -698,6 +720,54 @@ onUnmounted(() => {
 
 .contact-link:hover {
     color: #ED1B26;
+}
+
+.sponsors_icon a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.sponsors_icon a:hover {
+    transform: scale(1.05);
+}
+
+.sponsors_icon img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.logo-1 a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-1 a:hover {
+    transform: scale(1.05);
+}
+
+.logo-1 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.logo-2 a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-2 a:hover {
+    transform: scale(1.05);
+}
+
+.logo-2 img {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .footer-container {
