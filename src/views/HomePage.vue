@@ -144,7 +144,7 @@
         <div class="content-container">
             <div class="section-header-wrapper mb-5">
                 <div class="section-item section-item--left">
-                    сезон
+                    СЕЗОН
                 </div>
                 <div class="section-title">
                     МАТЧИ
@@ -160,7 +160,7 @@
         <div class="content-container">
             <div class="section-header-wrapper" style="margin-bottom: 115px;">
                 <div class="section-item section-item--left">
-                    сезон
+                    СЕЗОН
                 </div>
                 <div class="section-title">
                     СОБЫТИЯ
@@ -302,6 +302,10 @@
                                     <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="contact-link">
                                         vityaz_rugby
                                     </a>
+                                    <br>
+                                    <a href="https://vk.com/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                        rugbyprm
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -338,32 +342,42 @@
 
                 <form @submit.prevent="submitSponsorForm" class="sponsor-form">
                     <div class="form-group">
-                        <label class="form-label">организация</label>
-                        <input
-                            type="text"
-                            v-model="sponsorForm.organization"
-                            class="form-input"
-                            placeholder="Название организации"
-                        >
+                        <div class="input-wrapper">
+                            <input
+                                type="text"
+                                v-model="sponsorForm.organization"
+                                class="form-input"
+                                placeholder=" "
+                                required
+                            >
+                            <label class="form-label">организация</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">контакты</label>
-                        <input
-                            type="text"
-                            v-model="sponsorForm.contacts"
-                            class="form-input"
-                            placeholder="Телефон или email"
-                        >
+                        <div class="input-wrapper">
+                            <input
+                                type="text"
+                                v-model="sponsorForm.contacts"
+                                class="form-input"
+                                placeholder=" "
+                                required
+                            >
+                            <label class="form-label">контакты</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label">вид поддержки</label>
-                        <textarea
-                            v-model="sponsorForm.supportType"
-                            class="form-textarea"
-                            placeholder="Опишите какую поддержку готовы оказать"
-                        ></textarea>
+                        <div class="input-wrapper textarea-wrapper">
+                            <textarea
+                                v-model="sponsorForm.supportType"
+                                class="form-textarea"
+                                placeholder=" "
+                                rows="4"
+                                required
+                            ></textarea>
+                            <label class="form-label">вид поддержки</label>
+                        </div>
                     </div>
 
                     <button type="submit" class="submit-button">
@@ -674,18 +688,20 @@ onUnmounted(() => {
 /* Header Navigation Styles */
 .header-nav_item a {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 19.2px;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .header-nav_link {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 19.2px;
     text-decoration: none;
+    text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -808,7 +824,7 @@ html {
 
 .section-item {
     color: #1B0047;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .section-title {
@@ -1019,10 +1035,11 @@ html {
     display: block;
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.5px;
     line-height: 1.2;
+    text-transform: uppercase;
     transition: color 0.3s ease;
 }
 
@@ -1723,60 +1740,73 @@ html {
 }
 
 .form-group {
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 15px;
 }
 
-.form-label {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #1B0047;
-    margin-bottom: 8px;
-    line-height: 1.56;
+.input-wrapper {
+    position: relative;
+    width: 100%;
 }
 
-.form-input {
+.textarea-wrapper {
+    height: 121px;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
     height: 60px;
     border: 2px solid #1B0047;
     border-radius: 3px;
-    padding: 0 20px;
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 16px;
-    color: #1B0047;
-    background: white;
-    transition: border-color 0.3s ease;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: #ED1B26;
-}
-
-.form-input::placeholder {
-    color: #999;
-}
-
-.form-textarea {
-    min-height: 121px;
-    border: 2px solid #1B0047;
-    border-radius: 3px;
+    background: #FFFFFF;
     padding: 20px;
     font-family: 'Helvetica', Arial, sans-serif;
     font-size: 16px;
+    line-height: 25px;
     color: #1B0047;
-    background: white;
-    resize: vertical;
-    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    outline: none;
 }
 
+.form-textarea {
+    height: 121px;
+    resize: none;
+    padding-top: 20px;
+}
+
+.form-input:focus,
 .form-textarea:focus {
-    outline: none;
     border-color: #ED1B26;
 }
 
-.form-textarea::placeholder {
-    color: #999;
+.form-label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    color: #1B0047;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    background: #FFFFFF;
+    padding: 0 4px;
+}
+
+.textarea-wrapper .form-label {
+    top: 30px;
+    transform: translateY(0);
+}
+
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label,
+.form-textarea:focus+.form-label,
+.form-textarea:not(:placeholder-shown)+.form-label {
+    top: 0;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #ED1B26;
 }
 
 .submit-button {

@@ -191,13 +191,13 @@ watch(() => props.isOpen, (newValue) => {
 }
 
 .form-group {
-    margin-bottom: 11px;
+    margin-bottom: 15px;
 }
 
 .form-row {
     display: flex;
-    gap: 11px;
-    margin-bottom: 11px;
+    gap: 8px;
+    margin-bottom: 15px;
 }
 
 .form-group-half {

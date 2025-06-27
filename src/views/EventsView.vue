@@ -1,6 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
+import AppHeader from '@/components/AppHeader.vue'
 
 // Router
 const router = useRouter()
@@ -55,6 +54,11 @@ const goToSchedule = () => {
     router.push('/schedule')
 }
 
+// Функция перехода на главную страницу
+const goToHome = () => {
+    router.push('/')
+}
+
 // Глобальный обработчик клика для закрытия меню
 const handleGlobalClick = (event) => {
     closeDropdown(event)
@@ -74,7 +78,9 @@ onUnmounted(() => {
         <div class="header-wrapper">
             <div class="header-container d-flex justify-content-between align-items-center">
                 <div class="logo-left">
-                    <img src="@/assets/logo_vityaz_without.svg" alt="Витязь" class="logo-vityaz">
+                    <a href="#" @click.prevent="goToHome" class="logo-link">
+                        <img src="@/assets/logo_vityaz_without.svg" alt="Витязь" class="logo-vityaz">
+                    </a>
                 </div>
                 <div class="nav-right_wrapper d-flex align-items-center">
                     <div class="header-nav_wrapper d-flex gap-5 align-items-start"
@@ -423,7 +429,7 @@ onUnmounted(() => {
 
 .section-item {
     color: #1B0047;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .section-title {
@@ -567,5 +573,21 @@ onUnmounted(() => {
 
 .section-item--right {
     justify-self: end;
+}
+
+.logo-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+.logo-vityaz {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 </style>

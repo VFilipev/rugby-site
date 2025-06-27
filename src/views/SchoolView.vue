@@ -5,7 +5,9 @@
                 <nav class="d-flex justify-content-between align-items-start header-nav">
                     <!-- Left Logo - Витязь -->
                     <div class="logo-left">
-                        <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
+                        <a href="#" @click.prevent="goToHome" class="logo-link">
+                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
+                        </a>
                     </div>
 
                     <!-- Center Navigation -->
@@ -44,23 +46,23 @@
                                 <a class="p-0" href="#" @click.prevent="goToSchool">детское<br>регби</a>
                             </div>
                         </div>
-                                            <div class="icon-wrapper d-flex gap-3" style="margin-right: 45px;">
-                        <div class="header-icon">
-                            <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
-                                <img src="@/assets/footer-icon_tg.svg" alt="телеграм">
-                            </a>
+                        <div class="icon-wrapper d-flex gap-3" style="margin-right: 45px;">
+                            <div class="header-icon">
+                                <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
+                                    <img src="@/assets/footer-icon_tg.svg" alt="телеграм">
+                                </a>
+                            </div>
+                            <div class="header-icon">
+                                <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
+                                    <img src="@/assets/footer-icon_vk.svg" alt="вконтакте">
+                                </a>
+                            </div>
+                            <div class="header-icon">
+                                <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
+                                    <img src="@/assets/footer-icon_mail.svg" alt="почта">
+                                </a>
+                            </div>
                         </div>
-                        <div class="header-icon">
-                            <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
-                                <img src="@/assets/footer-icon_vk.svg" alt="вконтакте">
-                            </a>
-                        </div>
-                        <div class="header-icon">
-                            <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
-                                <img src="@/assets/footer-icon_mail.svg" alt="почта">
-                            </a>
-                        </div>
-                    </div>
                         <div class="logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
                                 class="logo-regby">
@@ -421,6 +423,13 @@ const goToSchedule = () => {
     router.push('/schedule')
 }
 
+// Функция перехода на главную страницу
+const goToHome = () => {
+    router.push('/')
+}
+
+
+
 // Intersection Observer for animations
 const observeNewsItems = () => {
     const options = {
@@ -576,7 +585,7 @@ html {
 
 .section-item {
     color: #1B0047;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .section-title {
@@ -647,18 +656,20 @@ html {
 
 .header-nav_item a {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 19.2px;
     text-decoration: none;
+    text-transform: uppercase;
 }
 
 .header-nav_link {
     color: #fff;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 19.2px;
     text-decoration: none;
+    text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -702,17 +713,13 @@ html {
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.3s ease;
-    z-index: 9999;
-    background: white;
-    padding: 15px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(27, 0, 71, 0.1);
+    z-index: 1000;
 }
 
 .dropdown-menu-custom.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(51px);
+    transform: translateY(0);
 }
 
 .dropdown-list {
@@ -727,21 +734,18 @@ html {
 
 .dropdown-link {
     display: block;
-    color: #1B0047 !important;
+    color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.5px;
     line-height: 1.2;
-    transition: all 0.3s ease;
-    padding: 10px 25px;
-    border-radius: 4px;
-    margin: 0 10px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .dropdown-link:hover {
-    color: #ED1B26;
-    background: rgba(237, 27, 38, 0.05);
+    color: #ccc;
 }
 
 /* Right Logo */
@@ -1246,5 +1250,21 @@ html {
     .school-item {
         margin-bottom: 35px;
     }
+}
+
+.logo-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.logo-link:hover {
+    transform: scale(1.05);
+}
+
+.logo-vityaz {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 </style>
