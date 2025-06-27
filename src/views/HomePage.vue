@@ -57,13 +57,15 @@
 
         <!-- Hero Background Image -->
         <div class="hero-image">
-            <!-- Placeholder Image -->
-            <img
-                v-show="!isVideoReady"
-                src="/video/first-frame.png"
-                alt="Команда Витязь"
-                class="hero-bg hero-placeholder"
-            >
+            <!-- Placeholder Image - WebP с fallback -->
+            <picture v-show="!isVideoReady" class="hero-placeholder">
+                <source srcset="/video/first-frame.webp" type="image/webp">
+                <img
+                    src="/video/first-frame.png"
+                    alt="Команда Витязь"
+                    class="hero-bg"
+                >
+            </picture>
             <!-- Video -->
             <video
                 v-show="isVideoReady"
@@ -73,8 +75,10 @@
                 muted
                 loop
                 playsinline
+                preload="auto"
                 @loadeddata="onVideoLoaded"
                 @error="onVideoError"
+                @canplay="onVideoCanPlay"
             >
                 <source src="/video/output.webm" type="video/webm">
                 <!-- Fallback to image if video fails -->
@@ -289,10 +293,17 @@ const closeDropdown = (event) => {
 
 // Video functions
 const onVideoLoaded = () => {
+    console.log('Video metadata loaded')
+    // Видео готово к воспроизведению, но еще не переключаем
+}
+
+const onVideoCanPlay = () => {
+    console.log('Video can play through')
     // Добавляем небольшую задержку для плавного перехода
     setTimeout(() => {
         isVideoReady.value = true
-    }, 300)
+        console.log('Video transition activated')
+    }, 100)
 }
 
 const onVideoError = (error) => {
@@ -408,7 +419,8 @@ html {
 <style scoped>
 @font-face {
     font-family: 'Rossika';
-          src: url('@/assets/fonts/rossika_light.otf') format('opentype');
+    src: url('@/assets/fonts/rossika_light.woff2') format('woff2'),
+        url('@/assets/fonts/rossika_light.woff') format('woff');
     font-style: light;
     font-display: swap;
 }
@@ -454,22 +466,41 @@ html {
 
 /* Hero placeholder and video transitions */
 .hero-placeholder {
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .hero-video {
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Обеспечиваем плавное появление видео */
 .hero-image {
     position: relative;
+    background-color: #000; /* Предотвращаем белые вспышки */
 }
 
 .hero-image .hero-bg {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Оптимизация для picture элемента */
+.hero-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* Content container */

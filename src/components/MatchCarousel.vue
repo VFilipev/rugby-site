@@ -84,7 +84,8 @@
 <style scoped>
 @font-face {
     font-family: 'Rossika';
-          src: url('@/assets/fonts/rossika_light.otf') format('opentype');
+    src: url('@/assets/fonts/rossika_light.woff2') format('woff2'),
+        url('@/assets/fonts/rossika_light.woff') format('woff');
     font-style: light;
     font-display: swap;
 }
