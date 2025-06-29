@@ -2,7 +2,8 @@
     <section class="hero-section">
         <header class="navbar-overlay">
             <div class="content-container">
-                <nav class="d-flex justify-content-between align-items-start header-nav">
+                <!-- Desktop Navigation -->
+                <nav class="d-flex justify-content-between align-items-start header-nav d-none d-md-flex">
                     <!-- Left Logo - Витязь -->
                     <div class="logo-left">
                         <a href="#" @click.prevent="goToHome" class="logo-link">
@@ -13,37 +14,44 @@
                     <!-- Center Navigation -->
                     <div class="nav-right_wrapper d-flex align-items-center">
                         <div class="header-nav_wrapper d-flex gap-5 align-items-start"
-                            style="margin-right: 55px;transform: translateY(12px);">
-                            <div class="header-nav_item dropdown-container" ref="dropdownRef">
-                                <a href="#" class="header-nav_link" @click.prevent="toggleDropdown">
-                                    команда
-                                    <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
-                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </a>
+                            style="margin-right: 55px;transform: translateY(6px);">
+                            <div class="header-nav_item dropdown-container p-0" ref="dropdownRef">
+                                <div class="p-0 school-link">
+                                    <a href="#" class="header-nav_link p-0" @click.prevent="toggleDropdown">
+                                        команда
+                                        <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
+                                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
 
                                 <!-- Dropdown Menu -->
                                 <div class="dropdown-menu-custom" :class="{ 'show': isDropdownOpen }"
                                     @click.stop="$event.preventDefault()">
                                     <ul class="dropdown-list">
                                         <li><a href="#" class="dropdown-link" @click.prevent="goToTeam">состав</a></li>
-                                        <li><a href="#" class="dropdown-link" @click.prevent="goToSchedule">тренировки</a></li>
-                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTrophies">зал славы</a></li>
+                                        <li><a href="#" class="dropdown-link"
+                                                @click.prevent="goToSchedule">тренировки</a></li>
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTrophies">зал
+                                                славы</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="header-nav_item">
-                                <a href="#" @click.prevent="scrollToMatches">матчи</a>
+                            <div class="header-nav_item p-0">
+                                <a href="#" class="p-0 school-link" @click.prevent="scrollToMatches">матчи</a>
                             </div>
-                            <div class="header-nav_item">
-                                <a href="#" @click.prevent="scrollToSponsors">спонсоры</a>
+                            <div class="header-nav_item p-0">
+                                <a href="#" class="p-0 school-link" @click.prevent="scrollToSponsors">спонсоры</a>
                             </div>
                             <div class="header-nav_item p-0 text-left">
-                                <a class="p-0" href="#" @click.prevent="goToSchool">детское<br>регби</a>
+                                <a class="p-0 school-link" href="#" @click.prevent="goToSchool">
+                                    <span class="school-line" style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">детское</span>
+                                    <span class="school-line" style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">регби</span>
+                                </a>
                             </div>
                         </div>
                         <div class="icon-wrapper d-flex gap-3" style="margin-right: 45px;">
@@ -65,7 +73,70 @@
                         </div>
                         <div class="logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
-                                class="logo-regby">
+                                style="width: 135px;" class="logo-regby">
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Mobile Navigation -->
+                <nav class="mobile-header-nav d-flex d-md-none">
+                    <!-- Top Row: Logos -->
+                    <div class="mobile-top-row d-flex justify-content-between align-items-center w-100 mb-3">
+                        <div class="mobile-logo-left">
+                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="mobile-logo-vityaz">
+                        </div>
+                        <div class="mobile-logo-right">
+                            <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
+                                class="mobile-logo-regby">
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Social Icons + Burger -->
+                    <div class="mobile-bottom-row d-flex justify-content-between align-items-end w-100">
+                        <!-- Social Icons -->
+                        <div class="mobile-social-icons d-flex flex-column gap-3">
+                            <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer"
+                                class="mobile-social-link">
+                                <img src="@/assets/footer-icon_tg.svg" alt="телеграм" class="mobile-social-icon">
+                            </a>
+                            <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer"
+                                class="mobile-social-link">
+                                <img src="@/assets/footer-icon_vk.svg" alt="вконтакте" class="mobile-social-icon">
+                            </a>
+                            <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer"
+                                class="mobile-social-link">
+                                <img src="@/assets/footer-icon_mail.svg" alt="почта" class="mobile-social-icon">
+                            </a>
+                        </div>
+
+                        <!-- Burger Menu -->
+                        <div class="mobile-burger-menu" ref="mobileBurgerRef">
+                            <button @click="toggleMobileMenu" class="burger-button"
+                                :class="{ 'active': isMobileMenuOpen }">
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                                <span class="burger-line"></span>
+                            </button>
+
+                            <!-- Mobile Navigation Menu -->
+                            <div class="mobile-nav-menu" :class="{ 'show': isMobileMenuOpen }">
+                                <ul class="mobile-nav-list">
+                                    <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал
+                                            славы</a></li>
+                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a>
+                                    </li>
+                                    <li><a href="#" @click.prevent="goToScheduleMobile"
+                                            class="mobile-nav-link">тренировки</a></li>
+                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a>
+                                    </li>
+                                    <li><a href="#" @click.prevent="scrollToMatchesMobile"
+                                            class="mobile-nav-link">матчи</a></li>
+                                    <li><a href="#" @click.prevent="scrollToSponsorsMobile"
+                                            class="mobile-nav-link">спонсоры</a></li>
+                                    <li><a href="#" @click.prevent="goToSchoolMobile"
+                                            class="mobile-nav-link">детское<br>регби</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -79,7 +150,7 @@
     </section>
     <section class="match-day">
         <div class="content-container">
-            <div class="section-header-wrapper mb-5">
+                        <div class="section-header-wrapper mb-5">
                 <div class="section-item section-item--left">
                     ДЕТСКОЕ
                 </div>
@@ -101,17 +172,17 @@
                             <div class="school-location">
                                 <p class="location-address">г. Пермь, мкр. Левшино (стадион Молния)</p>
                                 <p class="location-contact">Казанцев Иван Валерьевич</p>
-                                <p class="location-phone">89082732327</p>
+                                <p class="location-phone">+7 (908) 273 23 27</p>
                             </div>
                             <div class="school-location">
                                 <p class="location-address">г. Пермь, мкр. Гайва (стадион Гайва)</p>
                                 <p class="location-contact">Садыев Артем Шамилевич</p>
-                                <p class="location-phone">89082584292</p>
+                                <p class="location-phone">+7 (908) 258 42 92</p>
                             </div>
                             <div class="school-location">
                                 <p class="location-address">г. Пермь, Свердловский район (стадион Звезда)</p>
                                 <p class="location-contact">Стволов Денис Иванович</p>
-                                <p class="location-phone">89194604794</p>
+                                <p class="location-phone">+7 (919) 460 47 94</p>
                             </div>
                         </div>
                     </div>
@@ -122,7 +193,7 @@
                             <div class="school-location">
                                 <p class="location-address">г. Пермь</p>
                                 <p class="location-contact">Томилина Екатерина Андреевна</p>
-                                <p class="location-phone">8 (342) 216 71 21</p>
+                                <p class="location-phone">+7 (342) 216 71 21</p>
                             </div>
                         </div>
                     </div>
@@ -133,7 +204,7 @@
                             <div class="school-location">
                                 <p class="location-address">Пермский район, с. Фролы</p>
                                 <p class="location-contact">Мурыгина Виктория Викторовна</p>
-                                <p class="location-phone">+7 (342) 232-01-20</p>
+                                <p class="location-phone">+7 (342) 232 01 20</p>
                             </div>
                         </div>
                     </div>
@@ -143,7 +214,7 @@
                         <div class="school-locations">
                             <div class="school-location">
                                 <p class="location-contact">Морозова Нелли Николаевна</p>
-                                <p class="location-phone">+7(342)716-46-20</p>
+                                <p class="location-phone">+7 (342) 716 46 20</p>
                             </div>
                         </div>
                     </div>
@@ -154,7 +225,7 @@
                             <div class="school-location">
                                 <p class="location-address">Кунгурский район, п. Комсомольский</p>
                                 <p class="location-contact">Проданов Александр Михайлович</p>
-                                <p class="location-phone">+ 7(342)715-61-16</p>
+                                <p class="location-phone">+7 (342) 715 61 16</p>
                             </div>
                         </div>
                     </div>
@@ -164,7 +235,7 @@
                         <div class="school-locations">
                             <div class="school-location">
                                 <p class="location-contact">Коновалова Ольга Юрьевна</p>
-                                <p class="location-phone">8(349) 5-47-43</p>
+                                <p class="location-phone">+7 (342) 495 47 33</p>
                             </div>
                         </div>
                     </div>
@@ -174,7 +245,7 @@
                         <div class="school-locations">
                             <div class="school-location">
                                 <p class="location-contact">Воронцов Олег Григорьевич</p>
-                                <p class="location-phone">+7 (913) 438-20-64</p>
+                                <p class="location-phone">+7 (913) 438 20 64</p>
                             </div>
                         </div>
                     </div>
@@ -188,7 +259,8 @@
                             <div class="school-location">
                                 <p class="location-address">г. Пермь, мкр. Парковый (Спортхолл), мкр. Юбилейный
                                     (Экошкола)</p>
-                                <p class="location-contact">Ворончихина Анастасия Александровна 89824887404</p>
+                                <p class="location-contact">Ворончихина Анастасия Александровна</p>
+                                <p class="location-phone">+7 (982) 488 74 04</p>
                             </div>
                             <div class="school-location">
                                 <p class="location-address">г. Пермь, мкр. Парковый МБОУ СОШ №44</p>
@@ -197,7 +269,7 @@
                             <div class="school-location">
                                 <p class="location-address">г. Пермь, мкр. Парковый (Спортхолл)</p>
                                 <p class="location-contact">Тихомирова Дарья Николаевна</p>
-                                <p class="location-phone">8 951 9335826</p>
+                                <p class="location-phone">+7 (951) 933 58 26</p>
                             </div>
                         </div>
                     </div>
@@ -208,7 +280,7 @@
                             <div class="school-location">
                                 <p class="location-address">Городской округ ЗАТО Звездный</p>
                                 <p class="location-contact">Мясникова Татьяна Евгеньевна</p>
-                                <p class="location-phone">+7 (342) 297-14-33</p>
+                                <p class="location-phone">+7 (342) 297 14 33</p>
                             </div>
                         </div>
                     </div>
@@ -218,7 +290,7 @@
                         <div class="school-locations">
                             <div class="school-location">
                                 <p class="location-contact">Бабикова Надежда Дмитриевна</p>
-                                <p class="location-phone">+7 (342)60 4-24-38</p>
+                                <p class="location-phone">+7 (342) 604 24 38</p>
                             </div>
                         </div>
                     </div>
@@ -228,7 +300,7 @@
                         <div class="school-locations">
                             <div class="school-location">
                                 <p class="location-contact">Мелехин Вячеслав Александрович</p>
-                                <p class="location-phone">7 (342)604-46-36</p>
+                                <p class="location-phone">+7 (342) 604 46 36</p>
                             </div>
                         </div>
                     </div>
@@ -239,7 +311,7 @@
                             <div class="school-location">
                                 <p class="location-address">Кочевский район, с. Кочево</p>
                                 <p class="location-contact">Утробин Андрей Иванович</p>
-                                <p class="location-phone">+7 (342) 258-00-40</p>
+                                <p class="location-phone">+7 (342) 258 00 40</p>
                             </div>
                         </div>
                     </div>
@@ -251,7 +323,7 @@
                             <div class="school-location">
                                 <p class="location-address">Сукскнский р-н, д. Киселево</p>
                                 <p class="location-contact">Плотников Александр Викторович</p>
-                                <p class="location-phone">7 (342)753-21-37</p>
+                                <p class="location-phone">+7 (342) 753 21 37</p>
                             </div>
                         </div>
                     </div>
@@ -261,7 +333,7 @@
     </section>
     <div class="news-item-full" style="margin-bottom: 150px;">
         <div class="news-item_photo">
-            <img src="/images/children_full.jpg" alt="Детская сборная регби">
+            <img class="news-item_photo-img" src="/images/children_full.png" alt="Детская сборная регби">
         </div>
         <div class="news-item_description" style="padding-top: 50px; padding-right: 80px;">
             <div class="news-item_header">
@@ -298,6 +370,10 @@ const router = useRouter()
 const isDropdownOpen = ref(false)
 const dropdownRef = ref(null)
 
+// Mobile menu state
+const isMobileMenuOpen = ref(false)
+const mobileBurgerRef = ref(null)
+
 // Animation state
 const newsContainer = ref(null)
 const newsItem1 = ref(null)
@@ -321,6 +397,11 @@ const closeDropdown = (event) => {
     if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
         isDropdownOpen.value = false
     }
+}
+
+// Mobile menu functions
+const toggleMobileMenu = () => {
+    isMobileMenuOpen.value = !isMobileMenuOpen.value
 }
 
 // Функция плавной прокрутки к секции матчей
@@ -361,6 +442,37 @@ const goToHome = () => {
     router.push('/')
 }
 
+// Mobile navigation functions
+const goToTrophiesMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/trophies')
+}
+
+const goToTeamMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/team')
+}
+
+const goToScheduleMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/schedule')
+}
+
+const scrollToMatchesMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/#matches-section')
+}
+
+const scrollToSponsorsMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/#sponsors-section')
+}
+
+const goToSchoolMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/school')
+}
+
 
 
 // Intersection Observer for animations
@@ -398,6 +510,11 @@ const observeNewsItems = () => {
 // Глобальный обработчик клика для закрытия меню
 const handleGlobalClick = (event) => {
     closeDropdown(event)
+
+    // Закрываем мобильное меню при клике вне его
+    if (mobileBurgerRef.value && !mobileBurgerRef.value.contains(event.target)) {
+        isMobileMenuOpen.value = false
+    }
 }
 
 // Добавляем и удаляем глобальный обработчик клика
@@ -416,6 +533,17 @@ onUnmounted(() => {
 </script>
 
 <style>
+.news-item_photo{
+    height: 615px;
+    max-height: 615px;
+}
+
+.news-item_photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 .news-item-full {
     background-color: #1B0047;
     display: flex;
@@ -589,23 +717,37 @@ html {
 
 .header-nav_item a {
     color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 19.2px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
     text-decoration: none;
     text-transform: uppercase;
+    letter-spacing: 0.7px;
 }
 
 .header-nav_link {
     color: #fff;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 500;
     line-height: 19.2px;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    letter-spacing: 0.7px;
+}
+
+.school-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    line-height: 1;
+    align-items: flex-start;
+}
+
+.school-line {
+    display: block;
 }
 
 /* Dropdown Container */
@@ -688,7 +830,8 @@ html {
 }
 
 .logo-regby {
-    width: 135px;
+    height: 80px;
+    width: auto;
 }
 
 /* Responsive Design */
@@ -702,11 +845,21 @@ html {
     }
 
     .logo-regby {
-        width: 100px;
+        height: 60px;
     }
 }
 
 @media (max-width: 767.98px) {
+    .header-nav {
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .content-container {
+        padding: 0 20px;
+    }
+
     .logo-vityaz {
         width: 40px;
         margin-right: 10px;
@@ -750,7 +903,6 @@ html {
     flex: 0 0 590px;
     height: 278px;
     overflow: hidden;
-    border-radius: 3px;
 }
 
 .news-image {
@@ -832,17 +984,312 @@ html {
     }
 }
 
-@media (max-width: 480px) {
-    .news-title {
-        font-size: 20px;
+/* Mobile Styles */
+@media (max-width: 767.98px) {
+    .hero-section {
+        height: 100vh;
     }
 
-    .news-text {
+    .content-container {
+        padding: 0 20px;
+    }
+
+    /* Mobile Header Navigation */
+    .mobile-header-nav {
+        flex-direction: column;
+        padding: 20px;
+        position: relative;
+        height: 100vh;
+    }
+
+    .mobile-top-row {
+        margin-bottom: 20px;
+    }
+
+    .mobile-logo-vityaz {
+        height: 193px;
+        width: auto;
+        filter: brightness(0) invert(1);
+    }
+
+    .mobile-logo-regby {
+        height: 74px;
+        width: auto;
+    }
+
+    .mobile-bottom-row {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .mobile-social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-social-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-social-link:hover .mobile-social-icon {
+        transform: scale(1.1);
+    }
+
+    /* Burger Menu */
+    .mobile-burger-menu {
+        position: relative;
+    }
+
+    .burger-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 25px;
+        position: relative;
+    }
+
+    .burger-line {
+        width: 24px;
+        height: 2px;
+        background-color: white;
+        transition: all 0.3s ease;
+        position: absolute;
+        border-radius: 1px;
+    }
+
+    .burger-line:nth-child(1) {
+        transform: translateY(-6px);
+    }
+
+    .burger-line:nth-child(2) {
+        transform: translateY(0);
+    }
+
+    .burger-line:nth-child(3) {
+        transform: translateY(6px);
+    }
+
+    .burger-button.active .burger-line:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .burger-button.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-button.active .burger-line:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-nav-menu {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 9999;
+        margin-bottom: 10px;
+        min-width: 160px;
+    }
+
+    .mobile-nav-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .mobile-nav-list li {
+        margin: 0;
+    }
+
+    .mobile-nav-link {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: right;
+        transition: all 0.3s ease;
+        padding: 0;
+    }
+
+    .mobile-nav-link:hover {
+        color: #ED1B26;
+    }
+
+    /* Section titles mobile */
+    .section-title {
+        font-size: 40px;
+    }
+
+    .section-item {
+        font-size: 16px;
+    }
+
+    .section-header-wrapper {
+        margin-bottom: 40px !important;
+        display: flex !important;
+        justify-content: center !important;
+        grid-template-columns: none !important;
+    }
+
+    /* Скрываем боковые элементы на мобильных */
+    .section-item--left,
+    .section-item--right {
+        display: none !important;
+    }
+
+    /* Mobile Schools List */
+    .school-wrapper {
+        padding: 30px 0 50px 0;
+    }
+
+    .schools-container {
+        display: block;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .schools-column {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin-bottom: 0;
+    }
+
+    .school-item {
+        max-width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .school-item:last-child {
+        border-bottom: none;
+    }
+
+    .school-name {
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+
+    .location-address,
+    .location-contact,
+    .location-phone {
         font-size: 14px;
+        line-height: 1.3;
     }
 
-    .event-section {
-        margin-top: 60px;
+    .location-address {
+        margin-bottom: 3px;
+    }
+
+    .location-contact {
+        margin-bottom: 2px;
+    }
+
+    .location-phone {
+        margin-bottom: 8px;
+    }
+
+    /* Mobile News Section */
+    .news-item-full {
+        flex-direction: column;
+        margin-bottom: 80px;
+    }
+
+    .news-item_photo,
+    .news-item_description {
+        width: 100%;
+        flex: none;
+    }
+
+    .news-item_photo {
+        height: 250px;
+    }
+
+    .news-item_description {
+        padding: 30px 20px 0 20px !important;
+    }
+
+    .news-item_title {
+        font-size: 20px !important;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .news-item_text {
+        font-size: 14px !important;
+        line-height: 1.5;
+        max-width: none !important;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .header-nav {
+        padding-top: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .content-container {
+        padding: 0 15px;
+    }
+
+    .logo-vityaz-mobile {
+        height: 120px;
+    }
+
+    .mobile-section-title {
+        font-size: 32px;
+    }
+
+    .school-name {
+        font-size: 16px;
+    }
+
+    .location-address,
+    .location-contact,
+    .location-phone {
+        font-size: 13px;
+    }
+
+    .news-item_description {
+        padding: 20px 15px 0 15px !important;
+    }
+
+    .news-item_title {
+        font-size: 18px !important;
+    }
+
+    .news-item_text {
+        font-size: 13px !important;
     }
 }
 

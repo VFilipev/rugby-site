@@ -601,19 +601,18 @@ const closeTeamModal = () => {
                         ХОЧУ В КОМАНДУ!
                     </div>
                 </div>
-                <div class="section-header-wrapper"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
-                    <div class="section-item section-item--left">
+                <div class="section-header-wrapper">
+                    <div class="section-item section-item--left d-none d-md-block">
                         ФЕДЕРАЦИЯ РЕГБИ
                     </div>
-                    <div class="section-title">
+                    <div class="section-title d-none d-md-block">
                         ДИРЕКЦИЯ
                     </div>
-                    <div class="section-item section-item--right">
+                    <div class="section-item section-item--right d-none d-md-block">
                         КЛУБ ВИТЯЗЬ
                     </div>
                 </div>
-                <div class="directorate-wrapper">
+                <div class="directorate-wrapper d-none d-md-flex">
                     <div class="directorate-item">
                         <div class="directorate-item_photo">
                             <img src="/images/dir1.jpg" alt="dir1">
@@ -641,7 +640,7 @@ const closeTeamModal = () => {
                         </div>
                     </div>
                 </div>
-                <div class="directorate-wrapper" style="margin-top: 50px;">
+                <div class="directorate-wrapper d-none d-md-flex" style="margin-top: 50px;">
                     <div class="directorate-item">
                         <div class="directorate-item_photo">
                             <img src="/images/dir3.jpg" alt="dir1">
@@ -676,15 +675,11 @@ const closeTeamModal = () => {
         </div>
 
         <!-- Модальное окно заявки в команду -->
-        <TeamModal
-            :isOpen="isTeamModalOpen"
-            @close="closeTeamModal"
-        />
+        <TeamModal :isOpen="isTeamModalOpen" @close="closeTeamModal" />
     </div>
 </template>
 
 <style scoped>
-
 .directorate-wrapper {
     width: 973px;
     margin: 0 auto;
@@ -729,6 +724,7 @@ const closeTeamModal = () => {
     font-size: 22px;
     line-height: 26px;
     color: #1B0047;
+    font-weight: bold;
 }
 
 .man-team-action_btn:hover {
@@ -736,7 +732,7 @@ const closeTeamModal = () => {
 }
 
 .man-team-action-wrapper {
-    width: 273px;
+    width: 289px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -912,6 +908,12 @@ const closeTeamModal = () => {
 }
 
 .section-header-wrapper {
+    margin-bottom: 80px;
+    margin-top: 100px;
+    max-width: 1280px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -928,5 +930,134 @@ const closeTeamModal = () => {
 
 .section-item--right {
     justify-self: end;
+}
+
+/* Mobile Styles */
+@media (max-width: 767.98px) {
+
+    .team-container {
+        padding: 0 20px;
+    }
+
+    .section-header-wrapper {
+        margin: 60px auto 60px auto !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        text-align: center !important;
+        height: auto !important;
+    }
+
+    /* Первая секция заголовка */
+    .man-team-section .section-header-wrapper:first-of-type {
+        margin-top: 40px !important;
+    }
+
+    .section-title {
+        font-size: 40px !important;
+        flex: 1;
+        text-align: center;
+    }
+
+    .section-item--left {
+        font-size: 12px;
+        flex: 0 0 auto;
+        text-align: left;
+    }
+
+    /* Заменяем текст "ФЕДЕРАЛЬНАЯ ЛИГА" на "2025/26" для мобильной версии */
+    .section-item--left {
+        font-size: 0;
+        /* Скрываем оригинальный текст */
+    }
+
+    .section-item--left::before {
+        content: "2025/26";
+        font-size: 12px;
+        display: block;
+    }
+
+    .section-item--right {
+        font-size: 12px;
+        flex: 0 0 auto;
+        text-align: right;
+    }
+
+    .row-team_wrapper {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        column-gap: 0;
+        row-gap: 40px;
+    }
+
+    .player {
+        width: 277px;
+        margin-bottom: 0;
+    }
+
+    .photo {
+        width: 277px;
+        height: 305px;
+        overflow: hidden;
+    }
+
+    .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .name-wrapper {
+        width: 277px;
+        height: 65px;
+        padding-top: 20px;
+        padding-left: 26px;
+        padding-right: 26px;
+    }
+
+    .name {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+    .amplua {
+        font-size: 12px;
+    }
+
+    .man-team-action-wrapper {
+        width: 100%;
+        max-width: 320px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
+
+    .man-team-action_title {
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        max-width: 280px;
+    }
+
+    .man-team-action_btn {
+        width: 220px;
+        height: 46px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+
+
+
 }
 </style>

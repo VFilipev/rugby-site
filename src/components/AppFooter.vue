@@ -11,63 +11,76 @@
                             <div class="footer-title_contacts">
                                 КОНТАКТЫ
                             </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
-                                    </a>
+                            <div class="contacts-center">
+                                <div class="contact-row d-flex">
+                                    <div class="contact-item_icon">
+                                        <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer">
+                                            <img src="@/assets/footer-icon_mail.svg" alt="icon_mail">
+                                        </a>
+                                    </div>
+                                    <div class="contact-item_text">
+                                        <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer"
+                                            class="contact-link">
+                                            region59@rugby.ru
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="contact-item_text">
-                                    <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        region59@rugby.ru
-                                    </a>
+                                <div class="contact-row d-flex">
+                                    <div class="contact-item_icon">
+                                        <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
+                                            <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
+                                        </a>
+                                    </div>
+                                    <div class="contact-item_text">
+                                        <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer"
+                                            class="contact-link">
+                                            @rugbyprm
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_tg.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text">
-                                    <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        @rugbyprm
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="contact-row d-flex">
-                                <div class="contact-item_icon">
-                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
-                                        <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
-                                    </a>
-                                </div>
-                                <div class="contact-item_text" style="margin-left: 9px;">
-                                    <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        vityaz_rugby
-                                    </a>
-                                    <br>
-                                    <a href="https://vk.com/rugbyprm" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                        rugbyprm
-                                    </a>
+                                <div class="contact-row d-flex">
+                                    <div class="contact-item_icon">
+                                        <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer">
+                                            <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
+                                        </a>
+                                    </div>
+                                    <div class="contact-item_text" style="margin-left: 9px;">
+                                        <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer"
+                                            class="contact-link">
+                                            vityaz_rugby
+                                        </a>
+                                        <br>
+                                        <a href="https://vk.com/rugbyprm" target="_blank" rel="noopener noreferrer"
+                                            class="contact-link">
+                                            rugbyprm
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="col-4">
+                    <div class="col-6 pe-lg-0">
                         <div class="footer-title_sponsors">
                             СПОНСОРЫ
                         </div>
-                        <div class="row-sponsors_icon d-flex">
-                            <div class="sponsors_icon">
-                                <a href="https://www.eurochem.ru/" target="_blank" rel="noopener noreferrer" @click="openEuroChem">
-                                    <img src="@/assets/footer-icon_eurochem.svg" alt="footer-icon_eurochem">
-                                </a>
+                        <div class="row-sponsors_icon d-flex align-items-center justify-content-between">
+                            <div class="d-flex">
+                                <div class="sponsors_icon">
+                                    <a href="https://www.eurochem.ru/" target="_blank" rel="noopener noreferrer"
+                                        @click="openEuroChem">
+                                        <img src="@/assets/footer-icon_eurochem.svg" alt="footer-icon_eurochem">
+                                    </a>
+                                </div>
+                                <div class="sponsors_icon" style="margin-left: 51px;">
+                                    <a href="https://rugby.ru/" target="_blank" rel="noopener noreferrer"
+                                        @click="openRugbyRussia">
+                                        <img src="@/assets/footer-icon_rugby.svg" alt="footer-icon_rugby">
+                                    </a>
+                                </div>
                             </div>
-                            <div class="sponsors_icon" style="margin-left: 51px;">
-                                <a href="https://rugby.ru/" target="_blank" rel="noopener noreferrer" @click="openRugbyRussia">
-                                    <img src="@/assets/footer-icon_rugby.svg" alt="footer-icon_rugby">
-                                </a>
+                            <div class="sponsor-btn" @click="openSponsorModal">
+                                СТАТЬ СПОНСОРОМ!
                             </div>
                         </div>
                     </div>
@@ -76,9 +89,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- Модальное окно спонсора -->
+    <SponsorModal :is-open="isSponsorModalOpen" @close="closeSponsorModal" />
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import SponsorModal from './SponsorModal.vue'
+
+const isSponsorModalOpen = ref(false)
+
+const openSponsorModal = () => {
+    isSponsorModalOpen.value = true
+}
+
+const closeSponsorModal = () => {
+    isSponsorModalOpen.value = false
+}
+
 // Функция принудительного открытия EuroChem в новом окне
 const openEuroChem = (event) => {
     event.preventDefault()
@@ -93,6 +122,19 @@ const openRugbyRussia = (event) => {
 </script>
 
 <style scoped>
+.sponsor-btn {
+    background-color: #ED1B26;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: #fff;
+    height: 46px;
+    margin-left: 85px;
+    cursor: pointer;
+}
+
 .footer-title_sponsors {
     margin-bottom: 33px;
 }
@@ -153,36 +195,82 @@ const openRugbyRussia = (event) => {
 }
 
 @media (max-width: 768px) {
-    .footer-container .row {
-        flex-direction: column;
-        gap: 30px;
+    .footer-container {
+        text-align: center;
     }
 
-    .footer-container .col-2,
+    .footer-container .row {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .footer-container .col-2 {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+        order: 1;
+    }
+
     .footer-container .col-4 {
         width: 100%;
         max-width: 100%;
         flex: none;
+        order: 2;
+    }
+
+    .footer-container .col-6 {
+        width: 100%;
+        max-width: 100%;
+        flex: none;
+        order: 3;
+    }
+
+    .contacts-center {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .footer-title_contacts {
+        display: none;
     }
 
     .footer-title_sponsors {
-        font-size: 16px;
-        margin-bottom: 20px;
+        display: none;
     }
 
     .row-sponsors_icon {
-        justify-content: flex-start;
-        gap: 30px;
+        justify-content: space-between;
+    }
+
+    .row-sponsors_icon .d-flex {
+        gap: 0;
+        width: 100%;
+        justify-content: space-between;
     }
 
     .sponsors_icon {
         margin-left: 0 !important;
     }
 
-    .footer-title_contacts,
-    .footer-title_sponsors {
-        font-size: 16px;
-        font-weight: 600;
+    .sponsor-btn {
+        display: none;
+    }
+
+    /* Размеры логотипов для мобильной версии */
+    .footer-container .col-2 img {
+        width: 100px;
+        height: auto;
+    }
+
+    .sponsors_icon img {
+        height: 55px;
+        width: auto;
+    }
+
+    .contact-item_icon img {
+        width: 20px;
+        height: 20px;
     }
 }
 </style>

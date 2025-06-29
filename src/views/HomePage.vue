@@ -14,37 +14,44 @@
                     <!-- Center Navigation -->
                     <div class="nav-right_wrapper d-flex align-items-center">
                         <div class="header-nav_wrapper d-flex gap-5 align-items-start"
-                            style="margin-right: 55px;transform: translateY(12px);">
-                            <div class="header-nav_item dropdown-container" ref="dropdownRef">
-                                <a href="#" class="header-nav_link" @click.prevent="toggleDropdown">
-                                    команда
-                                    <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
-                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </span>
-                                </a>
+                            style="margin-right: 55px;transform: translateY(6px);">
+                            <div class="header-nav_item dropdown-container p-0" ref="dropdownRef">
+                                <div class="p-0 school-link">
+                                    <a href="#" class="header-nav_link p-0" @click.prevent="toggleDropdown">
+                                        команда
+                                        <span class="dropdown-icon" :class="{ 'open': isDropdownOpen }">
+                                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
 
                                 <!-- Dropdown Menu -->
                                 <div class="dropdown-menu-custom" :class="{ 'show': isDropdownOpen }"
                                     @click.stop="$event.preventDefault()">
                                     <ul class="dropdown-list">
                                         <li><a href="#" class="dropdown-link" @click.prevent="goToTeam">состав</a></li>
-                                        <li><a href="#" class="dropdown-link" @click.prevent="goToSchedule">тренировки</a></li>
-                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTrophies">зал славы</a></li>
+                                        <li><a href="#" class="dropdown-link"
+                                                @click.prevent="goToSchedule">тренировки</a></li>
+                                        <li><a href="#" class="dropdown-link" @click.prevent="goToTrophies">зал
+                                                славы</a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="header-nav_item">
-                                <a href="#" @click.prevent="scrollToMatches">матчи</a>
+                            <div class="header-nav_item p-0">
+                                <a href="#" class="p-0 school-link" @click.prevent="scrollToMatches">матчи</a>
                             </div>
-                            <div class="header-nav_item">
-                                <a href="#" @click.prevent="scrollToSponsors">спонсоры</a>
+                            <div class="header-nav_item p-0">
+                                <a href="#" class="p-0 school-link" @click.prevent="scrollToSponsors">спонсоры</a>
                             </div>
                             <div class="header-nav_item p-0 text-left">
-                                <a class="p-0" href="#" @click.prevent="goToSchool">детское<br>регби</a>
+                                <a class="p-0 school-link" href="#" @click.prevent="goToSchool">
+                                    <span class="school-line" style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">детское</span>
+                                    <span class="school-line" style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">регби</span>
+                                </a>
                             </div>
                         </div>
                         <div class="icon-wrapper d-flex gap-3" style="margin-right: 45px;">
@@ -66,7 +73,7 @@
                         </div>
                         <div class="logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
-                                class="logo-regby">
+                                style="width: 135px;" class="logo-regby">
                         </div>
                     </div>
                 </nav>
@@ -79,28 +86,33 @@
                             <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="mobile-logo-vityaz">
                         </div>
                         <div class="mobile-logo-right">
-                            <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края" class="mobile-logo-regby">
+                            <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
+                                class="mobile-logo-regby">
                         </div>
                     </div>
 
                     <!-- Bottom Row: Social Icons + Burger -->
-                    <div class="mobile-bottom-row d-flex justify-content-between align-items-center w-100">
+                    <div class="mobile-bottom-row d-flex justify-content-between align-items-end w-100">
                         <!-- Social Icons -->
                         <div class="mobile-social-icons d-flex flex-column gap-3">
-                            <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                            <a href="https://t.me/rugbyprm" target="_blank" rel="noopener noreferrer"
+                                class="mobile-social-link">
                                 <img src="@/assets/footer-icon_tg.svg" alt="телеграм" class="mobile-social-icon">
                             </a>
-                            <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                            <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer"
+                                class="mobile-social-link">
                                 <img src="@/assets/footer-icon_vk.svg" alt="вконтакте" class="mobile-social-icon">
                             </a>
-                            <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer" class="mobile-social-link">
+                            <a href="mailto:region59@rugby.ru" target="_blank" rel="noopener noreferrer"
+                                class="mobile-social-link">
                                 <img src="@/assets/footer-icon_mail.svg" alt="почта" class="mobile-social-icon">
                             </a>
                         </div>
 
                         <!-- Burger Menu -->
                         <div class="mobile-burger-menu" ref="mobileBurgerRef">
-                            <button @click="toggleMobileMenu" class="burger-button" :class="{ 'active': isMobileMenuOpen }">
+                            <button @click="toggleMobileMenu" class="burger-button"
+                                :class="{ 'active': isMobileMenuOpen }">
                                 <span class="burger-line"></span>
                                 <span class="burger-line"></span>
                                 <span class="burger-line"></span>
@@ -109,13 +121,20 @@
                             <!-- Mobile Navigation Menu -->
                             <div class="mobile-nav-menu" :class="{ 'show': isMobileMenuOpen }">
                                 <ul class="mobile-nav-list">
-                                    <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал славы</a></li>
-                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a></li>
-                                    <li><a href="#" @click.prevent="goToScheduleMobile" class="mobile-nav-link">тренировки</a></li>
-                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a></li>
-                                    <li><a href="#" @click.prevent="scrollToMatchesMobile" class="mobile-nav-link">матчи</a></li>
-                                    <li><a href="#" @click.prevent="scrollToSponsorsMobile" class="mobile-nav-link">спонсоры</a></li>
-                                    <li><a href="#" @click.prevent="goToSchoolMobile" class="mobile-nav-link">детское<br>регби</a></li>
+                                    <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал
+                                            славы</a></li>
+                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a>
+                                    </li>
+                                    <li><a href="#" @click.prevent="goToScheduleMobile"
+                                            class="mobile-nav-link">тренировки</a></li>
+                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a>
+                                    </li>
+                                    <li><a href="#" @click.prevent="scrollToMatchesMobile"
+                                            class="mobile-nav-link">матчи</a></li>
+                                    <li><a href="#" @click.prevent="scrollToSponsorsMobile"
+                                            class="mobile-nav-link">спонсоры</a></li>
+                                    <li><a href="#" @click.prevent="goToSchoolMobile"
+                                            class="mobile-nav-link">детское<br>регби</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -142,7 +161,7 @@
     </section>
     <section class="match-day" id="matches-section">
         <div class="content-container">
-            <div class="section-header-wrapper mb-5">
+            <div class="section-header-wrapper">
                 <div class="section-item section-item--left">
                     СЕЗОН
                 </div>
@@ -184,7 +203,10 @@
                         <div class="news-text">
                             Детская сборная Пермского края из с. Кочево выехала на Финал всероссийских соревнований
                             Регбийной школьной Лиги (тэг-регби) в Москву. Команду возглавляет тренер Кочёвской СОШ
-                            Андрей Иванович Угробин. Пожелаем ребятам удачи и хороших игр. ...
+                            Андрей Иванович Утробин. Пожелаем ребятам удачи и хороших игр. ...
+                        </div>
+                        <div class="news-item_date">
+                            10 ИЮНЯ
                         </div>
                     </div>
                 </div>
@@ -196,12 +218,15 @@
                     </div>
                     <div class="news-description">
                         <div class="news-title">
-                            Женская команда "Витязь" завершила 4 тур Чемпионата России
+                            Женская команда «Витязь» завершила 4 тур Чемпионата России
                         </div>
                         <div class="news-text">
                             В итоговой таблице девушки идут на 6 месте. Впереди еще ожидаются туры в Москве, Казани и
-                            Краснодаре. Верим в наших девушек и желаем удачи! Женский "Витязь" уже не раз показывал свое
+                            Краснодаре. Верим в наших девушек и желаем удачи! Женский «Витязь» уже не раз показывал свое
                             мастерство в игре, а основные победы еще впереди. ...
+                        </div>
+                        <div class="news-item_date">
+                            1 ИЮНЯ
                         </div>
                     </div>
                 </div>
@@ -213,11 +238,14 @@
                     </div>
                     <div class="news-description">
                         <div class="news-title">
-                            Мужская команда "Витязь" возвращается в Федеральную регбийную лигу
+                            Мужская команда «Витязь» возвращается в Федеральную регбийную лигу
                         </div>
                         <div class="news-text">
                             Матч между пермским «Витязем» и «Энергией» пройдет уже в эту субботу в рамках первого круга
                             Дивизиона «Урал-Поволжье»на стадионе «Тулпар» г. Казань в 11:00 ...
+                        </div>
+                        <div class="news-item_date">
+                            24 МАЯ
                         </div>
                     </div>
 
@@ -254,79 +282,29 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Кнопка "стать спонсором" для мобильной версии -->
+            <div class="mobile-sponsor-btn" @click="openSponsorModal">
+                СТАТЬ СПОНСОРОМ!
+            </div>
         </div>
     </section>
     <AppFooter />
 
     <!-- Модальное окно спонсора -->
-    <div v-if="isSponsorModalOpen" class="modal-overlay" @click="closeSponsorModal">
-        <div class="modal-container" @click.stop>
-            <div class="modal-content">
-                <h2 class="modal-title">СТАНЬ СПОНСОРОМ</h2>
-
-                <form @submit.prevent="submitSponsorForm" class="sponsor-form">
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <input
-                                type="text"
-                                v-model="sponsorForm.organization"
-                                class="form-input"
-                                placeholder=" "
-                                required
-                            >
-                            <label class="form-label">организация</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="input-wrapper">
-                            <input
-                                type="text"
-                                v-model="sponsorForm.contacts"
-                                class="form-input"
-                                placeholder=" "
-                                required
-                            >
-                            <label class="form-label">контакты</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="input-wrapper textarea-wrapper">
-                            <textarea
-                                v-model="sponsorForm.supportType"
-                                class="form-textarea"
-                                placeholder=" "
-                                rows="4"
-                                required
-                            ></textarea>
-                            <label class="form-label">вид поддержки</label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-button">
-                        ОТПРАВИТЬ
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
+    <SponsorModal :is-open="isSponsorModalOpen" @close="closeSponsorModal" />
 
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { useToast } from "vue-toastification"
 import MatchCarousel from '@/components/MatchCarousel.vue'
 import AppFooter from '@/components/AppFooter.vue'
+import SponsorModal from '@/components/SponsorModal.vue'
 
 // Router
 const router = useRouter()
-
-// Toast
-const toast = useToast()
 
 // Dropdown state
 const isDropdownOpen = ref(false)
@@ -354,11 +332,6 @@ const visibleItems = ref({
 
 // Sponsor modal state
 const isSponsorModalOpen = ref(false)
-const sponsorForm = ref({
-    organization: '',
-    contacts: '',
-    supportType: ''
-})
 
 // Toggle dropdown function
 const toggleDropdown = (event) => {
@@ -418,6 +391,10 @@ const scrollToSponsors = () => {
 
 // Функция перехода к событиям
 const goToEvents = () => {
+    // На мобильных устройствах не переходим
+    if (window.innerWidth <= 768) {
+        return
+    }
     router.push('/events')
 }
 
@@ -490,31 +467,23 @@ const goToTrophiesMobile = () => {
 // Sponsor modal functions
 const openSponsorModal = () => {
     isSponsorModalOpen.value = true
-    document.body.style.overflow = 'hidden'
 }
 
 const closeSponsorModal = () => {
     isSponsorModalOpen.value = false
-    document.body.style.overflow = 'auto'
-    // Очищаем форму
-    sponsorForm.value = {
-        organization: '',
-        contacts: '',
-        supportType: ''
-    }
 }
 
-const submitSponsorForm = () => {
-    // Закрываем модальное окно
-    closeSponsorModal()
-
-    // Показываем уведомление об успешной отправке
-    toast.success("Заявка отправлена! Спасибо за интерес к спонсорству. Мы свяжемся с вами в ближайшее время.", {
-        timeout: 5000
-    })
+// Функция принудительного открытия EuroChem в новом окне
+const openEuroChem = (event) => {
+    event.preventDefault()
+    window.open('https://www.eurochem.ru/', '_blank', 'noopener,noreferrer')
 }
 
-
+// Функция принудительного открытия Rugby Russia в новом окне
+const openRugbyRussia = (event) => {
+    event.preventDefault()
+    window.open('https://rugby.ru/', '_blank', 'noopener,noreferrer')
+}
 
 // Intersection Observer for animations
 const observeNewsItems = () => {
@@ -601,23 +570,37 @@ onUnmounted(() => {
 /* Header Navigation Styles */
 .header-nav_item a {
     color: #fff;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 19.2px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
     text-decoration: none;
     text-transform: uppercase;
+    letter-spacing: 0.7px;
 }
 
 .header-nav_link {
     color: #fff;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 500;
     line-height: 19.2px;
     text-decoration: none;
     text-transform: uppercase;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    letter-spacing: 0.7px;
+}
+
+.school-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    line-height: 1;
+    align-items: flex-start;
+}
+
+.school-line {
+    display: block;
 }
 
 .header-icon a {
@@ -634,6 +617,11 @@ onUnmounted(() => {
 .container-logo {
     display: flex;
     justify-content: space-around;
+}
+
+/* Скрываем мобильную кнопку на десктопе */
+.mobile-sponsor-btn {
+    display: none;
 }
 
 #app {
@@ -938,13 +926,13 @@ html {
     }
 
     .mobile-logo-vityaz {
-        height: 60px;
+        height: 193px;
         width: auto;
         filter: brightness(0) invert(1);
     }
 
     .mobile-logo-regby {
-        height: 45px;
+        height: 74px;
         width: auto;
     }
 
@@ -984,25 +972,38 @@ html {
         background: none;
         border: none;
         cursor: pointer;
-        padding: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        width: 25px;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
         height: 25px;
         position: relative;
     }
 
     .burger-line {
-        width: 25px;
-        height: 3px;
+        width: 24px;
+        height: 2px;
         background-color: white;
-        transition: 0.3s;
-        transform-origin: center;
+        transition: all 0.3s ease;
+        position: absolute;
+        border-radius: 1px;
+    }
+
+    .burger-line:nth-child(1) {
+        transform: translateY(-6px);
+    }
+
+    .burger-line:nth-child(2) {
+        transform: translateY(0);
+    }
+
+    .burger-line:nth-child(3) {
+        transform: translateY(6px);
     }
 
     .burger-button.active .burger-line:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
+        transform: rotate(45deg);
     }
 
     .burger-button.active .burger-line:nth-child(2) {
@@ -1010,7 +1011,7 @@ html {
     }
 
     .burger-button.active .burger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
+        transform: rotate(-45deg);
     }
 
     /* Mobile Navigation Menu */
@@ -1063,7 +1064,8 @@ html {
 
     /* Hero section мобильная версия */
     .hero-section {
-        height: 100vh; /* Полная высота для мобильной версии как в макете */
+        height: 100vh;
+        /* Полная высота для мобильной версии как в макете */
     }
 
     /* Section titles mobile */
@@ -1104,7 +1106,7 @@ html {
     }
 
     .hero-section {
-        height: 60vh;
+        height: 100vh;
     }
 
     .section-title {
@@ -1135,7 +1137,7 @@ html {
 /* Match day section */
 .match-day {
     width: 100%;
-    margin-top: 60px;
+    padding-top: 100px;
 }
 
 .event-section {
@@ -1149,7 +1151,7 @@ html {
 /* Mobile styles for sections */
 @media (max-width: 767.98px) {
     .match-day {
-        margin-top: 40px;
+        padding-top: 60px;
     }
 
     .event-section {
@@ -1187,7 +1189,6 @@ html {
     flex: 0 0 590px;
     height: 278px;
     overflow: hidden;
-    border-radius: 3px;
 }
 
 .news-image {
@@ -1233,11 +1234,14 @@ html {
     .news-item {
         flex-direction: column !important;
         gap: 20px;
-        border-radius: 8px;
-        box-shadow: 2px 4px 7px 0px rgba(0, 0, 0, 0.1);
         padding: 0;
         background: white;
         overflow: hidden;
+        cursor: default;
+    }
+
+    .news-item:hover {
+        transform: none;
     }
 
     .news-photo {
@@ -1248,16 +1252,13 @@ html {
     }
 
     .news-description {
-        padding: 20px;
         gap: 15px;
+        padding: 0;
     }
 
     .news-title {
         font-size: 18px;
-        color: white;
-        background: #1B0047;
-        margin: -20px -20px 15px -20px;
-        padding: 15px 20px;
+        color: #1B0047;
     }
 
     .news-text {
@@ -1266,17 +1267,16 @@ html {
         line-height: 1.4;
     }
 
-    /* Arrow для мобильной версии */
-    .arrow-container {
-        position: static;
-        align-self: flex-end;
-        margin-top: 10px;
+    .news-item_date {
+        font-size: 20px;
+        color: #1B0047;
+        font-family: 'Rossika';
+        font-weight: 400;
     }
 
-    .last-news-item .arrow-container {
-        position: static;
-        bottom: auto;
-        right: auto;
+    /* Arrow для мобильной версии - скрываем */
+    .arrow-container {
+        display: none;
     }
 }
 
@@ -1304,7 +1304,7 @@ html {
 
 @media (max-width: 480px) {
     .news-title {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .news-text {
@@ -1414,7 +1414,8 @@ html {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    height: 60px;
+    line-height: 40px;
+    margin-bottom: 100px;
 }
 
 .section-item--left {
@@ -1444,23 +1445,45 @@ html {
 /* Mobile sponsor section */
 @media (max-width: 767.98px) {
     .container-logo {
-        flex-direction: column;
-        gap: 30px;
+        justify-content: space-around;
         align-items: center;
         margin-bottom: 60px !important;
     }
 
-    .logo-1 img,
-    .logo-2 img {
-        max-width: 200px;
+    .logo-1 img {
+        width: 135px;
         height: auto;
+    }
+
+    .logo-2 img {
+        width: 163px;
+        height: auto;
+    }
+
+    .mobile-sponsor-btn {
+        display: block;
+        background-color: #ED1B26;
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        color: white;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        text-align: center;
+        margin: 0 auto 40px auto;
+        width: fit-content;
+        transition: background-color 0.3s ease;
+    }
+
+    .mobile-sponsor-btn:hover {
+        background-color: #d41620;
     }
 
     .section-item--left .sponsor-link {
         background: #ED1B26;
         color: white;
         padding: 12px 20px;
-        border-radius: 3px;
         font-size: 14px;
         font-weight: 500;
         text-transform: uppercase;
@@ -1509,176 +1532,6 @@ html {
     .footer-title_sponsors {
         font-size: 16px;
         margin-bottom: 20px;
-    }
-}
-
-/* Modal styles */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 0;
-    animation: fadeIn 0.3s ease-out forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-.modal-container {
-    background: white;
-    border-radius: 8px;
-    max-width: 632px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    transform: scale(0.9);
-    animation: scaleIn 0.3s ease-out forwards;
-}
-
-@keyframes scaleIn {
-    to {
-        transform: scale(1);
-    }
-}
-
-.modal-content {
-    padding: 40px;
-}
-
-.modal-title {
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #1B0047;
-    text-align: center;
-    margin-bottom: 40px;
-    line-height: 1.18;
-}
-
-.sponsor-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.input-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.textarea-wrapper {
-    height: 121px;
-}
-
-.form-input,
-.form-textarea {
-    width: 100%;
-    height: 60px;
-    border: 2px solid #1B0047;
-    border-radius: 3px;
-    background: #FFFFFF;
-    padding: 20px;
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 16px;
-    line-height: 25px;
-    color: #1B0047;
-    box-sizing: border-box;
-    outline: none;
-}
-
-.form-textarea {
-    height: 121px;
-    resize: none;
-    padding-top: 20px;
-}
-
-.form-input:focus,
-.form-textarea:focus {
-    border-color: #ED1B26;
-}
-
-.form-label {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: 'Helvetica', Arial, sans-serif;
-    font-size: 16px;
-    line-height: 25px;
-    color: #1B0047;
-    pointer-events: none;
-    transition: all 0.2s ease-out;
-    background: #FFFFFF;
-    padding: 0 4px;
-}
-
-.textarea-wrapper .form-label {
-    top: 30px;
-    transform: translateY(0);
-}
-
-.form-input:focus+.form-label,
-.form-input:not(:placeholder-shown)+.form-label,
-.form-textarea:focus+.form-label,
-.form-textarea:not(:placeholder-shown)+.form-label {
-    top: 0;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #ED1B26;
-}
-
-.submit-button {
-    background-color: #ED1B26;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    height: 46px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    align-self: center;
-    width: 220px;
-}
-
-.submit-button:hover {
-    background-color: #d41620;
-}
-
-/* Responsive modal */
-@media (max-width: 768px) {
-    .modal-container {
-        width: 95%;
-        margin: 20px;
-    }
-
-    .modal-content {
-        padding: 30px 20px;
-    }
-
-    .modal-title {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-
-    .submit-button {
-        width: 100%;
     }
 }
 </style>

@@ -22,7 +22,8 @@ const closeModal = () => {
         <AppHeader />
         <section class="man-team-section">
             <div class="team-container">
-                <div class="section-header-wrapper"
+                <!-- Десктопная версия заголовка -->
+                <div class="section-header-wrapper d-none d-md-block"
                     style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
                     <div class="section-item section-item--left">
                         ФЕДЕРАЦИЯ РЕГБИ
@@ -35,17 +36,32 @@ const closeModal = () => {
                     </div>
                 </div>
 
+                <!-- Мобильная версия заголовка -->
+                <div class="mobile-header d-block d-md-none">
+                    <h1 class="mobile-title">РАСПИСАНИЕ</h1>
+                </div>
+
                 <!-- Блок с расписанием -->
                 <div class="schedule-content">
                     <!-- Мужская команда -->
                     <div class="team-schedule">
-                        <div class="d-flex" style="gap: 85px;">
+                        <div class="d-flex d-none d-md-flex" style="gap: 85px;">
                             <h2 class="team-title">Мужская<br>команда</h2>
                             <div class="location-info">
                                 <p>Стадион Локомотив<br>г. Пермь, Ул. Боровая 32к2</p>
                             </div>
                         </div>
-                        <div class="schedule-table">
+
+                        <!-- Мобильная версия заголовка мужской команды -->
+                        <div class="mobile-team-header d-block d-md-none">
+                            <h2 class="mobile-team-title">Мужская<br>команда</h2>
+                            <div class="mobile-location-info">
+                                <p>Стадион Локомотив<br>г. Пермь, Ул. Боровая 32к2</p>
+                            </div>
+                        </div>
+
+                        <!-- Десктопная версия таблицы -->
+                        <div class="schedule-table d-none d-md-flex">
                             <div class="schedule-column">
                                 <div class="schedule-day">Понедельник</div>
                                 <div class="schedule-day">Вторник</div>
@@ -65,10 +81,36 @@ const closeModal = () => {
                                 <div class="schedule-type">игровая</div>
                             </div>
                         </div>
+
+                        <!-- Мобильная версия таблицы -->
+                        <div class="mobile-schedule-table d-block d-md-none">
+                            <div class="mobile-schedule-row">
+                                <div class="mobile-schedule-day">Понедельник</div>
+                                <div class="mobile-schedule-time">20:30 - 21:30</div>
+                            </div>
+                            <div class="mobile-schedule-row">
+                                <div class="mobile-schedule-day">Вторник</div>
+                                <div class="mobile-schedule-time">20:00 - 21:30</div>
+                            </div>
+                            <div class="mobile-schedule-row">
+                                <div class="mobile-schedule-day">Четверг</div>
+                                <div class="mobile-schedule-time">20:00 - 21:30</div>
+                            </div>
+                            <div class="mobile-schedule-row">
+                                <div class="mobile-schedule-day">Воскресенье</div>
+                                <div class="mobile-schedule-time">12:00 - 13:30</div>
+                            </div>
+                        </div>
                         <div class="schedule-info">
                             <div class="trainer-info">
                                 <p>Тренер: Артем Садыев<br>@ArtSadyev</p>
                             </div>
+                        </div>
+
+                        <!-- Мобильный призыв к действию для мужской команды -->
+                        <div class="mobile-cta d-block d-md-none">
+                            <h3 class="mobile-cta-title">Ведется набор в мужскую<br>сборную Пермского края!</h3>
+                            <button class="mobile-cta-button" @click="openModal">ХОЧУ В КОМАНДУ!</button>
                         </div>
                     </div>
 
@@ -81,11 +123,17 @@ const closeModal = () => {
                                 <p>Тренер: Ислам Гарифуллин<br>@islamiosss</p>
                             </div>
                         </div>
+
+                        <!-- Мобильный призыв к действию для женской команды -->
+                        <div class="mobile-cta d-block d-md-none">
+                            <h3 class="mobile-cta-title">Ведется набор в женскую<br>сборную Пермского края!</h3>
+                            <button class="mobile-cta-button" @click="openModal">ХОЧУ В КОМАНДУ!</button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Блок призыва к действию -->
-                <div class="cta-section">
+                <!-- Блок призыва к действию (только для десктопа) -->
+                <div class="cta-section d-none d-md-block">
                     <div class="cta-content">
                         <h3 class="cta-title">Ведется набор в мужскую и женскую<br>сборную Пермского края!</h3>
                         <button class="cta-button" @click="openModal">ХОЧУ В КОМАНДУ!</button>
@@ -143,7 +191,6 @@ const closeModal = () => {
     padding-bottom: 10px;
     font-size: 16px;
     color: #fff;
-    border-radius: 5px;
 }
 
 .man-team-action_title {
@@ -425,7 +472,6 @@ const closeModal = () => {
     background-color: #ED1B26;
     color: white;
     border: none;
-    border-radius: 3px;
     padding: 15px 30px;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
@@ -468,6 +514,149 @@ const closeModal = () => {
 
     .cta-title {
         font-size: 20px;
+    }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 767.98px) {
+    .mobile-header {
+        padding-top: 30px;
+        margin-bottom: 60px;
+        text-align: center;
+    }
+
+    .mobile-title {
+        font-family: 'Rossika';
+        font-size: 40px;
+        font-weight: 300;
+        color: #1B0047;
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .schedule-content {
+        max-width: none;
+        width: 100%;
+        padding: 0 30px;
+        flex-direction: column;
+        gap: 60px;
+        margin-bottom: 60px;
+    }
+
+    .mobile-team-header {
+        margin-bottom: 30px;
+    }
+
+    .mobile-team-title {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: #1B0047;
+        line-height: 1.18;
+        margin-bottom: 20px;
+        margin: 0;
+    }
+
+    .mobile-location-info p {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #1B0047;
+        line-height: 1.56;
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .team-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .schedule-table {
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .mobile-schedule-table {
+        margin-bottom: 30px;
+    }
+
+    .mobile-schedule-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .mobile-schedule-day,
+    .mobile-schedule-time {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #1B0047;
+        line-height: 1.56;
+    }
+
+    .mobile-schedule-day {
+        flex: 1;
+    }
+
+    .mobile-schedule-time {
+        flex: 0 0 auto;
+        text-align: right;
+    }
+
+    .schedule-day,
+    .schedule-time {
+        font-size: 16px;
+        line-height: 1.56;
+        padding: 2px 0;
+    }
+
+    .trainer-info p {
+        font-size: 16px;
+        line-height: 1.56;
+        margin-bottom: 10px;
+    }
+
+    .mobile-cta {
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    .mobile-cta-title {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #1B0047;
+        line-height: 1.11;
+        margin-bottom: 30px;
+        max-width: 242px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mobile-cta-button {
+        background-color: #ED1B26;
+        color: white;
+        border: none;
+        padding: 16px 0;
+        width: 220px;
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.14;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .mobile-cta-button:hover {
+        background-color: #d41620;
+    }
+
+    /* Скрываем десктопные отступы на мобильной версии */
+    .team-container > div:last-child {
+        margin-top: 60px !important;
     }
 }
 </style>

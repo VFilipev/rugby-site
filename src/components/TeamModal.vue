@@ -1,8 +1,6 @@
 <template>
     <div v-if="isOpen" class="modal-overlay" @click="handleOverlayClick">
         <div class="modal-content" @click.stop>
-            <button class="modal-close" @click="closeModal">×</button>
-
             <div class="modal-header">
                 <h2 class="modal-title">ХОЧУ В КОМАНДУ</h2>
             </div>
@@ -147,27 +145,10 @@ watch(() => props.isOpen, (newValue) => {
     height: 546px;
     position: relative;
     animation: scaleIn 0.3s ease-out;
-    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: none;
-    border: none;
-    font-size: 30px;
-    color: #1B0047;
-    cursor: pointer;
-    z-index: 1001;
-    line-height: 1;
-    padding: 0;
-}
 
-.modal-close:hover {
-    opacity: 0.7;
-}
 
 .modal-header {
     display: flex;
@@ -227,7 +208,6 @@ watch(() => props.isOpen, (newValue) => {
     width: 100%;
     height: 60px;
     border: 2px solid #1B0047;
-    border-radius: 3px;
     background: #FFFFFF;
     padding: 20px;
     font-family: 'Helvetica', sans-serif;
@@ -280,11 +260,10 @@ watch(() => props.isOpen, (newValue) => {
 }
 
 .submit-btn {
-    width: 220px;
+    width: 188px;
     height: 46px;
     background: #ED1B26;
     border: none;
-    border-radius: 3px;
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: 500;
     font-size: 16px;
