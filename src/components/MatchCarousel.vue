@@ -435,7 +435,7 @@ onUnmounted(() => {
 }
 
 @font-face {
-    font-family: 'Halvetica';
+    font-family: 'Helvetica';
     src: url('@/assets/fonts/helvetica_bold.otf') format('otf');
     font-style: bold;
     font-display: swap;
@@ -476,7 +476,7 @@ onUnmounted(() => {
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    font-family: 'Halvetica';
+    font-family: 'Helvetica';
 }
 
 .match-content {
