@@ -216,19 +216,38 @@ const totalCards = computed(() => {
 // Вычисляем все возможные позиции
 const getPositions = () => {
     if (window.innerWidth <= 768) {
-                // Фиксированные позиции для мобильной версии (10 карточек)
-        return [
-            45,      // Позиция 0: карточки 1,2,3
-            -275,    // Позиция 1: карточки 2,3,4
-            -595,    // Позиция 2: карточки 3,4,5
-            -915,    // Позиция 3: карточки 4,5,6
-            -1235,   // Позиция 4: карточки 5,6,7
-            -1555,   // Позиция 5: карточки 6,7,8
-            -1875,   // Позиция 6: карточки 7,8,9
-            -2195,   // Позиция 7: карточки 8,9,10
-            -2515,   // Позиция 8: карточки 9,10
-            -2835    // Позиция 9: последняя карточка
-        ]
+                        // Фиксированные позиции для конкретных мобильных экранов
+        const screenWidth = window.innerWidth
+
+                if (screenWidth <= 390) {
+            // Позиции для экрана 390px с шагом 320px (позиция 3 = -959px)
+            return [
+                1,       // Позиция 0 (показываем первую карточку)
+                -319,    // Позиция 1
+                -639,    // Позиция 2
+                -959,    // Позиция 3 (начальная)
+                -1279,   // Позиция 4
+                -1599,   // Позиция 5
+                -1919,   // Позиция 6
+                -2239,   // Позиция 7
+                -2559,   // Позиция 8
+                -2879    // Позиция 9
+            ]
+        } else {
+            // Позиции для экрана 430px с шагом 320px (позиция 3 = -960px)
+            return [
+                0,       // Позиция 0 (показываем первую карточку)
+                -320,    // Позиция 1
+                -640,    // Позиция 2
+                -960,    // Позиция 3 (начальная)
+                -1280,   // Позиция 4
+                -1600,   // Позиция 5
+                -1920,   // Позиция 6
+                -2240,   // Позиция 7
+                -2560,   // Позиция 8
+                -2880    // Позиция 9
+            ]
+        }
     } else {
         // Динамические позиции для десктопной версии
         const positions = []
@@ -279,20 +298,33 @@ const handleMouseUp = () => {
     matchCards.value.style.cursor = 'grab'
     matchCards.value.style.transition = 'transform 0.3s ease'
 
-    // Находим ближайшую позицию динамически
+    // Находим ближайшую позицию с учетом направления движения
     const positions = getPositions()
-    let closestPosition = positions[0]
-    let minDistance = Math.abs(currentTranslate.value - positions[0])
+    const dragDistance = currentTranslate.value - scrollLeft.value
+    const threshold = 50 // порог для переключения позиции
 
+    // Находим текущую позицию
+    let currentIndex = 0
+    let minDistance = Math.abs(scrollLeft.value - positions[0])
     for (let i = 1; i < positions.length; i++) {
-        const distance = Math.abs(currentTranslate.value - positions[i])
+        const distance = Math.abs(scrollLeft.value - positions[i])
         if (distance < minDistance) {
             minDistance = distance
-            closestPosition = positions[i]
+            currentIndex = i
         }
     }
 
-    currentTranslate.value = closestPosition
+    // Определяем новую позицию на основе направления движения
+    let targetIndex = currentIndex
+    if (dragDistance > threshold && currentIndex > 0) {
+        // Движение вправо - переходим к предыдущей позиции
+        targetIndex = currentIndex - 1
+    } else if (dragDistance < -threshold && currentIndex < positions.length - 1) {
+        // Движение влево - переходим к следующей позиции
+        targetIndex = currentIndex + 1
+    }
+
+    currentTranslate.value = positions[targetIndex]
     matchCards.value.style.transform = `translateX(${currentTranslate.value}px)`
 }
 
@@ -327,20 +359,33 @@ const handleTouchEnd = () => {
     isDragging.value = false
     matchCards.value.style.transition = 'transform 0.3s ease'
 
-    // Находим ближайшую позицию динамически
+    // Находим ближайшую позицию с учетом направления движения
     const positions = getPositions()
-    let closestPosition = positions[0]
-    let minDistance = Math.abs(currentTranslate.value - positions[0])
+    const dragDistance = currentTranslate.value - scrollLeft.value
+    const threshold = 50 // порог для переключения позиции
 
+    // Находим текущую позицию
+    let currentIndex = 0
+    let minDistance = Math.abs(scrollLeft.value - positions[0])
     for (let i = 1; i < positions.length; i++) {
-        const distance = Math.abs(currentTranslate.value - positions[i])
+        const distance = Math.abs(scrollLeft.value - positions[i])
         if (distance < minDistance) {
             minDistance = distance
-            closestPosition = positions[i]
+            currentIndex = i
         }
     }
 
-    currentTranslate.value = closestPosition
+    // Определяем новую позицию на основе направления движения
+    let targetIndex = currentIndex
+    if (dragDistance > threshold && currentIndex > 0) {
+        // Движение вправо - переходим к предыдущей позиции
+        targetIndex = currentIndex - 1
+    } else if (dragDistance < -threshold && currentIndex < positions.length - 1) {
+        // Движение влево - переходим к следующей позиции
+        targetIndex = currentIndex + 1
+    }
+
+    currentTranslate.value = positions[targetIndex]
     matchCards.value.style.transform = `translateX(${currentTranslate.value}px)`
 }
 
@@ -354,7 +399,7 @@ const initializeCarousel = () => {
         // Начальная позиция - карточка 4 по центру
     const positions = getPositions()
     if (window.innerWidth <= 768) {
-        // На мобильной версии позиция 3 показывает карточки 3,4,5 (карточка 4 по центру)
+        // На мобильной версии позиция 3 показывает карточку 4 по центру
         currentTranslate.value = positions[3] || positions[2] || positions[1] || positions[0]
     } else {
         // На десктопной версии позиция 2 показывает карточку 4 по центру
@@ -522,7 +567,13 @@ onUnmounted(() => {
         font-size: 12px;
     }
     .match-carousel {
-        padding: 0 20px;
+        padding: 0 45px;
+    }
+
+    @media (min-width: 391px) and (max-width: 768px) {
+        .match-carousel {
+            padding: 0 65px;
+        }
     }
 
     .match-cards {
@@ -565,3 +616,5 @@ onUnmounted(() => {
     }
 }
 </style>
+
+
