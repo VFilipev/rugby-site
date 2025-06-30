@@ -44,16 +44,18 @@
                                             <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
                                         </a>
                                     </div>
-                                    <div class="contact-item_text" style="margin-left: 9px;">
+                                    <div class="contact-item_text">
                                         <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer"
                                             class="contact-link">
                                             vityaz_rugby
                                         </a>
                                         <br>
-                                        <a href="https://vk.com/rugbyprm" target="_blank" rel="noopener noreferrer"
-                                            class="contact-link">
-                                            rugbyprm
-                                        </a>
+                                        <span class="vk-second">
+                                            <a href="https://vk.com/rugbyprm" target="_blank" rel="noopener noreferrer"
+                                                class="contact-link">
+                                                rugbyprm
+                                            </a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -271,6 +273,17 @@ const openRugbyRussia = (event) => {
     .contact-item_icon img {
         width: 20px;
         height: 20px;
+    }
+
+    /* Исправление выравнивания VK контактов */
+    .vk-second {
+        display: block;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .contact-row {
+        align-items: flex-start;
     }
 }
 </style>

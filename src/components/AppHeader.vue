@@ -3,7 +3,7 @@
         <div class="header-container d-flex justify-content-between align-items-center">
             <!-- Desktop version -->
             <div class="logo-left d-none d-md-block">
-                <a href="#" @click.prevent="goToHome" class="logo-link">
+                <a href="#" @click="goToHome" class="logo-link">
                     <img
                         :src="logoSrc"
                         alt="Витязь"
@@ -94,7 +94,6 @@
                     <div class="mobile-nav-menu" :class="{ 'show': isMobileMenuOpen }">
                         <ul class="mobile-nav-list">
                             <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал славы</a></li>
-                            <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a></li>
                             <li><a href="#" @click.prevent="goToScheduleMobile" class="mobile-nav-link">тренировки</a></li>
                             <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a></li>
                             <li><a href="#" @click.prevent="scrollToMatchesMobile" class="mobile-nav-link">матчи</a></li>
@@ -481,9 +480,10 @@ onUnmounted(() => {
         visibility: hidden;
         transform: translateY(10px);
         transition: all 0.3s ease;
-        z-index: 9999;
-        margin-top: 10px;
-        min-width: 160px;
+        z-index: 99999;
+        margin-top: 20px;
+        min-width: 130px;
+        background: white;
     }
 
     .mobile-nav-menu.show {

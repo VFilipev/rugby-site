@@ -123,8 +123,6 @@
                                 <ul class="mobile-nav-list">
                                     <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал
                                             славы</a></li>
-                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a>
-                                    </li>
                                     <li><a href="#" @click.prevent="goToScheduleMobile"
                                             class="mobile-nav-link">тренировки</a></li>
                                     <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a>
@@ -343,11 +341,11 @@
             </div>
             <div class="news-item_text" style="color: #fff; max-width: 440px;">
                 В сезоне 2025/2026 детско-юношеские команды Пермского края активно участвуют в региональных,
-                межрегиональных и всероссийских турнирах и первенствах в дисциплине регби и тэг-регби. <br><br>
+                межрегиональных и всероссийских турнирах и первенствах в дисциплине регби и тэг-регби. <br>
                 Сборные команды Пермского края регулярно становятся победителями и призерами всероссийских соревнований
                 по регби и тэг-регби. Федерация регби Пермского края поддерживает детско-юношеские команды,
                 организовывает сборы, мастер классы и выездные мероприятия. Команды Пермского края обеспечиваются
-                экипировкой и спортивным снаряжением. Все детско-юношеские секции по регби и тэг-регби на территории
+                экипировкой и спортивным снаряжением. Все <br> детско-юношеские секции по регби и тэг-регби на территории
                 Пермского края предоставляют возможность тренироваться бесплатно.
 
             </div>
@@ -1220,7 +1218,8 @@ html {
     /* Mobile News Section */
     .news-item-full {
         flex-direction: column;
-        margin-bottom: 80px;
+        margin-bottom: 0px !important;
+        gap: 0;
     }
 
     .news-item_photo,
@@ -1229,23 +1228,27 @@ html {
         flex: none;
     }
 
-    .news-item_photo {
-        height: 250px;
+    /* В мобильной версии меняем порядок: текст сверху, фото снизу */
+    .news-item_description {
+        order: 1;
+        padding: 40px 30px 50px 30px !important;
     }
 
-    .news-item_description {
-        padding: 30px 20px 0 20px !important;
+    .news-item_photo {
+        order: 2;
+        height: 294px;
     }
 
     .news-item_title {
-        font-size: 20px !important;
-        line-height: 1.2;
+        font-size: 18px !important;
+        line-height: 1.11;
         margin-bottom: 20px;
+        font-weight: 700;
     }
 
     .news-item_text {
         font-size: 14px !important;
-        line-height: 1.5;
+        line-height: 1.43;
         max-width: none !important;
     }
 }
@@ -1281,14 +1284,16 @@ html {
     }
 
     .news-item_description {
-        padding: 20px 15px 0 15px !important;
+        padding: 35px 15px !important;
     }
 
     .news-item_title {
         font-size: 18px !important;
+        width: 250px;
     }
 
     .news-item_text {
+        width: 250px;
         font-size: 13px !important;
     }
 }

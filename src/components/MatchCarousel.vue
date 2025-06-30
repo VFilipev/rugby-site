@@ -9,6 +9,40 @@
              @touchstart="handleTouchStart"
              @touchmove="handleTouchMove"
              @touchend="handleTouchEnd">
+             <div class="match-card tournament-result">
+                <div class="row">
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Чемпионат России<br>по регби-7, III тур</div>
+                        <div class="match-date">17-18 мая</div>
+                    </div>
+                </div>
+                <div class="tournament-content">
+                    <div class="place-result">6 МЕСТО</div>
+                    <div class="team-name">
+                        Витязь<br>(женская сборная)
+                    </div>
+                </div>
+                <div class="match-location">
+                    Красноярск
+                </div>
+            </div>
+             <div class="match-card tournament-result">
+                <div class="row">
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Чемпионат России<br>по регби-7, IV тур</div>
+                        <div class="match-date">24–25 мая</div>
+                    </div>
+                </div>
+                <div class="tournament-content">
+                    <div class="place-result">6 МЕСТО</div>
+                    <div class="team-name">
+                        Витязь<br>(женская сборная)
+                    </div>
+                </div>
+                <div class="match-location">
+                    Красноярск
+                </div>
+            </div>
             <div class="match-card">
                 <div class="row">
                     <div class="col-12 header-wrapper">
@@ -75,6 +109,23 @@
                     Пермь,<br>Стадион Гайва
                 </div>
             </div>
+            <div class="match-card tournament-result">
+                <div class="row">
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Чемпионат России<br>по регби пляжному</div>
+                        <div class="match-date">2-3 августа</div>
+                    </div>
+                </div>
+                <div class="tournament-content">
+                    <div class="place-result"> - </div>
+                    <div class="team-name">
+                        Витязь<br>(женская сборная)
+                    </div>
+                </div>
+                <div class="match-location">
+                    Москва, <br> ПЦ Лето
+                </div>
+            </div>
             <div class="match-card">
                 <div class="row">
                     <div class="col-12 header-wrapper">
@@ -95,6 +146,23 @@
                 </div>
                 <div class="match-location">
                     Челябинск, стадион им. <br> Колющенко
+                </div>
+            </div>
+            <div class="match-card tournament-result">
+                <div class="row">
+                    <div class="col-12 header-wrapper">
+                        <div class="liga text-center">Чемпионат России<br>по регби пляжному</div>
+                        <div class="match-date">16-17 августа</div>
+                    </div>
+                </div>
+                <div class="tournament-content">
+                    <div class="place-result"> - </div>
+                    <div class="team-name">
+                        Витязь
+                    </div>
+                </div>
+                <div class="match-location">
+                    Москва, <br> ПЦ Лето
                 </div>
             </div>
             <div class="match-card">
@@ -141,6 +209,7 @@
                     Краснодар,<br>Стадион Краснодар
                 </div>
             </div>
+
         </div>
     </div>
 </template>
@@ -169,12 +238,18 @@ const totalCards = computed(() => {
 // Вычисляем все возможные позиции
 const getPositions = () => {
     if (window.innerWidth <= 768) {
-        // Фиксированные позиции для мобильной версии
+                // Фиксированные позиции для мобильной версии (10 карточек)
         return [
             45,      // Позиция 0: карточки 1,2,3
-            -275,    // Позиция 1: карточки 2,3,4 (начальная)
+            -275,    // Позиция 1: карточки 2,3,4
             -595,    // Позиция 2: карточки 3,4,5
-            -915     // Позиция 3: карточки 4,5,6
+            -915,    // Позиция 3: карточки 4,5,6
+            -1235,   // Позиция 4: карточки 5,6,7
+            -1555,   // Позиция 5: карточки 6,7,8
+            -1875,   // Позиция 6: карточки 7,8,9
+            -2195,   // Позиция 7: карточки 8,9,10
+            -2515,   // Позиция 8: карточки 9,10
+            -2835    // Позиция 9: последняя карточка
         ]
     } else {
         // Динамические позиции для десктопной версии
@@ -298,9 +373,15 @@ const initializeCarousel = () => {
     const containerWidth = totalCards.value * cardWidth + (totalCards.value - 1) * cardGap
     matchCards.value.style.width = `${containerWidth}px`
 
-    // Начальная позиция - вторая позиция для всех версий (показываем карточки 2,3,4)
+        // Начальная позиция - карточка 4 по центру
     const positions = getPositions()
-    currentTranslate.value = positions[1] || positions[0] // fallback на первую если меньше карточек
+    if (window.innerWidth <= 768) {
+        // На мобильной версии позиция 3 показывает карточки 3,4,5 (карточка 4 по центру)
+        currentTranslate.value = positions[3] || positions[2] || positions[1] || positions[0]
+    } else {
+        // На десктопной версии позиция 2 показывает карточку 4 по центру
+        currentTranslate.value = positions[2] || positions[1] || positions[0]
+    }
     matchCards.value.style.transform = `translateX(${currentTranslate.value}px)`
 }
 
@@ -432,6 +513,31 @@ onUnmounted(() => {
     line-height: 1.3;
 }
 
+/* Tournament Result Card Styles */
+.tournament-result .tournament-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+.place-result {
+    font-family: 'Rossika';
+    font-size: 90px;
+    line-height: 1;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.team-name {
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.15;
+    opacity: 0.8;
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     .match-carousel {
@@ -466,6 +572,15 @@ onUnmounted(() => {
 
     .match-location {
         font-size: 12px;
+    }
+
+    /* Mobile styles for tournament result card */
+    .place-result {
+        font-size: 60px;
+    }
+
+    .team-name {
+        font-size: 16px;
     }
 }
 </style>

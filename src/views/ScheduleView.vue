@@ -23,8 +23,7 @@ const closeModal = () => {
         <section class="man-team-section">
             <div class="team-container">
                 <!-- Десктопная версия заголовка -->
-                <div class="section-header-wrapper d-none d-md-block"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
+                <div class="section-header-wrapper d-none d-md-grid">
                     <div class="section-item section-item--left">
                         ФЕДЕРАЦИЯ РЕГБИ
                     </div>
@@ -328,7 +327,7 @@ const closeModal = () => {
 
 .section-item {
     color: #1B0047;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .section-title {
@@ -358,6 +357,12 @@ const closeModal = () => {
 }
 
 .section-header-wrapper {
+    margin-bottom: 80px;
+    margin-top: 100px;
+    max-width: 1280px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -385,7 +390,7 @@ const closeModal = () => {
     display: flex;
     justify-content: space-between;
     gap: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 .team-schedule {
@@ -447,7 +452,7 @@ const closeModal = () => {
 /* Блок призыва к действию */
 .cta-section {
     max-width: 1280px;
-    width: 1280px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -457,6 +462,7 @@ const closeModal = () => {
 .cta-content {
     text-align: center;
     max-width: 457px;
+    margin: 0 auto;
 }
 
 .cta-title {

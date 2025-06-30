@@ -85,7 +85,6 @@ const handleEscape = (event) => {
 
 const submitForm = () => {
     // Здесь можно добавить логику отправки формы
-    console.log('Форма отправлена:', formData.value)
 
     // Показываем уведомление об успешной отправке
     toast.success('Заявка успешно отправлена!')
@@ -327,6 +326,10 @@ watch(() => props.isOpen, (newValue) => {
     .form-group-half:first-child,
     .form-group-half:last-child {
         flex: none;
+    }
+
+    .submit-btn {
+        margin-bottom: 50px;
     }
 }
 </style>

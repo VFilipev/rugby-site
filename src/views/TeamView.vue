@@ -1018,7 +1018,7 @@ const closeTeamModal = () => {
     .name-wrapper {
         width: 277px;
         height: 65px;
-        padding-top: 20px;
+        padding-top: 14px;
         padding-left: 26px;
         padding-right: 26px;
     }

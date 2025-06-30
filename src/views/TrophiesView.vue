@@ -17,7 +17,7 @@ import AppFooter from '@/components/AppFooter.vue'
                         ТРОФЕИ
                     </div>
                     <div class="section-item section-item--right">
-                        КЛУБ ВИТЯЗЬ
+                        ВИТЯЗЬ
                     </div>
                 </div>
 
@@ -73,7 +73,7 @@ import AppFooter from '@/components/AppFooter.vue'
                         МУЖСКАЯ
                     </div>
                     <div class="section-item section-item--right">
-                        КЛУБ ВИТЯЗЬ
+                        ВИТЯЗЬ
                     </div>
                 </div>
 
@@ -121,7 +121,7 @@ import AppFooter from '@/components/AppFooter.vue'
                         ЖЕНСКАЯ
                     </div>
                     <div class="section-item section-item--right">
-                        КЛУБ ВИТЯЗЬ
+                        ВИТЯЗЬ
                     </div>
                 </div>
 
@@ -435,7 +435,7 @@ import AppFooter from '@/components/AppFooter.vue'
     }
 
     .section-header-wrapper:not(.main-header) .section-item--left::before {
-        content: "2025/26";
+        content: "КЛУБ";
         font-size: 12px;
         display: block;
     }

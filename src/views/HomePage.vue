@@ -123,8 +123,6 @@
                                 <ul class="mobile-nav-list">
                                     <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал
                                             славы</a></li>
-                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">состав</a>
-                                    </li>
                                     <li><a href="#" @click.prevent="goToScheduleMobile"
                                             class="mobile-nav-link">тренировки</a></li>
                                     <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a>
@@ -348,16 +346,13 @@ const closeDropdown = (event) => {
 
 // Video functions
 const onVideoLoaded = () => {
-    console.log('Video metadata loaded')
-    // Видео готово к воспроизведению, но еще не переключаем
+
 }
 
 const onVideoCanPlay = () => {
-    console.log('Video can play through')
     // Добавляем небольшую задержку для плавного перехода
     setTimeout(() => {
         isVideoReady.value = true
-        console.log('Video transition activated')
     }, 100)
 }
 
