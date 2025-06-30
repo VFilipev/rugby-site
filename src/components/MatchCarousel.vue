@@ -187,28 +187,6 @@
                     Пермь, <br>стадион Звезда
                 </div>
             </div>
-            <div class="match-card">
-                <div class="row">
-                    <div class="col-12 header-wrapper">
-                        <div class="liga text-center">Федеральная <br> регбийная лига</div>
-                        <div class="match-date">19 августа</div>
-                    </div>
-                </div>
-                <div class="match-content">
-                    <div class="scores-row">
-                        <div class="score">0</div>
-                        <div class="score-divider">:</div>
-                        <div class="score">0</div>
-                    </div>
-                    <div class="teams-row">
-                        <div class="team">Динамо</div>
-                        <div class="team">Витязь</div>
-                    </div>
-                </div>
-                <div class="match-location">
-                    Краснодар,<br>Стадион Краснодар
-                </div>
-            </div>
 
         </div>
     </div>
@@ -540,6 +518,9 @@ onUnmounted(() => {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .liga {
+        font-size: 12px;
+    }
     .match-carousel {
         padding: 0 20px;
     }
