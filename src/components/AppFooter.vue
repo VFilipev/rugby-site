@@ -44,7 +44,7 @@
                                             <img src="@/assets/footer-icon_vk.svg" alt="icon_mail">
                                         </a>
                                     </div>
-                                    <div class="contact-item_text">
+                                    <div class="contact-item_text vk">
                                         <a href="https://vk.com/vityaz_rugby" target="_blank" rel="noopener noreferrer"
                                             class="contact-link">
                                             vityaz_rugby
@@ -149,6 +149,10 @@ const openRugbyRussia = (event) => {
     margin-left: 14px;
 }
 
+.contact-item_text.vk {
+    margin-left: 12px;
+}
+
 .contact-link {
     color: white;
     text-decoration: none;
@@ -184,7 +188,7 @@ const openRugbyRussia = (event) => {
 }
 
 .footer-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
     color: white;
 }
 

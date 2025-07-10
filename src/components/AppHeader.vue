@@ -12,8 +12,7 @@
                 </a>
             </div>
             <div class="nav-right_wrapper d-flex align-items-center d-none d-md-flex">
-                <div class="header-nav_wrapper d-flex gap-5 align-items-start"
-                    style="margin-right: 55px;transform: translateY(12px);">
+                <div class="header-nav_wrapper d-flex gap-5 align-items-start">
                     <div class="header-nav_item dropdown-container" ref="dropdownRef">
                         <div class="school-link p-0">
                         <a href="#" class="header-nav_link" @click.prevent="toggleDropdown">
@@ -68,7 +67,7 @@
                     </div>
                 </div>
                 <div class="logo-right">
-                    <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края" class="logo-regby">
+                    <img src="@/assets/logo-regby-permskiy-krai-white.svg" alt="Регби Пермского края" class="logo-regby">
                 </div>
             </div>
 
@@ -110,8 +109,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import logoVityazWithout from '@/assets/logo_vityaz_without.svg'
-import logoVityaz from '@/assets/logo-vityaz.svg'
+import logoVityazWithout from '@/assets/logo_vityaz_without.png'
+import logoVityaz from '@/assets/logo-vityaz-no-text.svg'
 
 // Props
 const props = defineProps({
@@ -243,16 +242,21 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.header-nav_wrapper {
+    margin-right: 55px;
+    transform: translateY(7px);
+}
+
 .header-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
 }
 
 .header-container {
     max-width: 1280px;
     width: 1280px;
     margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 17px;
+    padding-bottom: 9px;
 }
 
 .logo-link {
@@ -267,8 +271,9 @@ onUnmounted(() => {
 
 .logo-vityaz {
     display: block;
-    max-width: 100%;
+    width: 74px;
     height: auto;
+
 }
 
 .logo-regby {
@@ -348,7 +353,7 @@ onUnmounted(() => {
     z-index: 9999;
     background: white;
     padding: 0px;
-    box-shadow: 0 4px 20px #1b004738;
+    box-shadow: 0 4px 20px #28223C38;
 }
 
 .dropdown-menu-custom.show {
@@ -369,7 +374,7 @@ onUnmounted(() => {
 
 .dropdown-link {
     display: block;
-    color: #1B0047 !important;
+    color: #28223C !important;
     text-decoration: none;
     font-size: 14px;
     font-weight: 400;
@@ -441,7 +446,7 @@ onUnmounted(() => {
     .burger-line {
         width: 24px;
         height: 2px;
-        background-color: #1B0047;
+        background-color: #28223C;
         transition: all 0.3s ease;
         position: absolute;
         border-radius: 1px;
@@ -507,7 +512,7 @@ onUnmounted(() => {
 
     .mobile-nav-link {
         display: block;
-        color: #1B0047;
+        color: #28223C;
         text-decoration: none;
         font-size: 16px;
         font-weight: 400;

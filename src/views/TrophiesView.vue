@@ -64,8 +64,7 @@ import AppFooter from '@/components/AppFooter.vue'
 
                 <!-- Секция мужской команды -->
                 <!-- Заголовок мужской команды -->
-                <div class="section-header-wrapper"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
+                <div class="section-header-wrapper">
                     <div class="section-item section-item--left">
                         ФЕДЕРАЦИЯ РЕГБИ
                     </div>
@@ -112,8 +111,7 @@ import AppFooter from '@/components/AppFooter.vue'
 
                 <!-- Секция женской команды -->
                 <!-- Заголовок женской команды -->
-                <div class="section-header-wrapper"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
+                <div class="section-header-wrapper">
                     <div class="section-item section-item--left">
                         ФЕДЕРАЦИЯ РЕГБИ
                     </div>
@@ -134,7 +132,8 @@ import AppFooter from '@/components/AppFooter.vue'
                                 Достижения:
                             </div>
                             <div class="achievements-text">
-                                В сезоне 2025г женская сборная играет в Премьер-лиге Чемпионата России по регби-7<br><br>
+                                В сезоне 2025г женская сборная играет в Премьер-лиге Чемпионата России по
+                                регби-7<br><br>
                                 Серебряные призеры Чемпионата России по пляжному регби 2024г<br>
                                 Призеры Чемпионата России по регби на снегу 2024г<br>
                                 Чемпионы России по снежному регби 2023г<br>
@@ -145,9 +144,11 @@ import AppFooter from '@/components/AppFooter.vue'
                                 Лидеры международного турнира по пляжному регби "the Baltic Sea" г.Рига<br>
                                 Лидеры международного регбийного турнира в Батуми<br><br>
 
-                                Сезон 2024г команда закончила на 4 месте Премьер-Лиги Чемпионата России по регби-7<br><br>
+                                Сезон 2024г команда закончила на 4 месте Премьер-Лиги Чемпионата России по
+                                регби-7<br><br>
 
-                                Игроки нашей команды в составе сборной России становились абсолютными чемпионами Европы по <br> пляжному регби и регби на снегу
+                                Игроки нашей команды в составе сборной России становились абсолютными чемпионами Европы
+                                по <br> пляжному регби и регби на снегу
                             </div>
                         </div>
                     </div>
@@ -159,17 +160,17 @@ import AppFooter from '@/components/AppFooter.vue'
                 </div>
             </div>
         </section>
-        <div style="margin-top: 100px;">
+        <div>
             <AppFooter />
         </div>
     </div>
 </template>
 
 <style scoped>
-.achievements-title{
+.achievements-title {
     font-size: 22px;
     line-height: 26px;
-    color: #1B0047;
+    color: #28223C;
     font-weight: bold;
     margin-bottom: 30px;
 }
@@ -196,6 +197,12 @@ import AppFooter from '@/components/AppFooter.vue'
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     height: 60px;
+    margin-bottom: 80px;
+    margin-top: 120px;
+    max-width: 1280px;
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-item--left {
@@ -204,6 +211,7 @@ import AppFooter from '@/components/AppFooter.vue'
 
 .section-title {
     justify-self: center;
+    line-height: 1;
 }
 
 .section-item--right {
@@ -211,12 +219,12 @@ import AppFooter from '@/components/AppFooter.vue'
 }
 
 .section-item {
-    color: #1B0047;
+    color: #28223C;
     font-size: 14px;
 }
 
 .section-title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 57px;
     font-family: 'Rossika';
     letter-spacing: -0.02em;
@@ -263,7 +271,7 @@ import AppFooter from '@/components/AppFooter.vue'
 .trophy-title {
     font-size: 16px;
     line-height: 25px;
-    color: #1B0047;
+    color: #28223C;
     text-align: center;
     font-weight: 400;
 }
@@ -296,7 +304,7 @@ import AppFooter from '@/components/AppFooter.vue'
 .achievements-text {
     font-size: 16px;
     line-height: 25px;
-    color: #1B0047;
+    color: #28223C;
     text-align: left;
 }
 
@@ -331,7 +339,7 @@ import AppFooter from '@/components/AppFooter.vue'
 }
 
 .footer-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
     color: white;
 }
 
@@ -383,7 +391,7 @@ import AppFooter from '@/components/AppFooter.vue'
     .trophy-title {
         font-size: 16px;
         line-height: 1.56;
-        color: #1B0047;
+        color: #28223C;
         text-align: center;
         font-weight: 400;
     }
@@ -429,7 +437,8 @@ import AppFooter from '@/components/AppFooter.vue'
     }
 
     .section-header-wrapper:not(.main-header) .section-item--left {
-        font-size: 0; /* Скрываем оригинальный текст */
+        font-size: 0;
+        /* Скрываем оригинальный текст */
         flex: 0 0 auto;
         text-align: left;
     }
@@ -466,7 +475,7 @@ import AppFooter from '@/components/AppFooter.vue'
     .achievements-title {
         font-size: 18px;
         line-height: 1.11;
-        color: #1B0047;
+        color: #28223C;
         font-weight: 700;
         margin-bottom: 20px;
     }
@@ -474,7 +483,7 @@ import AppFooter from '@/components/AppFooter.vue'
     .achievements-text {
         font-size: 14px;
         line-height: 1.43;
-        color: #1B0047;
+        color: #28223C;
         text-align: left;
     }
 
@@ -501,7 +510,7 @@ import AppFooter from '@/components/AppFooter.vue'
     }
 
     /* Скрываем десктопные отступы на мобильной версии */
-    .team-container > div:last-child {
+    .team-container>div:last-child {
         margin-top: 60px !important;
     }
 }

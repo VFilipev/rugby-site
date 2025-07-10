@@ -81,9 +81,9 @@
                 <!-- Mobile Navigation -->
                 <nav class="mobile-header-nav d-flex d-md-none">
                     <!-- Top Row: Logos -->
-                    <div class="mobile-top-row d-flex justify-content-between align-items-center w-100 mb-3">
+                    <div class="mobile-top-row d-flex justify-content-between w-100 mb-3">
                         <div class="mobile-logo-left">
-                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="mobile-logo-vityaz">
+                            <img src="@/assets/logo-vityaz-old.svg" alt="Витязь" class="mobile-logo-vityaz">
                         </div>
                         <div class="mobile-logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
@@ -160,7 +160,7 @@
     <section class="match-day" id="matches-section">
         <div class="content-container">
             <div class="section-header-wrapper">
-                <div class="section-item section-item--left">
+                <div class="section-item section-item--left text-footer">
                     СЕЗОН
                 </div>
                 <div class="section-title">
@@ -530,10 +530,20 @@ const handleKeyDown = (event) => {
     }
 }
 
+// Функция для установки правильной высоты viewport на мобильных устройствах
+const setVhProperty = () => {
+    const vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
+
 // Добавляем и удаляем глобальный обработчик клика
 onMounted(() => {
     document.addEventListener('click', handleGlobalClick)
     document.addEventListener('keydown', handleKeyDown)
+
+    // Устанавливаем правильную высоту viewport
+    setVhProperty()
+    window.addEventListener('resize', setVhProperty)
 
     // Инициализируем анимации с небольшой задержкой
     setTimeout(() => {
@@ -549,18 +559,14 @@ onMounted(() => {
 onUnmounted(() => {
     document.removeEventListener('click', handleGlobalClick)
     document.removeEventListener('keydown', handleKeyDown)
+    window.removeEventListener('resize', setVhProperty)
     // Восстанавливаем скролл при выходе с страницы
     document.body.style.overflow = 'auto'
 })
 </script>
 
 <style scoped>
-@font-face {
-    font-family: 'Rossika';
-    src: url('@/assets/fonts/rossika_light.otf') format('opentype');
-    font-style: light;
-    font-display: swap;
-}
+
 
 /* Header Navigation Styles */
 .header-nav_item a {
@@ -638,12 +644,12 @@ html {
 }
 
 .section-item {
-    color: #1B0047;
-    font-size: 14px;
+    font-size: 12px;
+    color: #28223C;
 }
 
 .section-title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 57px;
     font-family: 'Rossika';
     letter-spacing: -0.02em;
@@ -658,6 +664,8 @@ html {
     position: relative;
     width: 100%;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+    height: 100dvh; /* Современное свойство для мобильных устройств */
     overflow: hidden;
 }
 
@@ -743,9 +751,9 @@ html {
 }
 
 .logo-vityaz {
-    width: 116px;
+    width: 227px;
     height: auto;
-    filter: brightness(0) invert(1);
+    margin-top: 38px;
 }
 
 .club-name {
@@ -911,9 +919,11 @@ html {
     /* Mobile Header Navigation */
     .mobile-header-nav {
         flex-direction: column;
-        padding: 20px;
+        padding: 65px 30px 30px 30px;
         position: relative;
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+        height: 100dvh; /* Современное свойство для мобильных устройств */
     }
 
     .mobile-top-row {
@@ -921,9 +931,8 @@ html {
     }
 
     .mobile-logo-vityaz {
-        height: 193px;
+        width: 104px;
         width: auto;
-        filter: brightness(0) invert(1);
     }
 
     .mobile-logo-regby {
@@ -936,7 +945,7 @@ html {
         bottom: 50px;
         left: 0;
         right: 0;
-        padding: 0 30px;
+        padding: 0 24px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -1060,6 +1069,8 @@ html {
     /* Hero section мобильная версия */
     .hero-section {
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+        height: 100dvh; /* Современное свойство для мобильных устройств */
         /* Полная высота для мобильной версии как в макете */
     }
 
@@ -1102,6 +1113,8 @@ html {
 
     .hero-section {
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+        height: 100dvh; /* Современное свойство для мобильных устройств */
     }
 
     .section-title {
@@ -1113,7 +1126,7 @@ html {
     }
 
     .content-container {
-        padding: 0 15px;
+        padding: 0px 15px;
     }
 
     /* Убеждаемся что боковые элементы скрыты и на маленьких экранах */
@@ -1132,13 +1145,13 @@ html {
 /* Match day section */
 .match-day {
     width: 100%;
-    padding-top: 100px;
+    padding-top: 120px;
 }
 
 .event-section {
     width: 100%;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 120px;
+    margin-bottom: 120px;
     position: relative;
     overflow: visible;
 }
@@ -1163,7 +1176,7 @@ html {
 .news-container {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
     width: 100%;
 }
 
@@ -1208,7 +1221,7 @@ html {
 .news-title {
     font-size: 22px;
     font-weight: 700;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.2;
     letter-spacing: -0.01em;
 }
@@ -1253,18 +1266,18 @@ html {
 
     .news-title {
         font-size: 18px;
-        color: #1B0047;
+        color: #28223C;
     }
 
     .news-text {
         font-size: 14px;
-        color: #1B0047;
+        color: #28223C;
         line-height: 1.4;
     }
 
     .news-item_date {
         font-size: 20px;
-        color: #1B0047;
+        color: #28223C;
         font-family: 'Rossika';
         font-weight: 400;
     }
@@ -1335,7 +1348,7 @@ html {
     width: 26px;
     height: 16px;
     transition: transform 0.3s ease;
-    fill: #1B0047;
+    fill: #28223C;
 }
 
 .arrow-container:hover .arrow-icon {
@@ -1410,7 +1423,7 @@ html {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     line-height: 40px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 
 .section-item--left {
@@ -1427,7 +1440,7 @@ html {
 
 /* Sponsor link */
 .sponsor-link {
-    color: #1B0047;
+    color: #28223C;
     text-decoration: none;
     cursor: pointer;
     transition: color 0.3s ease;

@@ -102,7 +102,7 @@ const closeModal = () => {
                         </div>
                         <div class="schedule-info">
                             <div class="trainer-info">
-                                <p>Тренер: Артем Садыев<br>@ArtSadyev</p>
+                                <p class="mb-0">Тренер: Артем Садыев<br>@ArtSadyev</p>
                             </div>
                         </div>
 
@@ -140,7 +140,7 @@ const closeModal = () => {
                 </div>
             </div>
         </section>
-        <div style="margin-top: 100px;">
+        <div>
             <AppFooter />
         </div>
 
@@ -168,7 +168,7 @@ const closeModal = () => {
 .directorate-item_name {
     font-size: 22px;
     line-height: 26px;
-    color: #1B0047;
+    color: #28223C;
 }
 
 .directorate-item_description {
@@ -195,7 +195,7 @@ const closeModal = () => {
 .man-team-action_title {
     font-size: 22px;
     line-height: 26px;
-    color: #1B0047;
+    color: #28223C;
 }
 
 .man-team-action_btn:hover {
@@ -224,7 +224,7 @@ const closeModal = () => {
 
 .name-wrapper {
     height: 55px;
-    background-color: #1B0047;
+    background-color: #28223C;
     padding-top: 14px;
     padding-left: 17px;
     padding-right: 17px;
@@ -274,7 +274,7 @@ const closeModal = () => {
 
 
 .news-item-full {
-    background-color: #1B0047;
+    background-color: #28223C;
     display: flex;
     width: 100%;
     gap: 50px;
@@ -282,13 +282,13 @@ const closeModal = () => {
 
 .news-item_text {
     margin-top: 30px;
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     line-height: 25px;
 }
 
 .news-item_title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 22px;
     font-weight: 600;
     line-height: 26px;
@@ -296,7 +296,7 @@ const closeModal = () => {
 }
 
 .news-item_date {
-    color: #1B0047;
+    color: #28223C;
     font-size: 20px;
     font-family: 'Rossika';
     font-weight: 400;
@@ -326,15 +326,16 @@ const closeModal = () => {
 }
 
 .section-item {
-    color: #1B0047;
+    color: #28223C;
     font-size: 14px;
 }
 
 .section-title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 57px;
     font-family: 'Rossika';
     letter-spacing: -0.02em;
+    line-height: 1;
 }
 
 
@@ -358,7 +359,7 @@ const closeModal = () => {
 
 .section-header-wrapper {
     margin-bottom: 80px;
-    margin-top: 100px;
+    margin-top: 120px;
     max-width: 1280px;
     width: 1280px;
     margin-left: auto;
@@ -390,7 +391,7 @@ const closeModal = () => {
     display: flex;
     justify-content: space-between;
     gap: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
 }
 
 .team-schedule {
@@ -398,10 +399,10 @@ const closeModal = () => {
 }
 
 .team-title {
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 22px;
     font-weight: 700;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.18;
     margin-bottom: 30px;
 }
@@ -412,10 +413,10 @@ const closeModal = () => {
 
 .location-info p,
 .trainer-info p {
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.56;
     margin-bottom: 15px;
 }
@@ -432,19 +433,19 @@ const closeModal = () => {
 
 .schedule-day,
 .schedule-time {
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.56;
     padding: 5px 0;
 }
 
 .schedule-type {
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 13px;
     font-weight: 400;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.92;
     padding: 5px 0;
 }
@@ -456,7 +457,7 @@ const closeModal = () => {
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 
 .cta-content {
@@ -466,12 +467,12 @@ const closeModal = () => {
 }
 
 .cta-title {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 24px;
     font-weight: 700;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.21;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .cta-button {
@@ -479,7 +480,7 @@ const closeModal = () => {
     color: white;
     border: none;
     padding: 15px 30px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.19;
@@ -535,7 +536,7 @@ const closeModal = () => {
         font-family: 'Rossika';
         font-size: 40px;
         font-weight: 300;
-        color: #1B0047;
+        color: #28223C;
         line-height: 1.2;
         margin: 0;
     }
@@ -554,20 +555,20 @@ const closeModal = () => {
     }
 
     .mobile-team-title {
-        font-family: 'Helvetica', Arial, sans-serif;
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 22px;
         font-weight: 700;
-        color: #1B0047;
+        color: #28223C;
         line-height: 1.18;
         margin-bottom: 20px;
         margin: 0;
     }
 
     .mobile-location-info p {
-        font-family: 'Helvetica', Arial, sans-serif;
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 16px;
         font-weight: 400;
-        color: #1B0047;
+        color: #28223C;
         line-height: 1.56;
         margin: 0;
         margin-top: 20px;
@@ -596,10 +597,10 @@ const closeModal = () => {
 
     .mobile-schedule-day,
     .mobile-schedule-time {
-        font-family: 'Helvetica', Arial, sans-serif;
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 16px;
         font-weight: 400;
-        color: #1B0047;
+        color: #28223C;
         line-height: 1.56;
     }
 
@@ -631,10 +632,10 @@ const closeModal = () => {
     }
 
     .mobile-cta-title {
-        font-family: 'Helvetica', Arial, sans-serif;
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 18px;
         font-weight: 700;
-        color: #1B0047;
+        color: #28223C;
         line-height: 1.11;
         margin-bottom: 30px;
         max-width: 242px;
@@ -648,7 +649,7 @@ const closeModal = () => {
         border: none;
         padding: 16px 0;
         width: 220px;
-        font-family: 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-size: 14px;
         font-weight: 500;
         line-height: 1.14;

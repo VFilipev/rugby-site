@@ -427,19 +427,9 @@ onUnmounted(() => {
     flex-direction: column;
     gap: 25px;
 }
-@font-face {
-    font-family: 'Rossika';
-    src: url('@/assets/fonts/rossika_light.otf') format('opentype');
-    font-style: light;
-    font-display: swap;
-}
+/* Rossika font загружен глобально в main.css */
 
-@font-face {
-    font-family: 'Helvetica';
-    src: url('@/assets/fonts/helvetica_bold.otf') format('otf');
-    font-style: bold;
-    font-display: swap;
-}
+/* Helvetica больше не используется в проекте - заменен на Golos Text */
 
 .match-carousel {
     width: 100%;
@@ -465,7 +455,7 @@ onUnmounted(() => {
 
 .match-card {
     flex: 0 0 400px; /* Фиксированная ширина 400px */
-    background: #1B0047;
+    background: #28223C;
     padding: 25px 50px 50px 50px;
     color: white;
     display: flex;
@@ -476,7 +466,8 @@ onUnmounted(() => {
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-    font-family: 'Helvetica';
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
 }
 
 .match-content {

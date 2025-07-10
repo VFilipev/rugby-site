@@ -164,11 +164,11 @@ import AppFooter from '@/components/AppFooter.vue'
 }
 
 .footer-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
     color: white;
 }
 .news-item-full {
-    background-color: #1B0047;
+    background-color: #28223C;
     display: flex;
     width: 100%;
     gap: 50px;
@@ -176,13 +176,13 @@ import AppFooter from '@/components/AppFooter.vue'
 
 .news-item_text {
     margin-top: 30px;
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     line-height: 25px;
 }
 
 .news-item_title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 22px;
     font-weight: 600;
     line-height: 26px;
@@ -190,7 +190,7 @@ import AppFooter from '@/components/AppFooter.vue'
 }
 
 .news-item_date {
-    color: #1B0047;
+    color: #28223C;
     font-size: 20px;
     font-family: 'Rossika';
     font-weight: 400;
@@ -222,12 +222,12 @@ import AppFooter from '@/components/AppFooter.vue'
 }
 
 .section-item {
-    color: #1B0047;
+    color: #28223C;
     font-size: 14px;
 }
 
 .section-title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 57px;
     font-family: 'Rossika';
     letter-spacing: -0.02em;

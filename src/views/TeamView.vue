@@ -22,8 +22,7 @@ const closeTeamModal = () => {
         <AppHeader />
         <section class="man-team-section">
             <div class="team-container">
-                <div class="section-header-wrapper"
-                    style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
+                <div class="section-header-wrapper">
                     <div class="section-item section-item--left">
                         ФЕДЕРАЛЬНАЯ ЛИГА
                     </div>
@@ -37,7 +36,7 @@ const closeTeamModal = () => {
                 <div class="row-team_wrapper d-flex flex-wrap">
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl1.jpeg" alt="pl1">
+                            <img src="/images/pl1.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -50,7 +49,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl2-2.jpeg" alt="pl1">
+                            <img src="/images/pl2-2.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -63,7 +62,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl3.jpeg" alt="pl1">
+                            <img src="/images/pl3.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -76,7 +75,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl4.jpeg" alt="pl1">
+                            <img src="/images/pl4.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -88,7 +87,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl5.jpeg" alt="pl1">
+                            <img src="/images/pl5.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -100,7 +99,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl6.jpeg" alt="pl1">
+                            <img src="/images/pl6.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -112,7 +111,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl7.jpeg" alt="pl1">
+                            <img src="/images/pl7.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -124,7 +123,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl8.jpeg" alt="pl1">
+                            <img src="/images/pl8.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -136,7 +135,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl9.jpeg" alt="pl1">
+                            <img src="/images/pl9.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -148,7 +147,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl10.jpeg" alt="pl1">
+                            <img src="/images/pl10.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -160,7 +159,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl11.jpeg" alt="pl1">
+                            <img src="/images/pl11.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -172,7 +171,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl12.jpeg" alt="pl1">
+                            <img src="/images/pl12.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -184,7 +183,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl13.jpeg" alt="pl1">
+                            <img src="/images/pl13.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -196,7 +195,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl14.jpeg" alt="pl1">
+                            <img src="/images/pl14.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -208,7 +207,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl15.jpeg" alt="pl1">
+                            <img src="/images/pl15.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -220,7 +219,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl16.jpeg" alt="pl1">
+                            <img src="/images/pl16.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -232,7 +231,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl17.jpeg" alt="pl1">
+                            <img src="/images/pl17.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -244,7 +243,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl18.jpeg" alt="pl1">
+                            <img src="/images/pl18.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -256,7 +255,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl19.jpeg" alt="pl1">
+                            <img src="/images/pl19.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -268,7 +267,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl20.jpeg" alt="pl1">
+                            <img src="/images/pl20.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -280,7 +279,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl21.jpeg" alt="pl1">
+                            <img src="/images/pl21.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -292,7 +291,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl22.jpeg" alt="pl1">
+                            <img src="/images/pl22.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -304,7 +303,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl23.jpeg" alt="pl1">
+                            <img src="/images/pl23.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -316,7 +315,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl24.jpeg" alt="pl1">
+                            <img src="/images/pl24.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -328,7 +327,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl_no-photo.jpg" alt="pl1">
+                            <img src="/images/pl_no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -340,7 +339,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl_no-photo.jpg" alt="pl1">
+                            <img src="/images/pl_no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -352,7 +351,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl_no-photo.jpg" alt="pl1">
+                            <img src="/images/pl_no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -364,7 +363,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl_no-photo.jpg" alt="pl1">
+                            <img src="/images/pl_no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -376,7 +375,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl_no-photo.jpg" alt="pl1">
+                            <img src="/images/pl_no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -388,7 +387,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/pl_no-photo.jpg" alt="pl1">
+                            <img src="/images/pl_no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -423,7 +422,7 @@ const closeTeamModal = () => {
                 <div class="row-team_wrapper d-flex flex-wrap">
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw1.jpeg" alt="pl1">
+                            <img src="/images/plw1.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -436,7 +435,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw2.jpeg" alt="pl1">
+                            <img src="/images/plw2.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -449,7 +448,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw3.jpeg" alt="pl1">
+                            <img src="/images/plw3.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -461,7 +460,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw4.jpeg" alt="pl1">
+                            <img src="/images/plw4.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -473,7 +472,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw5.jpeg" alt="pl1">
+                            <img src="/images/plw5.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -485,7 +484,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw6.jpeg" alt="pl1">
+                            <img src="/images/plw6.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -497,7 +496,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw7.jpeg" alt="pl1">
+                            <img src="/images/plw7.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -509,7 +508,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw8.jpeg" alt="pl1">
+                            <img src="/images/plw8.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -521,7 +520,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw9.jpeg" alt="pl1">
+                            <img src="/images/plw9.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -533,7 +532,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw10.jpeg" alt="pl1">
+                            <img src="/images/plw10.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -545,7 +544,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw-no-photo.jpg" alt="pl1">
+                            <img src="/images/plw-no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -557,7 +556,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw-no-photo.jpg" alt="pl1">
+                            <img src="/images/plw-no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -569,7 +568,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw-no-photo.jpg" alt="pl1">
+                            <img src="/images/plw-no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -581,7 +580,7 @@ const closeTeamModal = () => {
                     </div>
                     <div class="player">
                         <div class="photo">
-                            <img src="/images/plw-no-photo.jpg" alt="pl1">
+                            <img src="/images/plw-no-photo.png" alt="pl1">
                         </div>
                         <div class="name-wrapper d-flex justify-content-between">
                             <div class="name">
@@ -696,7 +695,7 @@ const closeTeamModal = () => {
 .directorate-item_name {
     font-size: 22px;
     line-height: 26px;
-    color: #1B0047;
+    color: #28223C;
 }
 
 .directorate-item_description {
@@ -723,7 +722,7 @@ const closeTeamModal = () => {
 .man-team-action_title {
     font-size: 22px;
     line-height: 26px;
-    color: #1B0047;
+    color: #28223C;
     font-weight: bold;
 }
 
@@ -741,31 +740,45 @@ const closeTeamModal = () => {
 }
 
 .amplua {
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
     font-size: 10px;
-    color: #fff;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #28223C;
+    text-transform: uppercase;
+    text-align: right;
 }
 
 .name {
-    color: #fff;
-    font-size: 14px;
-    line-height: 1;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #28223C;
 }
 
 .name-wrapper {
-    height: 55px;
-    background-color: #1B0047;
-    padding-top: 14px;
-    padding-left: 17px;
-    padding-right: 17px;
-    width: 184px;
+    position: absolute;
+    bottom: 17px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: none;
+    height: auto;
+    padding: 0;
+    width: auto;
 }
 
 .row-team_wrapper {
     max-width: 1280px;
     width: 1280px;
     margin: 0 auto;
-    column-gap: 90px;
+    column-gap: 93px;
     row-gap: 50px;
+    margin-bottom: 40px;
 }
 
 .footer-title_sponsors {
@@ -808,12 +821,12 @@ const closeTeamModal = () => {
 }
 
 .footer-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
     color: white;
 }
 
 .news-item-full {
-    background-color: #1B0047;
+    background-color: #28223C;
     display: flex;
     width: 100%;
     gap: 50px;
@@ -821,13 +834,13 @@ const closeTeamModal = () => {
 
 .news-item_text {
     margin-top: 30px;
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     line-height: 25px;
 }
 
 .news-item_title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 22px;
     font-weight: 600;
     line-height: 26px;
@@ -835,7 +848,7 @@ const closeTeamModal = () => {
 }
 
 .news-item_date {
-    color: #1B0047;
+    color: #28223C;
     font-size: 20px;
     font-family: 'Rossika';
     font-weight: 400;
@@ -865,15 +878,16 @@ const closeTeamModal = () => {
 }
 
 .section-item {
-    color: #1B0047;
+    color: #28223C;
     font-size: 14px;
 }
 
 .section-title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 57px;
     font-family: 'Rossika';
     letter-spacing: -0.02em;
+    line-height: 0.7;
 }
 
 
@@ -887,29 +901,45 @@ const closeTeamModal = () => {
 }
 
 .header-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
 }
 
 .player {
-    width: 184px;
+    width: 250px;
+    height: 380px;
     margin-bottom: 40px;
+    position: relative;
+    background-color: rgba(40, 34, 60, 0.05);
 }
 
 .photo {
-    width: 184px;
-    height: 220px;
+    width: 218px;
+    height: 291px;
     overflow: hidden;
+    margin: 19px 16px 0 16px;
+    position: relative;
 }
 
 .photo img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+.photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #28223C;
 }
 
 .section-header-wrapper {
     margin-bottom: 80px;
-    margin-top: 100px;
+    margin-top: 120px;
     max-width: 1280px;
     width: 1280px;
     margin-left: auto;
@@ -917,7 +947,6 @@ const closeTeamModal = () => {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    height: 60px;
 }
 
 .section-item--left {
@@ -999,37 +1028,68 @@ const closeTeamModal = () => {
 
     .player {
         width: 277px;
+        height: 420px;
         margin-bottom: 0;
+        background-color: rgba(40, 34, 60, 0.05);
+        position: relative;
     }
 
     .photo {
-        width: 277px;
-        height: 305px;
+        width: 257px;
+        height: 350px;
         overflow: hidden;
+        margin: 10px 10px 0 10px;
+        position: relative;
     }
 
     .photo img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-        object-position: center top;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+
+    .photo::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #28223C;
     }
 
     .name-wrapper {
-        width: 277px;
-        height: 65px;
-        padding-top: 14px;
-        padding-left: 26px;
-        padding-right: 26px;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        background: none;
+        height: auto;
+        padding: 0;
+        width: auto;
     }
 
     .name {
-        font-size: 16px;
-        line-height: 1.2;
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.25;
+        color: #28223C;
     }
 
     .amplua {
+        font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        font-weight: 500;
         font-size: 12px;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        color: #28223C;
+        text-transform: uppercase;
+        text-align: right;
     }
 
     .man-team-action-wrapper {

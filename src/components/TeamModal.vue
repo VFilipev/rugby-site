@@ -1,9 +1,9 @@
 <template>
     <div v-if="isOpen" class="modal-overlay" @click="handleOverlayClick">
         <div class="modal-content" @click.stop>
-            <div class="modal-header">
+            <!-- <div class="modal-header">
                 <h2 class="modal-title">ХОЧУ В КОМАНДУ</h2>
-            </div>
+            </div> -->
 
             <form @submit.prevent="submitForm" class="modal-form">
                 <div class="form-group">
@@ -141,7 +141,6 @@ watch(() => props.isOpen, (newValue) => {
 .modal-content {
     background: #FFFFFF;
     width: 632px;
-    height: 546px;
     position: relative;
     animation: scaleIn 0.3s ease-out;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -158,26 +157,26 @@ watch(() => props.isOpen, (newValue) => {
 }
 
 .modal-title {
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 700;
     font-size: 22px;
     line-height: 26px;
-    color: #1B0047;
+    color: #28223C;
     margin: 0;
 }
 
 .modal-form {
-    padding: 0 56px;
+    padding: 80px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .form-row {
     display: flex;
     gap: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .form-group-half {
@@ -186,7 +185,7 @@ watch(() => props.isOpen, (newValue) => {
 }
 
 .form-group-half:first-child {
-    flex: 0 0 198px;
+    flex: 0 0 149px;
 }
 
 .form-group-half:last-child {
@@ -206,13 +205,13 @@ watch(() => props.isOpen, (newValue) => {
 .form-textarea {
     width: 100%;
     height: 60px;
-    border: 2px solid #1B0047;
+    border: 2px solid #28223C;
     background: #FFFFFF;
     padding: 20px;
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     line-height: 25px;
-    color: #1B0047;
+    color: #28223C;
     box-sizing: border-box;
     outline: none;
 }
@@ -233,10 +232,10 @@ watch(() => props.isOpen, (newValue) => {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     line-height: 25px;
-    color: #1B0047;
+    color: rgba(27, 0, 71, 0.5);
     pointer-events: none;
     transition: all 0.2s ease-out;
     background: #FFFFFF;
@@ -263,7 +262,7 @@ watch(() => props.isOpen, (newValue) => {
     height: 46px;
     background: #ED1B26;
     border: none;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;

@@ -1,14 +1,13 @@
 <template>
     <section class="hero-section">
+        <!-- Header Navigation -->
         <header class="navbar-overlay">
             <div class="content-container">
                 <!-- Desktop Navigation -->
                 <nav class="d-flex justify-content-between align-items-start header-nav d-none d-md-flex">
                     <!-- Left Logo - Витязь -->
-                    <div class="logo-left">
-                        <a href="#" @click.prevent="goToHome" class="logo-link">
-                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
-                        </a>
+                    <div class="logo-left" @click="goToHome">
+                        <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
                     </div>
 
                     <!-- Center Navigation -->
@@ -83,7 +82,7 @@
                     <!-- Top Row: Logos -->
                     <div class="mobile-top-row d-flex justify-content-between align-items-center w-100 mb-3">
                         <div class="mobile-logo-left">
-                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="mobile-logo-vityaz">
+                            <img src="@/assets/logo-vityaz_mobile.svg" alt="Витязь" class="mobile-logo-vityaz">
                         </div>
                         <div class="mobile-logo-right">
                             <img src="@/assets/logo-regby-permskiy-krai.svg" alt="Регби Пермского края"
@@ -515,9 +514,19 @@ const handleGlobalClick = (event) => {
     }
 }
 
+// Функция для установки правильной высоты viewport на мобильных устройствах
+const setVhProperty = () => {
+    const vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
+
 // Добавляем и удаляем глобальный обработчик клика
 onMounted(() => {
     document.addEventListener('click', handleGlobalClick)
+
+    // Устанавливаем правильную высоту viewport
+    setVhProperty()
+    window.addEventListener('resize', setVhProperty)
 
     // Инициализируем анимации с небольшой задержкой
     setTimeout(() => {
@@ -527,6 +536,7 @@ onMounted(() => {
 
 onUnmounted(() => {
     document.removeEventListener('click', handleGlobalClick)
+    window.removeEventListener('resize', setVhProperty)
 })
 </script>
 
@@ -543,7 +553,7 @@ onUnmounted(() => {
     object-position: center;
 }
 .news-item-full {
-    background-color: #1B0047;
+    background-color: #28223C;
     display: flex;
     width: 100%;
     gap: 50px;
@@ -554,7 +564,7 @@ onUnmounted(() => {
     flex: 0 0 calc(50% - 25px);
 }
 .news-item_title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 22px;
     font-weight: 600;
     line-height: 26px;
@@ -562,7 +572,7 @@ onUnmounted(() => {
 }
 .news-item_text {
     margin-top: 30px;
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     line-height: 25px;
 }
@@ -606,7 +616,7 @@ onUnmounted(() => {
 }
 
 .footer-wrapper {
-    background-color: #1B0047;
+    background-color: #28223C;
     color: white;
 }
 
@@ -635,20 +645,15 @@ html {
 </style>
 
 <style scoped>
-@font-face {
-    font-family: 'Rossika';
-    src: url('@/assets/fonts/rossika_light.otf') format('opentype');
-    font-style: light;
-    font-display: swap;
-}
+/* Rossika font загружен глобально в main.css */
 
 .section-item {
-    color: #1B0047;
+    color: #28223C;
     font-size: 14px;
 }
 
 .section-title {
-    color: #1B0047;
+    color: #28223C;
     font-size: 57px;
     font-family: 'Rossika';
     letter-spacing: -0.02em;
@@ -658,11 +663,29 @@ html {
     padding-top: 40px;
 }
 
+/* Left Logo Section */
+.logo-left {
+    display: flex;
+    color: white;
+}
+
+.logo-vityaz {
+    width: 227px;
+    height: auto;
+    margin-top: 38px;
+    filter: brightness(0) invert(1);
+}
+.logo-vityaz:hover {
+    cursor: pointer;
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
     width: 100%;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+    height: 100dvh; /* Современное свойство для мобильных устройств */
     overflow: hidden;
 }
 
@@ -707,12 +730,6 @@ html {
     color: white;
 }
 
-.logo-vityaz {
-    width: 116px;
-    height: auto;
-    filter: brightness(0) invert(1);
-}
-
 .header-nav_item a {
     color: #fff;
     font-size: 12px;
@@ -746,6 +763,15 @@ html {
 
 .school-line {
     display: block;
+}
+
+.header-icon a {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.header-icon a:hover {
+    transform: scale(1.1);
 }
 
 /* Dropdown Container */
@@ -833,20 +859,6 @@ html {
 }
 
 /* Responsive Design */
-@media (max-width: 991.98px) {
-    .header-nav_wrapper {
-        display: none;
-    }
-
-    .logo-vityaz {
-        width: 50px;
-    }
-
-    .logo-regby {
-        height: 60px;
-    }
-}
-
 @media (max-width: 767.98px) {
     .header-nav {
         padding-top: 20px;
@@ -858,13 +870,164 @@ html {
         padding: 0 20px;
     }
 
-    .logo-vityaz {
-        width: 40px;
-        margin-right: 10px;
+    /* Скрываем десктопную навигацию полностью на мобильных */
+    .header-nav.d-none.d-md-flex {
+        display: none !important;
     }
 
-    .logo-regby {
-        width: 80px;
+    /* Показываем мобильную навигацию */
+    .mobile-header-nav.d-flex.d-md-none {
+        display: flex !important;
+    }
+
+    /* Стили для мобильной навигации */
+    .mobile-header-nav {
+        flex-direction: column;
+        padding: 20px;
+        position: relative;
+        height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+        height: 100dvh; /* Современное свойство для мобильных устройств */
+    }
+
+    .mobile-top-row {
+        margin-bottom: 20px;
+    }
+
+    .mobile-logo-vityaz {
+        width: 104px;
+        height: auto;
+    }
+
+    .mobile-logo-regby {
+        height: 74px;
+        width: auto;
+    }
+
+    .mobile-bottom-row {
+        position: absolute;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .mobile-social-icons {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .mobile-social-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-social-link:hover .mobile-social-icon {
+        transform: scale(1.1);
+    }
+
+    /* Burger Menu */
+    .mobile-burger-menu {
+        position: relative;
+    }
+
+    .burger-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 25px;
+        position: relative;
+    }
+
+    .burger-line {
+        width: 24px;
+        height: 2px;
+        background-color: white;
+        transition: all 0.3s ease;
+        position: absolute;
+        border-radius: 1px;
+    }
+
+    .burger-line:nth-child(1) {
+        transform: translateY(-6px);
+    }
+
+    .burger-line:nth-child(2) {
+        transform: translateY(0);
+    }
+
+    .burger-line:nth-child(3) {
+        transform: translateY(6px);
+    }
+
+    .burger-button.active .burger-line:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .burger-button.active .burger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-button.active .burger-line:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+
+    /* Mobile Navigation Menu */
+    .mobile-nav-menu {
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 9999;
+        margin-bottom: 10px;
+        min-width: 160px;
+    }
+
+    .mobile-nav-menu.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-nav-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .mobile-nav-list li {
+        margin: 0;
+    }
+
+    .mobile-nav-link {
+        display: block;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 400;
+        text-align: right;
+        transition: all 0.3s ease;
+        padding: 0;
+    }
+
+    .mobile-nav-link:hover {
+        color: #ED1B26;
     }
 }
 
@@ -925,7 +1088,7 @@ html {
 .news-title {
     font-size: 22px;
     font-weight: 700;
-    color: #1B0047;
+    color: #28223C;
     line-height: 1.2;
     letter-spacing: -0.01em;
 }
@@ -986,6 +1149,8 @@ html {
 @media (max-width: 767.98px) {
     .hero-section {
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+        height: 100dvh; /* Современное свойство для мобильных устройств */
     }
 
     .content-container {
@@ -998,6 +1163,8 @@ html {
         padding: 20px;
         position: relative;
         height: 100vh;
+        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
+        height: 100dvh; /* Современное свойство для мобильных устройств */
     }
 
     .mobile-top-row {
@@ -1005,9 +1172,8 @@ html {
     }
 
     .mobile-logo-vityaz {
-        height: 193px;
-        width: auto;
-        filter: brightness(0) invert(1);
+        width: 104px;
+        height: auto;
     }
 
     .mobile-logo-regby {
@@ -1315,7 +1481,7 @@ html {
     width: 26px;
     height: 16px;
     transition: transform 0.3s ease;
-    fill: #1B0047;
+    fill: #28223C;
 }
 
 .arrow-container:hover .arrow-icon {
@@ -1513,12 +1679,12 @@ html {
 }
 
 .school-name {
-    color: #1B0047;
+    color: #28223C;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.3;
     margin: 0 0 20px 0;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .school-locations {
@@ -1532,30 +1698,30 @@ html {
 }
 
 .location-address {
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
     margin: 0 0 5px 0;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .location-contact {
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
     margin: 0 0 3px 0;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .location-phone {
-    color: #1B0047;
+    color: #28223C;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.4;
     margin: 0 0 10px 0;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Responsive Design for Schools */

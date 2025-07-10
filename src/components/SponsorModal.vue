@@ -2,8 +2,6 @@
     <div v-if="isOpen" class="modal-overlay" @click="closeModal">
         <div class="modal-container" @click.stop>
             <div class="modal-content">
-                <h2 class="modal-title">СТАНЬ СПОНСОРОМ</h2>
-
                 <form @submit.prevent="submitForm" class="sponsor-form">
                     <div class="form-group">
                         <div class="input-wrapper">
@@ -27,7 +25,7 @@
                     </div>
 
                     <button type="submit" class="submit-button">
-                        ОТПРАВИТЬ
+                        СТАТЬ СПОНСОРОМ
                     </button>
                 </form>
             </div>
@@ -152,14 +150,14 @@ onUnmounted(() => {
 }
 
 .modal-content {
-    padding: 40px;
+    padding: 80px;
 }
 
 .modal-title {
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 22px;
     font-weight: 700;
-    color: #1B0047;
+    color: #28223C;
     text-align: center;
     margin-bottom: 40px;
     line-height: 1.18;
@@ -168,11 +166,11 @@ onUnmounted(() => {
 .sponsor-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .form-group {
-    margin-bottom: 15px;
+
 }
 
 .input-wrapper {
@@ -188,13 +186,13 @@ onUnmounted(() => {
 .form-textarea {
     width: 100%;
     height: 60px;
-    border: 2px solid #1B0047;
+    border: 2px solid #28223C;
     background: #FFFFFF;
     padding: 20px;
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     line-height: 25px;
-    color: #1B0047;
+    color: #28223C;
     box-sizing: border-box;
     outline: none;
 }
@@ -215,10 +213,10 @@ onUnmounted(() => {
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'Helvetica', Arial, sans-serif;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 16px;
     line-height: 25px;
-    color: #1B0047;
+    color: #28223C;
     pointer-events: none;
     transition: all 0.2s ease-out;
     background: #FFFFFF;
@@ -245,9 +243,9 @@ onUnmounted(() => {
     color: white;
     border: none;
     height: 46px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
+    font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 20px;
