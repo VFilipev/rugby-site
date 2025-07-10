@@ -1,8 +1,12 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, nextTick, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import TeamModal from '@/components/TeamModal.vue'
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
+
+// Router
+const route = useRoute()
 
 // Modal state
 const isTeamModalOpen = ref(false)
@@ -15,6 +19,49 @@ const closeTeamModal = () => {
     isTeamModalOpen.value = false
 }
 
+// Функция прокрутки к секции по хешу
+const scrollToSection = (hash) => {
+    if (!hash) return
+
+    let selector = ''
+    if (hash === '#man') {
+        selector = '.section-header-wrapper.man'
+    } else if (hash === '#woman') {
+        selector = '.section-header-wrapper.woman'
+    }
+
+    if (selector) {
+        const element = document.querySelector(selector)
+        if (element) {
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
+        }
+    }
+}
+
+// Watcher для отслеживания изменений в маршруте
+watch(() => route.hash, (newHash) => {
+    if (newHash) {
+        nextTick(() => {
+            setTimeout(() => {
+                scrollToSection(newHash)
+            }, 100)
+        })
+    }
+}, { immediate: true })
+
+// Обработка хеша при монтировании компонента
+onMounted(() => {
+    nextTick(() => {
+        if (route.hash) {
+            setTimeout(() => {
+                scrollToSection(route.hash)
+            }, 100) // Небольшая задержка для завершения рендеринга
+        }
+    })
+})
 
 </script>
 <template>
@@ -22,7 +69,7 @@ const closeTeamModal = () => {
         <AppHeader />
         <section class="man-team-section">
             <div class="team-container">
-                <div class="section-header-wrapper">
+                <div class="section-header-wrapper man">
                     <div class="section-item section-item--left">
                         ФЕДЕРАЛЬНАЯ ЛИГА
                     </div>
@@ -407,7 +454,7 @@ const closeTeamModal = () => {
                         ХОЧУ В КОМАНДУ!
                     </div>
                 </div>
-                <div class="section-header-wrapper"
+                <div class="section-header-wrapper woman"
                     style="margin-bottom: 80px; margin-top: 100px; max-width: 1280px; width: 1280px; margin-left: auto; margin-right: auto;">
                     <div class="section-item section-item--left">
                         ПРЕМЬЕР ЛИГА
@@ -600,18 +647,26 @@ const closeTeamModal = () => {
                         ХОЧУ В КОМАНДУ!
                     </div>
                 </div>
-                <div class="section-header-wrapper">
-                    <div class="section-item section-item--left d-none d-md-block">
+                                <!-- Десктопная версия заголовка дирекции -->
+                <div class="section-header-wrapper directorate-header-desktop">
+                    <div class="section-item section-item--left">
                         ФЕДЕРАЦИЯ РЕГБИ
                     </div>
-                    <div class="section-title d-none d-md-block">
+                    <div class="section-title">
                         ДИРЕКЦИЯ
                     </div>
-                    <div class="section-item section-item--right d-none d-md-block">
+                    <div class="section-item section-item--right">
                         КЛУБ ВИТЯЗЬ
                     </div>
                 </div>
-                <div class="directorate-wrapper d-none d-md-flex">
+
+                <!-- Мобильная версия заголовка дирекции -->
+                <div class="section-header-wrapper directorate-header-mobile">
+                    <div class="section-title">
+                        ДИРЕКЦИЯ
+                    </div>
+                </div>
+                <div class="directorate-wrapper directorate-desktop">
                     <div class="directorate-item">
                         <div class="directorate-item_photo">
                             <img src="/images/dir1.jpg" alt="dir1">
@@ -639,7 +694,7 @@ const closeTeamModal = () => {
                         </div>
                     </div>
                 </div>
-                <div class="directorate-wrapper d-none d-md-flex" style="margin-top: 50px;">
+                <div class="directorate-wrapper directorate-desktop" style="margin-top: 50px;">
                     <div class="directorate-item">
                         <div class="directorate-item_photo">
                             <img src="/images/dir3.jpg" alt="dir1">
@@ -667,6 +722,65 @@ const closeTeamModal = () => {
                         </div>
                     </div>
                 </div>
+
+                <!-- Мобильная версия дирекции -->
+                <div class="directorate-mobile">
+                    <div class="directorate-mobile-item">
+                        <div class="directorate-mobile-photo">
+                            <img src="/images/dir1.jpg" alt="Алексей Конев">
+                        </div>
+                        <div class="directorate-mobile-description">
+                            <div class="directorate-mobile-name">
+                                Алексей Конев
+                            </div>
+                            <div class="directorate-mobile-post">
+                                Президент Федерации регби Пермского края
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="directorate-mobile-item">
+                        <div class="directorate-mobile-photo">
+                            <img src="/images/dir2.jpg" alt="Кирилл Тропинин">
+                        </div>
+                        <div class="directorate-mobile-description">
+                            <div class="directorate-mobile-name">
+                                Кирилл Тропинин
+                            </div>
+                            <div class="directorate-mobile-post">
+                                Директор регби-клуба "Витязь" исполнительный Директор Федерации регби Пермского края
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="directorate-mobile-item">
+                        <div class="directorate-mobile-photo">
+                            <img src="/images/dir3.jpg" alt="Анастасия Ворончихина">
+                        </div>
+                        <div class="directorate-mobile-description">
+                            <div class="directorate-mobile-name">
+                                Анастасия Ворончихина
+                            </div>
+                            <div class="directorate-mobile-post">
+                                заместитель исполнительного директора Федерации регби Пермского края
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="directorate-mobile-item">
+                        <div class="directorate-mobile-photo">
+                            <img src="/images/dir4.jpg" alt="Василий Вахрин">
+                        </div>
+                        <div class="directorate-mobile-description">
+                            <div class="directorate-mobile-name">
+                                Василий Вахрин
+                            </div>
+                            <div class="directorate-mobile-post">
+                                пресс-центр
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         <div style="margin-top: 100px;">
@@ -684,6 +798,26 @@ const closeTeamModal = () => {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+}
+
+/* Блоки дирекции */
+.directorate-desktop {
+    display: none;
+}
+
+.directorate-mobile {
+    display: flex;
+}
+
+/* Показываем десктопную версию на планшетах и выше */
+@media (min-width: 768px) {
+    .directorate-desktop {
+        display: flex !important;
+    }
+
+    .directorate-mobile {
+        display: none !important;
+    }
 }
 
 .directorate-item_post {
@@ -754,7 +888,7 @@ const closeTeamModal = () => {
     font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.25;
+    line-height: 1.05;
     color: #28223C;
 }
 
@@ -765,7 +899,7 @@ const closeTeamModal = () => {
     right: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     background: none;
     height: auto;
     padding: 0;
@@ -927,10 +1061,10 @@ const closeTeamModal = () => {
     object-position: center bottom;
 }
 
-.photo::after {
+.player::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 310px; /* 19px (margin-top фото) + 291px (высота фото) */
     left: 0;
     right: 0;
     height: 3px;
@@ -947,6 +1081,30 @@ const closeTeamModal = () => {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
+}
+
+/* Заголовки дирекции - важный приоритет для переопределения общих правил */
+.section-header-wrapper.directorate-header-desktop {
+    display: none !important;
+}
+
+.section-header-wrapper.directorate-header-mobile {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    grid-template-columns: none !important;
+}
+
+/* Показываем десктопную версию на планшетах и выше */
+@media (min-width: 768px) {
+    .section-header-wrapper.directorate-header-desktop {
+        display: grid !important;
+    }
+
+    .section-header-wrapper.directorate-header-mobile {
+        display: none !important;
+    }
 }
 
 .section-item--left {
@@ -969,38 +1127,44 @@ const closeTeamModal = () => {
     }
 
     .section-header-wrapper {
-        margin: 60px auto 60px auto !important;
+        margin: 0px auto 60px auto !important;
+        padding-top: 60px;
         max-width: 100% !important;
         width: 100% !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        justify-content: space-between !important;
+        justify-content: center !important;
         text-align: center !important;
         height: auto !important;
     }
 
     /* Первая секция заголовка */
     .man-team-section .section-header-wrapper:first-of-type {
-        margin-top: 40px !important;
+        margin-top: 0px !important;
+        padding-top: 40px;
     }
 
     .section-title {
         font-size: 40px !important;
-        flex: 1;
         text-align: center;
     }
 
+    /* Скрываем боковые элементы на мобильных */
+    .section-item--left,
+    .section-item--right {
+        display: none !important;
+    }
+
+    /*
     .section-item--left {
         font-size: 12px;
         flex: 0 0 auto;
         text-align: left;
     }
 
-    /* Заменяем текст "ФЕДЕРАЛЬНАЯ ЛИГА" на "2025/26" для мобильной версии */
     .section-item--left {
         font-size: 0;
-        /* Скрываем оригинальный текст */
     }
 
     .section-item--left::before {
@@ -1014,6 +1178,7 @@ const closeTeamModal = () => {
         flex: 0 0 auto;
         text-align: right;
     }
+    */
 
     .row-team_wrapper {
         max-width: 100%;
@@ -1049,10 +1214,10 @@ const closeTeamModal = () => {
         object-position: center bottom;
     }
 
-    .photo::after {
+    .player::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        top: 360px; /* 10px (margin-top фото) + 350px (высота фото) */
         left: 0;
         right: 0;
         height: 3px;
@@ -1061,12 +1226,12 @@ const closeTeamModal = () => {
 
     .name-wrapper {
         position: absolute;
-        bottom: 20px;
+        bottom: 9px;
         left: 20px;
         right: 20px;
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: flex-start;
         background: none;
         height: auto;
         padding: 0;
@@ -1077,7 +1242,7 @@ const closeTeamModal = () => {
         font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         font-weight: 500;
         font-size: 18px;
-        line-height: 1.25;
+        line-height: 1.05;
         color: #28223C;
     }
 
@@ -1095,7 +1260,7 @@ const closeTeamModal = () => {
     .man-team-action-wrapper {
         width: 100%;
         max-width: 320px;
-        margin: 60px auto;
+        margin: 60px auto 0px auto;
         padding: 0 20px;
     }
 
@@ -1116,8 +1281,53 @@ const closeTeamModal = () => {
         font-weight: 500;
     }
 
+    /* Мобильная версия дирекции */
+    .directorate-mobile {
+        width: 100%;
+        margin: 80px auto 0 auto;
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 40px;
+    }
 
+    .directorate-mobile-item {
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
 
+    .directorate-mobile-photo {
+        flex: 0 0 130px;
+        width: 130px;
+        height: 135px;
+        overflow: hidden;
+    }
+
+    .directorate-mobile-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .directorate-mobile-description {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .directorate-mobile-name {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #28223C;
+    }
+
+    .directorate-mobile-post {
+        font-size: 14px;
+        line-height: 1.4;
+        color: #666;
+    }
 
 }
 </style>

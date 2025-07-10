@@ -49,8 +49,10 @@
                             </div>
                             <div class="header-nav_item p-0 text-left">
                                 <a class="p-0 school-link" href="#" @click.prevent="goToSchool">
-                                    <span class="school-line" style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">детское</span>
-                                    <span class="school-line" style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">регби</span>
+                                    <span class="school-line"
+                                        style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">детское</span>
+                                    <span class="school-line"
+                                        style="color: #fff;font-size: 12px;font-weight: 500;line-height: 14px;text-decoration: none;text-transform: uppercase;letter-spacing: 0.7px;">регби</span>
                                 </a>
                             </div>
                         </div>
@@ -121,18 +123,23 @@
                             <!-- Mobile Navigation Menu -->
                             <div class="mobile-nav-menu" :class="{ 'show': isMobileMenuOpen }">
                                 <ul class="mobile-nav-list">
-                                    <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал
-                                            славы</a></li>
+                                    <li><a href="#" @click.prevent="goToMenTeamMobile" class="mobile-nav-link">мужской
+                                            состав</a>
+                                    </li>
+                                    <li><a href="#" @click.prevent="goToWomenTeamMobile" class="mobile-nav-link">женский
+                                            состав</a>
+                                    </li>
+                                    <li><a href="#" @click.prevent="goToSchoolMobile" class="mobile-nav-link">детское
+                                            регби</a></li>
                                     <li><a href="#" @click.prevent="goToScheduleMobile"
                                             class="mobile-nav-link">тренировки</a></li>
-                                    <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a>
-                                    </li>
-                                    <li><a href="#" @click.prevent="scrollToMatchesMobile"
-                                            class="mobile-nav-link">матчи</a></li>
+                                    <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал
+                                            славы</a></li>
                                     <li><a href="#" @click.prevent="scrollToSponsorsMobile"
                                             class="mobile-nav-link">спонсоры</a></li>
-                                    <li><a href="#" @click.prevent="goToSchoolMobile"
-                                            class="mobile-nav-link">детское<br>регби</a></li>
+                                    <li><a href="#" @click.prevent="scrollToMatchesMobile"
+                                            class="mobile-nav-link">матчи</a></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -289,6 +296,9 @@
     </section>
     <AppFooter />
 
+    <!-- Floating Button -->
+    <FloatingButton />
+
     <!-- Модальное окно спонсора -->
     <SponsorModal :is-open="isSponsorModalOpen" @close="closeSponsorModal" />
 
@@ -296,21 +306,35 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
 import MatchCarousel from '@/components/MatchCarousel.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import SponsorModal from '@/components/SponsorModal.vue'
+import FloatingButton from '@/components/FloatingButton.vue'
+import { useNavigation } from '@/composables/useNavigation'
 
-// Router
-const router = useRouter()
-
-// Dropdown state
-const isDropdownOpen = ref(false)
-const dropdownRef = ref(null)
-
-// Mobile menu state
-const isMobileMenuOpen = ref(false)
-const mobileBurgerRef = ref(null)
+// Navigation composable
+const {
+    isDropdownOpen,
+    dropdownRef,
+    isMobileMenuOpen,
+    mobileBurgerRef,
+    toggleDropdown,
+    toggleMobileMenu,
+    goToTeam,
+    goToTrophies,
+    goToSchedule,
+    goToSchool,
+    goToEvents,
+    scrollToMatches,
+    scrollToSponsors,
+    goToMenTeamMobile,
+    goToWomenTeamMobile,
+    scrollToMatchesMobile,
+    scrollToSponsorsMobile,
+    goToSchoolMobile,
+    goToScheduleMobile,
+    goToTrophiesMobile
+} = useNavigation()
 
 // Video state
 const isVideoReady = ref(false)
@@ -331,18 +355,7 @@ const visibleItems = ref({
 // Sponsor modal state
 const isSponsorModalOpen = ref(false)
 
-// Toggle dropdown function
-const toggleDropdown = (event) => {
-    event.stopPropagation()
-    isDropdownOpen.value = !isDropdownOpen.value
-}
 
-// Close dropdown when clicking outside
-const closeDropdown = (event) => {
-    if (dropdownRef.value && !dropdownRef.value.contains(event.target)) {
-        isDropdownOpen.value = false
-    }
-}
 
 // Video functions
 const onVideoLoaded = () => {
@@ -362,102 +375,7 @@ const onVideoError = (error) => {
     isVideoReady.value = false
 }
 
-// Функция плавной прокрутки к секции матчей
-const scrollToMatches = () => {
-    const matchesSection = document.getElementById('matches-section')
-    if (matchesSection) {
-        matchesSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-    }
-}
 
-// Функция плавной прокрутки к секции спонсоров
-const scrollToSponsors = () => {
-    const sponsorsSection = document.getElementById('sponsors-section')
-    if (sponsorsSection) {
-        sponsorsSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-    }
-}
-
-// Функция перехода к событиям
-const goToEvents = () => {
-    // На мобильных устройствах не переходим
-    if (window.innerWidth <= 768) {
-        return
-    }
-    router.push('/events')
-}
-
-// Функция перехода к школе регби
-const goToSchool = () => {
-    router.push('/school')
-}
-
-// Функция перехода к команде
-const goToTeam = () => {
-    isDropdownOpen.value = false
-    router.push('/team')
-}
-
-// Функция перехода к трофеям
-const goToTrophies = () => {
-    isDropdownOpen.value = false
-    router.push('/trophies')
-}
-
-// Функция перехода к расписанию
-const goToSchedule = () => {
-    isDropdownOpen.value = false
-    router.push('/schedule')
-}
-
-// Mobile menu functions
-const toggleMobileMenu = (event) => {
-    event.stopPropagation()
-    isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
-
-const closeMobileMenu = (event) => {
-    if (mobileBurgerRef.value && !mobileBurgerRef.value.contains(event.target)) {
-        isMobileMenuOpen.value = false
-    }
-}
-
-// Mobile navigation functions
-const goToTeamMobile = () => {
-    isMobileMenuOpen.value = false
-    router.push('/team')
-}
-
-const scrollToMatchesMobile = () => {
-    isMobileMenuOpen.value = false
-    scrollToMatches()
-}
-
-const scrollToSponsorsMobile = () => {
-    isMobileMenuOpen.value = false
-    scrollToSponsors()
-}
-
-const goToSchoolMobile = () => {
-    isMobileMenuOpen.value = false
-    router.push('/school')
-}
-
-const goToScheduleMobile = () => {
-    isMobileMenuOpen.value = false
-    router.push('/schedule')
-}
-
-const goToTrophiesMobile = () => {
-    isMobileMenuOpen.value = false
-    router.push('/trophies')
-}
 
 // Sponsor modal functions
 const openSponsorModal = () => {
@@ -512,20 +430,11 @@ const observeNewsItems = () => {
     return observer
 }
 
-// Глобальный обработчик клика для закрытия меню
-const handleGlobalClick = (event) => {
-    closeDropdown(event)
-    closeMobileMenu(event)
-}
-
-// Обработчик клавиши Escape для закрытия модального окна и мобильного меню
+// Обработчик клавиши Escape для закрытия модального окна
 const handleKeyDown = (event) => {
     if (event.key === 'Escape') {
         if (isSponsorModalOpen.value) {
             closeSponsorModal()
-        }
-        if (isMobileMenuOpen.value) {
-            isMobileMenuOpen.value = false
         }
     }
 }
@@ -538,7 +447,6 @@ const setVhProperty = () => {
 
 // Добавляем и удаляем глобальный обработчик клика
 onMounted(() => {
-    document.addEventListener('click', handleGlobalClick)
     document.addEventListener('keydown', handleKeyDown)
 
     // Устанавливаем правильную высоту viewport
@@ -557,7 +465,6 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-    document.removeEventListener('click', handleGlobalClick)
     document.removeEventListener('keydown', handleKeyDown)
     window.removeEventListener('resize', setVhProperty)
     // Восстанавливаем скролл при выходе с страницы
@@ -566,8 +473,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-
-
 /* Header Navigation Styles */
 .header-nav_item a {
     color: #fff;
@@ -664,8 +569,10 @@ html {
     position: relative;
     width: 100%;
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
-    height: 100dvh; /* Современное свойство для мобильных устройств */
+    height: calc(var(--vh, 1vh) * 100);
+    /* Fallback для старых браузеров */
+    height: 100dvh;
+    /* Современное свойство для мобильных устройств */
     overflow: hidden;
 }
 
@@ -922,8 +829,10 @@ html {
         padding: 65px 30px 30px 30px;
         position: relative;
         height: 100vh;
-        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
-        height: 100dvh; /* Современное свойство для мобильных устройств */
+        height: calc(var(--vh, 1vh) * 100);
+        /* Fallback для старых браузеров */
+        height: 100dvh;
+        /* Современное свойство для мобильных устройств */
     }
 
     .mobile-top-row {
@@ -1069,8 +978,10 @@ html {
     /* Hero section мобильная версия */
     .hero-section {
         height: 100vh;
-        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
-        height: 100dvh; /* Современное свойство для мобильных устройств */
+        height: calc(var(--vh, 1vh) * 100);
+        /* Fallback для старых браузеров */
+        height: 100dvh;
+        /* Современное свойство для мобильных устройств */
         /* Полная высота для мобильной версии как в макете */
     }
 
@@ -1113,8 +1024,10 @@ html {
 
     .hero-section {
         height: 100vh;
-        height: calc(var(--vh, 1vh) * 100); /* Fallback для старых браузеров */
-        height: 100dvh; /* Современное свойство для мобильных устройств */
+        height: calc(var(--vh, 1vh) * 100);
+        /* Fallback для старых браузеров */
+        height: 100dvh;
+        /* Современное свойство для мобильных устройств */
     }
 
     .section-title {
@@ -1537,7 +1450,7 @@ html {
     }
 
     .footer-title_contacts,
-    .footer-title_sponsors {
+        .footer-title_sponsors {
         font-size: 16px;
         margin-bottom: 20px;
     }

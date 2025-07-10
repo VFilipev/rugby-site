@@ -92,12 +92,14 @@
                     <!-- Mobile Navigation Menu -->
                     <div class="mobile-nav-menu" :class="{ 'show': isMobileMenuOpen }">
                         <ul class="mobile-nav-list">
-                            <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал славы</a></li>
+                            <li><a href="#" @click.prevent="goToMenTeamMobile" class="mobile-nav-link">мужской состав</a></li>
+                            <li><a href="#" @click.prevent="goToWomenTeamMobile" class="mobile-nav-link">женский состав</a></li>
+                            <li><a href="#" @click.prevent="goToSchoolMobile" class="mobile-nav-link">детское регби</a></li>
                             <li><a href="#" @click.prevent="goToScheduleMobile" class="mobile-nav-link">тренировки</a></li>
-                            <li><a href="#" @click.prevent="goToTeamMobile" class="mobile-nav-link">команда</a></li>
-                            <li><a href="#" @click.prevent="scrollToMatchesMobile" class="mobile-nav-link">матчи</a></li>
+                            <li><a href="#" @click.prevent="goToTrophiesMobile" class="mobile-nav-link">зал славы</a></li>
                             <li><a href="#" @click.prevent="scrollToSponsorsMobile" class="mobile-nav-link">спонсоры</a></li>
-                            <li><a href="#" @click.prevent="goToSchoolMobile" class="mobile-nav-link">детское<br>регби</a></li>
+                            <li><a href="#" @click.prevent="scrollToMatchesMobile" class="mobile-nav-link">матчи</a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -195,9 +197,14 @@ const goToSchedule = () => {
 }
 
 // Mobile navigation functions
-const goToTeamMobile = () => {
+const goToMenTeamMobile = () => {
     isMobileMenuOpen.value = false
-    router.push('/team')
+    router.push('/team#man')
+}
+
+const goToWomenTeamMobile = () => {
+    isMobileMenuOpen.value = false
+    router.push('/team#woman')
 }
 
 const scrollToMatchesMobile = () => {
