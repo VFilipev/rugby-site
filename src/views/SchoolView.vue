@@ -7,7 +7,7 @@
                 <nav class="d-flex justify-content-between align-items-start header-nav d-none d-md-flex">
                     <!-- Left Logo - Витязь -->
                     <div class="logo-left" @click="goToHome">
-                        <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
+                            <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
                     </div>
 
                     <!-- Center Navigation -->

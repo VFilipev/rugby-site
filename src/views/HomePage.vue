@@ -8,7 +8,7 @@
                 <nav class="d-flex justify-content-between align-items-start header-nav d-none d-md-flex">
                     <!-- Left Logo - Витязь -->
                     <div class="logo-left">
-                        <img src="@/assets/logo-vityaz.svg" alt="Витязь" class="logo-vityaz">
+                        <img src="@/assets/logo-vityaz-old.svg" alt="Витязь" class="logo-vityaz">
                     </div>
 
                     <!-- Center Navigation -->
@@ -436,8 +436,8 @@ const handleKeyDown = (event) => {
         if (isSponsorModalOpen.value) {
             closeSponsorModal()
         }
+        }
     }
-}
 
 // Функция для установки правильной высоты viewport на мобильных устройствах
 const setVhProperty = () => {
@@ -658,7 +658,7 @@ html {
 }
 
 .logo-vityaz {
-    width: 227px;
+    width: 145px;
     height: auto;
     margin-top: 38px;
 }
@@ -1450,7 +1450,7 @@ html {
     }
 
     .footer-title_contacts,
-        .footer-title_sponsors {
+    .footer-title_sponsors {
         font-size: 16px;
         margin-bottom: 20px;
     }

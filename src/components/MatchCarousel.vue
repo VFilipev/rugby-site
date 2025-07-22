@@ -74,9 +74,9 @@
                 </div>
                 <div class="match-content">
                     <div class="scores-row">
-                        <div class="score">0</div>
+                        <div class="score">7</div>
                         <div class="score-divider">:</div>
-                        <div class="score">0</div>
+                        <div class="score">44</div>
                     </div>
                     <div class="teams-row">
                         <div class="team">Рать</div>
@@ -396,14 +396,13 @@ const initializeCarousel = () => {
     const containerWidth = totalCards.value * cardWidth + (totalCards.value - 1) * cardGap
     matchCards.value.style.width = `${containerWidth}px`
 
-        // Начальная позиция - карточка 4 по центру
     const positions = getPositions()
     if (window.innerWidth <= 768) {
         // На мобильной версии позиция 3 показывает карточку 4 по центру
-        currentTranslate.value = positions[3] || positions[2] || positions[1] || positions[0]
+        currentTranslate.value = positions[4] || positions[3] || positions[2] || positions[1]
     } else {
         // На десктопной версии позиция 2 показывает карточку 4 по центру
-        currentTranslate.value = positions[2] || positions[1] || positions[0]
+        currentTranslate.value = positions[3] || positions[2] || positions[1]
     }
     matchCards.value.style.transform = `translateX(${currentTranslate.value}px)`
 }
