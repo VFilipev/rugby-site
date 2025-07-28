@@ -1,15 +1,9 @@
 <template>
     <div class="match-carousel">
-        <div class="match-cards"
-             ref="matchCards"
-             @mousedown="handleMouseDown"
-             @mousemove="handleMouseMove"
-             @mouseup="handleMouseUp"
-             @mouseleave="handleMouseUp"
-             @touchstart="handleTouchStart"
-             @touchmove="handleTouchMove"
-             @touchend="handleTouchEnd">
-             <div class="match-card tournament-result">
+        <div class="match-cards" ref="matchCards" @mousedown="handleMouseDown" @mousemove="handleMouseMove"
+            @mouseup="handleMouseUp" @mouseleave="handleMouseUp" @touchstart="handleTouchStart" @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd">
+            <div class="match-card tournament-result">
                 <div class="row">
                     <div class="col-12 header-wrapper">
                         <div class="liga text-center">Чемпионат России<br>по регби-7, III тур</div>
@@ -26,7 +20,7 @@
                     Красноярск
                 </div>
             </div>
-             <div class="match-card tournament-result">
+            <div class="match-card tournament-result">
                 <div class="row">
                     <div class="col-12 header-wrapper">
                         <div class="liga text-center">Чемпионат России<br>по регби-7, IV тур</div>
@@ -96,13 +90,13 @@
                 </div>
                 <div class="match-content">
                     <div class="scores-row">
-                        <div class="score">0</div>
+                        <div class="score">43</div>
                         <div class="score-divider">:</div>
-                        <div class="score">0</div>
+                        <div class="score">5</div>
                     </div>
                     <div class="teams-row">
-                        <div class="team">Витязь</div>
-                        <div class="team">Малахит</div>
+                        <div class="team">Витязь<br>(Пермь)</div>
+                        <div class="team">Малахит<br>(Челябинск)</div>
                     </div>
                 </div>
                 <div class="match-location">
@@ -216,10 +210,10 @@ const totalCards = computed(() => {
 // Вычисляем все возможные позиции
 const getPositions = () => {
     if (window.innerWidth <= 768) {
-                        // Фиксированные позиции для конкретных мобильных экранов
+        // Фиксированные позиции для конкретных мобильных экранов
         const screenWidth = window.innerWidth
 
-                if (screenWidth <= 390) {
+        if (screenWidth <= 390) {
             // Позиции для экрана 390px с шагом 320px (позиция 3 = -959px)
             return [
                 1,       // Позиция 0 (показываем первую карточку)
@@ -421,11 +415,12 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.header-wrapper{
+.header-wrapper {
     display: flex;
     flex-direction: column;
     gap: 25px;
 }
+
 /* Rossika font загружен глобально в main.css */
 
 /* Helvetica больше не используется в проекте - заменен на Golos Text */
@@ -434,7 +429,8 @@ onUnmounted(() => {
     width: 100%;
     position: relative;
     overflow: hidden;
-    padding: 0 50px; /* Отступы для показа частичных карточек по краям */
+    padding: 0 50px;
+    /* Отступы для показа частичных карточек по краям */
 }
 
 .match-cards {
@@ -453,7 +449,8 @@ onUnmounted(() => {
 }
 
 .match-card {
-    flex: 0 0 400px; /* Фиксированная ширина 400px */
+    flex: 0 0 400px;
+    /* Фиксированная ширина 400px */
     background: #28223C;
     padding: 25px 50px 50px 50px;
     color: white;
@@ -556,6 +553,7 @@ onUnmounted(() => {
     .liga {
         font-size: 12px;
     }
+
     .match-carousel {
         padding: 0 45px;
     }
